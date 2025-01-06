@@ -98,7 +98,7 @@ class Player(Bot):
 
         target_bankroll=12.5*rounds_left+(rounds_left%2)*(int(big_blind)-0.5) ## The bankroll at which always folding is a guaranteed winning strategy. 
 
-        if my_bankroll > target_bankroll:
+        if my_bankroll > target_bankroll: #This routine always check-folds after reaching the guaranteed winning bankroll
             print("endgame at round: ", round_num)
             if CheckAction in legal_actions:
                 return CheckAction()   
