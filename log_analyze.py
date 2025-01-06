@@ -25,13 +25,33 @@ def read_gamelog(filename):
     return (scoresA, scoresB)
 
 if __name__ == "__main__":
+    import plotly.graph_objects as go
+
     scoreA, scoreB = read_gamelog("gamelog.txt")
-    print(f"Final, A ({scoreA[-1]}), B ({scoreB[-1]})")
+
     delta = [scoreA[i] - scoreA[i - 1] for i in range(1, len(scoreA))]
 
-    plt.title("Player A")
-    plt.plot(list(range(1, len(scoreA)+1)), scoreA, marker='o', linestyle='-', markersize=2, color="red")
-    plt.plot(list(range(1, len(delta)+1)), delta, marker='o', linestyle='-', markersize=2, color="blue")
-    #plt.plot(list(range(1, len(scoreB)+1)), scoreB, marker='o', linestyle='-', markersize=2, color="blue")
-    plt.show()
+    fig = go.Figure()
+
+    final_score_text = f"Final, A ({scoreA[-1]}), B ({scoreB[-1]})"
+    fig.add_annotation(
+        x=len(scoreA),
+        y=scoreA[-1],
+        text=final_score_text,
+        showarrow=True,
+        arrowhead=1
+    )
+
+    fig.add_trace(go.Scatter(x=list(range(1, len(scoreA)+1)), y=scoreA, mode='lines+markers', name='Score A', line=dict(color='red')))
+    fig.add_trace(go.Scatter(x=list(range(1, len(delta)+1)), y=delta, mode='lines+markers', name='Delta A', line=dict(color='blue')))
+    #fig.add_trace(go.Scatter(x=list(range(1, len(scoreB)+1)), y=scoreB, mode='lines+markers', name='Score B', line=dict(color='green')))
+
+    fig.update_layout(
+        title="Player A Scores and Delta",
+        xaxis_title="Round",
+        yaxis_title="Score",
+        legend_title="Legend"
+    )
+
+    fig.show()
     pass
