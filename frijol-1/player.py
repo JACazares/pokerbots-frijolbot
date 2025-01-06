@@ -93,13 +93,16 @@ class Player(Bot):
         #opp_contribution = STARTING_STACK - opp_stack  # the number of chips your opponent has contributed to the pot
         my_bankroll = game_state.bankroll  # the total number of chips you've gained or lost from the beginning of the game to the start of this round
         round_num = game_state.round_num  # the round number from 1 to NUM_ROUNDS
+        big_blind = bool(active)  # True if you are the big blind. Winnings are rounded up if you are the big blind, down if not
+        rounds_left=1001-round_num #Remaining rounds, including this one. 
 
+        target_bankroll=12.5*rounds_left+(rounds_left%2)*(int(big_blind)-0.5)
 
-        if my_bankroll >12.25*(1001-round_num):
+        if my_bankroll > target_bankroll:
+            print("endgame at round: ", round_num)
             if CheckAction in legal_actions:
-                return CheckAction()
-            else:    
-                return FoldAction()
+                return CheckAction()   
+            return FoldAction()
 
         if RaiseAction in legal_actions:
            min_raise, max_raise = round_state.raise_bounds()  # the smallest and largest numbers of chips for a legal bet/raise
