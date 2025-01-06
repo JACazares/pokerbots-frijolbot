@@ -95,7 +95,7 @@ class Player(Bot):
         round_num = game_state.round_num  # the round number from 1 to NUM_ROUNDS
 
 
-        if my_bankroll >12.25*1001-round_num:
+        if my_bankroll >12.25*(1001-round_num):
             if CheckAction in legal_actions:
                 return CheckAction()
             else:    
