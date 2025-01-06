@@ -96,7 +96,7 @@ class Player(Bot):
         big_blind = bool(active)  # True if you are the big blind. Winnings are rounded up if you are the big blind, down if not
         rounds_left=1001-round_num #Remaining rounds, including this one. 
 
-        target_bankroll=12.5*rounds_left+(rounds_left%2)*(int(big_blind)-0.5)
+        target_bankroll=12.5*rounds_left+(rounds_left%2)*(int(big_blind)-0.5) ## The bankroll at which always folding is a guaranteed winning strategy. 
 
         if my_bankroll > target_bankroll:
             print("endgame at round: ", round_num)
