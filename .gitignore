@@ -175,3 +175,4 @@ cython_debug/
 A.txt
 B.txt
 gamelog.txt
+config.py
