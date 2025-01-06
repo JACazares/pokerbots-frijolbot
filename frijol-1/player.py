@@ -98,7 +98,7 @@ class Player(Bot):
         if my_bankroll >12.25*1001-round_num:
             if CheckAction in legal_actions:
                 return CheckAction()
-            else    
+            else:    
                 return FoldAction()
 
         if RaiseAction in legal_actions:
