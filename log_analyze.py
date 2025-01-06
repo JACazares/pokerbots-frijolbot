@@ -42,8 +42,8 @@ if __name__ == "__main__":
         arrowhead=1
     )
 
-    fig.add_trace(go.Scatter(x=list(range(1, len(scoreA)+1)), y=scoreA, mode='lines+markers', name='Score A', line=dict(color='red')))
-    fig.add_trace(go.Scatter(x=list(range(1, len(delta)+1)), y=delta, mode='lines+markers', name='Delta A', line=dict(color='blue')))
+    fig.add_trace(go.Scatter(x=list(range(len(scoreA))), y=scoreA, mode='lines+markers', name='Score A', line=dict(color='red')))
+    fig.add_trace(go.Scatter(x=list(range(len(delta))), y=delta, mode='lines+markers', name='Delta A', line=dict(color='blue')))
     #fig.add_trace(go.Scatter(x=list(range(1, len(scoreB)+1)), y=scoreB, mode='lines+markers', name='Score B', line=dict(color='green')))
 
     fig.update_layout(
