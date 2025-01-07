@@ -10,6 +10,7 @@ from skeleton.runner import parse_args, run_bot
 import random
 import math
 import numpy as np
+from utils import*
 
 class Player(Bot):
     '''
@@ -98,26 +99,15 @@ class Player(Bot):
         rounds_left=1001-round_num #Remaining rounds, including this one. 
 
         target_bankroll=12.5*rounds_left+(rounds_left%2)*(int(big_blind)-0.5) ## The bankroll at which always folding is a guaranteed winning strategy. 
-
-        
-        print("my_cards: ", my_cards)
         if my_bankroll > target_bankroll: #This routine always check-folds after reaching the guaranteed winning bankroll
-            if CheckAction in legal_actions:
-                return CheckAction()   
-            return FoldAction()
+            CheckFold()
 
         if RaiseAction in legal_actions:
            min_raise, max_raise = round_state.raise_bounds()  # the smallest and largest numbers of chips for a legal bet/raise
            min_cost = min_raise - my_pip  # the cost of a minimum bet/raise
            max_cost = max_raise - my_pip  # the cost of a maximum bet/raise
-        if RaiseAction in legal_actions:
-            if random.random() < 0.5:
-                return RaiseAction(min_raise)
-        if CheckAction in legal_actions:  # check-call
-            return CheckAction()
-        if random.random() < 0.25:
-            return FoldAction()
-        return CallAction()
+
+        CheckCall()
 
 
 if __name__ == '__main__':

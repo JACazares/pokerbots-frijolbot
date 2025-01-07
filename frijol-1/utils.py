@@ -74,9 +74,6 @@ def estimate_strength(hole, board=[], iters=5000):
         curr_board_cards = board_cards.copy()
         while len(curr_board_cards) < 5:
             curr_board_cards.extend(deck.deal(1))
-
-        while str(curr_board_cards[-1])[1] == 'h' or str(curr_board_cards[-1])[1] == 'd':
-            curr_board_cards.extend(deck.deal(1))
         
         my = eval7.evaluate(hole_cards + curr_board_cards)
         opp = eval7.evaluate(opp_cards + curr_board_cards)
