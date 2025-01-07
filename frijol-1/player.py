@@ -8,7 +8,8 @@ from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot
 
 import random
-
+import math
+import numpy as np
 
 class Player(Bot):
     '''
@@ -97,6 +98,8 @@ class Player(Bot):
         rounds_left=1001-round_num #Remaining rounds, including this one. 
 
         target_bankroll=12.5*rounds_left+(rounds_left%2)*(int(big_blind)-0.5) ## The bankroll at which always folding is a guaranteed winning strategy. 
+
+        
 
         if my_bankroll > target_bankroll: #This routine always check-folds after reaching the guaranteed winning bankroll
             print("endgame at round: ", round_num)
