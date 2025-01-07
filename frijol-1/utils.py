@@ -3,6 +3,21 @@ import math
 import numpy as np
 import eval7
 from itertools import combinations
+from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
+from skeleton.states import GameState, TerminalState, RoundState
+from skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
+from skeleton.bot import Bot
+from skeleton.runner import parse_args, run_bot
+
+def CheckFold(legal_actions):
+    if CheckAction in legal_actions: 
+        return CheckAction()
+    return FoldAction()
+
+def CheckCall(legal_actions):
+    if CheckAction in legal_actions: 
+        return CheckAction()
+    return CallAction() 
 
 def compute_checkfold_winprob(rounds_left, bankroll, big_blind):
     '''
@@ -30,10 +45,18 @@ def compute_checkfold_winprob(rounds_left, bankroll, big_blind):
     probabilities=probabilities*(success_rate**winning_cases)*(1-success_rate)**(rounds_left-winning_cases)
     return np.sum(probabilities)
 
-
-def monte_carlo_sim(hole, board=[], iters=5000):
+def estimate_strength(hole, board=[], iters=5000):
     '''
-    
+        Performs a Montecarlo search to approximate the strength of a hand. 
+        
+        Inputs: 
+        hole (list of strings): A list of your two hole cards
+        board (list of strings): A (possibly empty) list of the board cards
+        iters (int): Number of iterations to run. More iterations = more precision but more time
+
+        Outputs: 
+        A number between 0 and 1 indicating what percentage of hands lose to it (assume that half of the ties are losses and half are wins). 
+        This is an estimate of the strength of the hand. 
     '''
     hole_cards = [eval7.Card(s) for s in hole]
     board_cards = [eval7.Card(s) for s in board]
@@ -66,6 +89,20 @@ def monte_carlo_sim(hole, board=[], iters=5000):
     return strength / iters
 
 def compute_strength(hole, board=[]):
+    '''
+        Computes the exact number of hands that win, tie, and lose to your hand.
+        
+        Inputs: 
+        hole (list of strings): A list of your two hole cards
+        board (list of strings): A (possibly empty) list of the board cards
+        iters (int): Number of iterations to run. More iterations = more precision but more time
+
+        Outputs: 
+        A 3-tuple (wins, ties, losses) indicating the percentage of wins, ties, and losses of this hand agaist all the other possible hands. 
+
+        Note this function is really slow. Should really only be used after the river is shown. 
+    '''
+    
     hole_cards = [eval7.Card(card) for card in hole]
     board_cards = [eval7.Card(card) for card in board]
     deck=eval7.Deck()
@@ -92,12 +129,10 @@ def compute_strength(hole, board=[]):
                 losses+=1
         for card in rest_of_board:
             deck.cards.append(card)
-    print("wins: ", wins/(wins+ties+losses))
-    print("ties: ", ties/(wins+ties+losses))
-    print("losses: ", losses/(wins+ties+losses))
-    print("total: ", wins+ties+losses)
+    return wins, ties, losses
+
 
 
 if __name__ == "__main__":
-    print(monte_carlo_sim(['Ah', 'As'], ['Ad', '2h', '5c', '6s']))
+    print(estimate_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s']))
     #compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c'])
