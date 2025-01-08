@@ -123,6 +123,42 @@ def estimate_strength(hole, board=[], iters=200):
 
     return strength / iters
 
+def generate_hole_card_strengths(output_file, iters=200):
+    """
+    Generates the strength for each pair of hole cards and outputs a CSV file.
+    """
+    suits = ['s', 'h', 'd', 'c']
+    ranks = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
+    combinations = []
+
+    # Generate all unique pairs of hole cards
+    for i, rank1 in enumerate(ranks):
+        for j, rank2 in enumerate(ranks[i:], start=i):
+            if rank1 == rank2:
+                # Pairs (same rank)
+                combinations.append((rank1 + 's', rank2 + 'h'))  # Arbitrary suited pair
+            else:
+                # Suited combinations
+                combinations.append((rank1 + 's', rank2 + 's'))
+                # Offsuit combinations
+                combinations.append((rank1 + 's', rank2 + 'h'))  # Arbitrary different suit pair
+
+    # Evaluate the strength of each pair
+    results = []
+    for combo in combinations:
+        strength = estimate_strength(combo, iters=iters)
+        results.append({'Hole Cards': f'{combo[0]} {combo[1]}', 'Strength': strength})
+
+    # Sort by strength
+    results.sort(key=lambda x: x['Strength'], reverse=True)
+
+    # Write to CSV
+    with open(output_file, mode='w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=['Hole Cards', 'Strength'])
+        writer.writeheader()
+        writer.writerows(results)
+
+    print(f"CSV file '{output_file}' generated successfully!")
 
 def compute_strength(hole, board=[]):
     """
@@ -199,11 +235,8 @@ def mixed_strategy(
 
 
 if __name__ == "__main__":
-    print(estimate_strength(["Ah", "As"], [], iters=50))
-    print(estimate_strength(["Ah", "As"], [], iters=100))
-    print(estimate_strength(["Ah", "As"], [], iters=200))
-    print(estimate_strength(["Ah", "As"], [], iters=500))
-    print(estimate_strength(["Ah", "As"], [], iters=1000))
-    print(estimate_strength(["Ah", "As"], [], iters=5000))
+    # Run the script
+    generate_hole_card_strengths('hole_card_strengths.csv', iters=2000)
+
 
     # print(compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c']))

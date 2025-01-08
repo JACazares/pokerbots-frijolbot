@@ -138,51 +138,10 @@ class Player(Bot):
         print("strength: ", strength)
 
         if street == 0:  # ..............................Preflop
-            if strength > 0.7:
-                return mixed_strategy(
-                    legal_actions,
-                    my_pip,
-                    round_state,
-                    checkfold=0.01,
-                    checkcall=0.20,
-                    raise_amount=min_raise,
-                )
-            if strength > 0.6:
-                return mixed_strategy(
-                    legal_actions,
-                    my_pip,
-                    round_state,
-                    checkfold=0.20,
-                    checkcall=0.59,
-                    raise_amount=min_raise,
-                )
-            if strength > 0.5:
-                return mixed_strategy(
-                    legal_actions,
-                    my_pip,
-                    round_state,
-                    checkfold=0.40,
-                    checkcall=0.59,
-                    raise_amount=min_raise,
-                )
-            if strength > 0.4:
-                return mixed_strategy(
-                    legal_actions,
-                    my_pip,
-                    round_state,
-                    checkfold=0.70,
-                    checkcall=0.30,
-                    raise_amount=min_raise,
-                )
-            else:
-                return mixed_strategy(
-                    legal_actions,
-                    my_pip,
-                    round_state,
-                    checkfold=0.95,
-                    checkcall=0.04,
-                    raise_amount=min_raise,
-                )
+           if big_blind:
+               pass
+           else:
+               pass
 
         if street == 3:  # ..............................Flop
             if strength > 0.5:
