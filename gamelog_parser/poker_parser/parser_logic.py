@@ -24,7 +24,7 @@ class PokerLogParser:
             r"^Round\s+#(\d+),\s+(A|B)\s+\((-?\d+)\),\s+(A|B)\s+\((-?\d+)\)$"
         )
         self.bounty_reset_pattern = re.compile(
-            r"^Bounties reset to (\d+) for player (A|B) and (\d+) for player (A|B)$"
+            r"^Bounties reset to ([2-9TJQKA]) for player (A|B) and ([2-9TJQKA]) for player (A|B)$"
         )
         self.blind_pattern = re.compile(r"^(A|B) posts the blind of (\d+)$")
         self.dealt_pattern = re.compile(r"^(A|B) dealt \[([2-9TJQKA][cdhs])\s+([2-9TJQKA][cdhs])\]$")
@@ -144,9 +144,9 @@ class PokerLogParser:
     def handle_bounty_reset(self, line: str) -> bool:
         match = self.bounty_reset_pattern.match(line)
         if match and self.current_round:
-            valA = int(match.group(1))
+            valA = match.group(1)
             plA = match.group(2)
-            valB = int(match.group(3))
+            valB = match.group(3)
             plB = match.group(4)
             self.bounty[plA] = valA
             self.bounty[plB] = valB

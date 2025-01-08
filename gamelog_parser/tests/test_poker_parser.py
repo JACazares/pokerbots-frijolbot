@@ -10,7 +10,7 @@ def test_preflop_fold():
 6.9630 MIT Pokerbots - A vs B
 
 Round #1, A (0), B (0)
-Bounties reset to 5 for player A and 7 for player B
+Bounties reset to 5 for player A and K for player B
 A posts the blind of 1
 B posts the blind of 2
 A dealt [Qc Th]
@@ -29,8 +29,8 @@ Winning counts at the end of the round: , A (-1), B (1)
 
     # Basic checks
     assert round_data["round_number"] == 1
-    assert round_data["bounties"]["A"] == 5
-    assert round_data["bounties"]["B"] == 7
+    assert round_data["bounties"]["A"] == "5"
+    assert round_data["bounties"]["B"] == "K"
 
     # Check that the fold ended action and awarding is correct
     # A folds, so B should win
@@ -77,8 +77,8 @@ Winning counts at the end of the round: , B (20), A (10)
     # B started with 10, A with 20 (just an example scoreboard).
     assert rd["score_at_start"]["B"] == 10
     assert rd["score_at_start"]["A"] == 20
-    assert rd["bounties"]["B"] == 2
-    assert rd["bounties"]["A"] == 3
+    assert rd["bounties"]["B"] == "2"
+    assert rd["bounties"]["A"] == "3"
 
     # B calls, A checks, flop deals -> A checks, B bets, A folds
     # B should get net awarding of +10, A -10
@@ -170,8 +170,8 @@ Winning counts at the end of the round: , B (9), A (1)
     # The log says "B (10), A (0)" 
     assert rd["score_at_start"]["B"] == 10
     assert rd["score_at_start"]["A"] == 0
-    assert rd["bounties"]["B"] == 5
-    assert rd["bounties"]["A"] == 5
+    assert rd["bounties"]["B"] == "5"
+    assert rd["bounties"]["A"] == "5"
 
     # B folds immediately, awarding
     assert rd["awards"]["B"] == -1

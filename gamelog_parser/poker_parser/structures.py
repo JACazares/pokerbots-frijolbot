@@ -24,7 +24,7 @@ class Street:
 @dataclass
 class RoundData:
     round_number: int
-    score_at_start: Dict[str, int]             # e.g. {"A": -10, "B": 20}
+    score_at_start: Dict[str, str]             # e.g. {"A": -10, "B": 20}
     bounties: Dict[str, Optional[int]]         # e.g. {"A": 7, "B": 3}
     players: Dict[str, Dict]                   # e.g. {"A": {"hole_cards": [..]}, "B": {...}}
     blinds: Dict[str, Dict]                    # e.g. {"small_blind": {...}, "big_blind": {...}}
