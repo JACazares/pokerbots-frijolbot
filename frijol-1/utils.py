@@ -9,7 +9,8 @@ from skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
 from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot
 import random
-
+import csv
+from tqdm import tqdm
 
 def RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount):
     if RaiseAction in legal_actions:
@@ -145,7 +146,7 @@ def generate_hole_card_strengths(output_file, iters=200):
 
     # Evaluate the strength of each pair
     results = []
-    for combo in combinations:
+    for combo in tqdm(combinations):
         strength = estimate_strength(combo, iters=iters)
         results.append({'Hole Cards': f'{combo[0]} {combo[1]}', 'Strength': strength})
 
@@ -236,7 +237,7 @@ def mixed_strategy(
 
 if __name__ == "__main__":
     # Run the script
-    generate_hole_card_strengths('hole_card_strengths.csv', iters=2000)
+    generate_hole_card_strengths('hole_card_strengths.csv', iters=10000)
 
 
     # print(compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c']))
