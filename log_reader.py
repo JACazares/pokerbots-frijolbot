@@ -19,7 +19,7 @@
 #     raise_pattern = re.compile("([A-B]) (bets|raises to) ([0-9]*)")
 
 #     player = {"A": 0, "B": 1}
-    
+
 #     small_blind_player = 0
 #     big_blind_player = 1
 #     curr_player = 0
@@ -47,7 +47,7 @@
 #         fold_search = re.search(fold_pattern, line)
 #         raise_search = re.search(raise_pattern, line)
 
-#         # Basic setup 
+#         # Basic setup
 #         if new_round_search:
 #             if new_round_search.group(2) == 'A':
 #                 game_state_A.bankroll = new_round_search.group(3)
@@ -72,7 +72,7 @@
 #         elif hole_search:
 #             if hole_search.group(1) == 'A':
 #                 round_state_A.hands[active] = (hole_search.group(2)).split(' ')
-        
+
 #         elif board_search:
 #             round_state_A.deck = (board_search.group(2)).split(' ')
 #             round_state_A.street = len(round_state_A.deck)
@@ -108,7 +108,7 @@
 
 #             if curr_player == 'A':
 #                 round_state_A.pips[active] = int(raise_search.group(3))
-#                 contribution[active] 
+#                 contribution[active]
 #             elif curr_player == 'B':
 #                 round_state_A.pips[1 - active] = round_state_A.pips[active]
 #                 contribution[1 - active] = contribution[active]

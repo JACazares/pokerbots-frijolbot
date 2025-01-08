@@ -1,10 +1,11 @@
 import re
 import matplotlib.pyplot as plt
 
+
 def read_gamelog(filename):
     with open(filename) as f:
         raw_data = f.readlines()
-    
+
     scoresA = []
     scoresB = []
     for line in raw_data:
@@ -21,8 +22,9 @@ def read_gamelog(filename):
             if finalLine:
                 scoresA.append(int(finalLine.group(1)))
                 scoresB.append(int(finalLine.group(2)))
-    
+
     return (scoresA, scoresB)
+
 
 if __name__ == "__main__":
     import plotly.graph_objects as go
@@ -35,22 +37,34 @@ if __name__ == "__main__":
 
     final_score_text = f"Final, A ({scoreA[-1]}), B ({scoreB[-1]})"
     fig.add_annotation(
-        x=len(scoreA),
-        y=scoreA[-1],
-        text=final_score_text,
-        showarrow=True,
-        arrowhead=1
+        x=len(scoreA), y=scoreA[-1], text=final_score_text, showarrow=True, arrowhead=1
     )
 
-    fig.add_trace(go.Scatter(x=list(range(len(scoreA))), y=scoreA, mode='lines+markers', name='Score A', line=dict(color='red')))
-    fig.add_trace(go.Scatter(x=list(range(len(delta))), y=delta, mode='lines+markers', name='Delta A', line=dict(color='blue')))
-    #fig.add_trace(go.Scatter(x=list(range(1, len(scoreB)+1)), y=scoreB, mode='lines+markers', name='Score B', line=dict(color='green')))
+    fig.add_trace(
+        go.Scatter(
+            x=list(range(len(scoreA))),
+            y=scoreA,
+            mode="lines+markers",
+            name="Score A",
+            line=dict(color="red"),
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=list(range(len(delta))),
+            y=delta,
+            mode="lines+markers",
+            name="Delta A",
+            line=dict(color="blue"),
+        )
+    )
+    # fig.add_trace(go.Scatter(x=list(range(1, len(scoreB)+1)), y=scoreB, mode='lines+markers', name='Score B', line=dict(color='green')))
 
     fig.update_layout(
         title="Player A Scores and Delta",
         xaxis_title="Round",
         yaxis_title="Score",
-        legend_title="Legend"
+        legend_title="Legend",
     )
 
     fig.show()
