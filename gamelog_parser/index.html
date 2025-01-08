@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enhanced Pokerbots Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Bootstrap CSS (Optional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .card-symbol {
+      font-size: 1.2em;
+      margin-left: 0.2em;
+      margin-right: 0.2em;
+    }
+    .list-group-item {
+      cursor: pointer;
+    }
+    .card-row:hover {
+      background-color: #f8f9fa;
+    }
+    .filter-section {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-light">
+<div class="container py-4">
+
+  <!-- Title -->
+  <h1 class="mb-4">Enhanced Pokerbots Viewer</h1>
+
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <h5>Filters</h5>
+    <div class="row">
+      <!-- Showdown Filter -->
+      <div class="col-auto form-check">
+        <input type="checkbox" class="form-check-input" id="showdownFilter" />
+        <label class="form-check-label" for="showdownFilter">
+          Went to Showdown
+        </label>
+      </div>
+
+      <!-- Bounty Filter -->
+      <div class="col-auto form-check">
+        <input type="checkbox" class="form-check-input" id="bountyFilter" />
+        <label class="form-check-label" for="bountyFilter">
+          Bounty Awarded
+        </label>
+      </div>
+
+      <!-- Min Award Filter -->
+      <div class="col-auto">
+        <label for="minAwardInput" class="form-label" style="margin-bottom:0">
+          Min Absolute Award
+        </label>
+        <input
+          type="number"
+          class="form-control"
+          id="minAwardInput"
+          placeholder="e.g. 10"
+          style="width:100px"
+        />
+      </div>
+
+      <div class="col-auto">
+        <button class="btn btn-primary" id="applyFiltersBtn">Apply Filters</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Round List Column -->
+    <div class="col-md-4">
+      <h4>Rounds</h4>
+      <ul id="roundList" class="list-group">
+        <!-- Populated by JS -->
+      </ul>
+    </div>
+
+    <!-- Round Details Column -->
+    <div class="col-md-8">
+      <div id="roundDetails" class="card p-3">
+        <p>Select a round to view details.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const suitSymbols = {
+  "s": "♠",
+  "h": "♥",
+  "d": "♦",
+  "c": "♣"
+};
+
+// A helper to transform something like "Qc" -> "Q♣", "Th" -> "T♥"
+function formatCard(cardStr) {
+  // cardStr is like "Qc", "Th", "3s", etc.
+  if (!cardStr || cardStr.length < 2) return cardStr;
+  const rank = cardStr.slice(0, -1); // everything except last char
+  const suit = cardStr.slice(-1);    // last char
+  const rankMap = {
+    "T": "10",
+    "J": "J",
+    "Q": "Q",
+    "K": "K",
+    "A": "A"
+  };
+  const rankDisplay = rankMap[rank] || rank; // fallback to numeric ranks 2..9
+  const suitDisplay = suitSymbols[suit] || suit;
+  return `${rankDisplay}${suitDisplay}`;
+}
+
+// Format an array of e.g. ["Qc","Th"] -> "Q♣ T♥"
+function formatCardArray(cards) {
+  if (!cards || !Array.isArray(cards)) return "";
+  return cards.map(formatCard).join(" ");
+}
+
+// Global data (all rounds)
+let allRounds = [];
+
+// Filter state
+const showdownFilterEl = document.getElementById("showdownFilter");
+const bountyFilterEl = document.getElementById("bountyFilter");
+const minAwardInputEl = document.getElementById("minAwardInput");
+const applyFiltersBtn = document.getElementById("applyFiltersBtn");
+
+// When the page loads, fetch the JSON
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("gamelog_enhanced.json")
+    .then((response) => response.json())
+    .then((data) => {
+      allRounds = data;
+      renderRoundList(allRounds);
+    })
+    .catch((err) => {
+      console.error("Error fetching JSON:", err);
+    });
+});
+
+// Filter logic: we combine all conditions with AND
+function applyFilters() {
+  // Read filter states
+  const mustShowdown = showdownFilterEl.checked;
+  const mustBounty = bountyFilterEl.checked;
+  const minAwardStr = minAwardInputEl.value.trim();
+  const minAward = minAwardStr ? parseInt(minAwardStr, 10) : 0;
+
+  // Filter
+  const filtered = allRounds.filter((round) => {
+    // 1. Showdown check
+    if (mustShowdown && round.showdown && !round.showdown.went_to_showdown) {
+      return false;
+    }
+
+    // 2. Bounty check
+    if (mustBounty && !round.bounty_awarded) {
+      return false;
+    }
+
+    // 3. Min Award check
+    // Check absolute net awards for player A and B
+    const aAward = Math.abs(round.awards.A);
+    const bAward = Math.abs(round.awards.B);
+    const maxAward = Math.max(aAward, bAward);
+    if (maxAward < minAward) {
+      return false;
+    }
+
+    return true;
+  });
+
+  renderRoundList(filtered);
+}
+
+// Renders the list of rounds on the left
+function renderRoundList(rounds) {
+  const roundListEl = document.getElementById("roundList");
+  roundListEl.innerHTML = "";
+
+  if (rounds.length === 0) {
+    roundListEl.innerHTML = "<li class='list-group-item'>No rounds match your filters.</li>";
+    return;
+  }
+
+  rounds.forEach((rd) => {
+    const li = document.createElement("li");
+    li.className = "list-group-item";
+    li.textContent = `Round #${rd.round_number} (Awards: A=${rd.awards.A}, B=${rd.awards.B})`;
+    li.addEventListener("click", () => showRoundDetails(rd));
+    roundListEl.appendChild(li);
+  });
+}
+
+// Show details of a single round on the right
+function showRoundDetails(rd) {
+  const detailsDiv = document.getElementById("roundDetails");
+  detailsDiv.innerHTML = "";
+
+  const {
+    round_number,
+    score_at_start,
+    bounties,
+    players,
+    blinds,
+    streets,
+    awards,
+    winning_counts_end_round,
+    showdown,
+    bounty_awarded
+  } = rd;
+
+  let html = `
+    <h5>Round #${round_number}</h5>
+    <p><strong>Score at start:</strong> A=${score_at_start.A}, B=${score_at_start.B}</p>
+    <p><strong>Bounties:</strong> A=${bounties.A}, B=${bounties.B}, 
+       <strong>Bounty Awarded?</strong> ${bounty_awarded ? "Yes" : "No"}</p>
+
+    <p><strong>Blinds:</strong><br>
+      Small Blind: ${blinds.small_blind?.player} (${blinds.small_blind?.amount}), 
+      Big Blind: ${blinds.big_blind?.player} (${blinds.big_blind?.amount})
+    </p>
+    <p><strong>Hole Cards:</strong><br>
+      A: ${formatCardArray(players.A.hole_cards)}<br>
+      B: ${formatCardArray(players.B.hole_cards)}
+    </p>
+  `;
+
+  // Streets: create a select or a tab-like structure
+  // We'll do a simple list of collapsible items for each street
+  html += `<h6>Streets</h6>`;
+  streets.forEach((st, idx) => {
+    // We'll build an accordion style. For brevity, just a show/hide toggle.
+    html += `
+      <div class="mb-2">
+        <button class="btn btn-sm btn-secondary" 
+                data-street-toggle="${idx}">
+          ${st.street_name.toUpperCase()}
+        </button>
+        <div id="streetContent${idx}" style="display:none; margin-top:5px; border:1px solid #ccc; padding:5px;">
+          <p><strong>Community Cards:</strong> ${formatCardArray(st.community_cards)}</p>
+          <p><strong>Actions:</strong></p>
+          <ul>
+            ${st.actions.map(a => `<li>${a.player} ${a.action} ${a.amount || ""}</li>`).join("")}
+          </ul>
+          <p><strong>Pot After Street:</strong> ${st.pot_size_after_street}</p>
+          <p><strong>Stacks After Street:</strong> A=${st.player_stacks_after_street.A}, B=${st.player_stacks_after_street.B}</p>
+          <p><strong>Contributions After Street:</strong> A=${st.player_contributions_after_street.A}, B=${st.player_contributions_after_street.B}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  // Awards
+  html += `
+    <p><strong>Awards:</strong> A=${awards.A}, B=${awards.B}</p>
+    <p><strong>Winning counts at end of round:</strong> A=${winning_counts_end_round.A}, B=${winning_counts_end_round.B}</p>
+  `;
+
+  // Showdown
+  if (showdown?.went_to_showdown) {
+    html += `
+      <h6>Showdown</h6>
+      <p><strong>Winner:</strong> ${showdown.winner || "Tie/None"}</p>
+      <p><strong>Winning Amount:</strong> ${showdown.winning_amount}</p>
+      <p><strong>Final Hole Cards:</strong><br>
+         A: ${formatCardArray(showdown.final_hole_cards.A)}<br>
+         B: ${formatCardArray(showdown.final_hole_cards.B)}</p>
+    `;
+  } else {
+    html += `<p><strong>No Showdown</strong></p>`;
+  }
+
+  detailsDiv.innerHTML = html;
+
+  // Attach event listeners for each street's toggle
+  streets.forEach((st, idx) => {
+    const toggleButton = detailsDiv.querySelector(`[data-street-toggle="${idx}"]`);
+    const contentDiv = detailsDiv.querySelector(`#streetContent${idx}`);
+    if (toggleButton && contentDiv) {
+      toggleButton.addEventListener("click", () => {
+        contentDiv.style.display = (contentDiv.style.display === "none") ? "block" : "none";
+      });
+    }
+  });
+}
+
+// Wire up the "Apply Filters" button
+applyFiltersBtn.addEventListener("click", () => {
+  applyFilters();
+});
+</script>
+</body>
+</html>
