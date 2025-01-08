@@ -84,7 +84,7 @@ def compute_checkfold_winprob(rounds_left, bankroll, big_blind):
     return np.sum(probabilities)
 
 
-def estimate_strength(hole, board=[], iters=200):
+def estimate_strength(hole, board=[], iters=200, bounty=None, bounty_strength=1):
     """
     Performs a Montecarlo search to approximate the strength of a hand.
 
@@ -118,7 +118,13 @@ def estimate_strength(hole, board=[], iters=200):
         opp = eval7.evaluate(opp_cards + curr_board_cards)
 
         if my > opp:
-            strength += 1
+            bounty_awarded = np.any([bounty == eval7.ranks[card.rank] for card in hole_cards]) \
+                          or np.any([bounty == eval7.ranks[card.rank] for card in curr_board_cards])
+
+            if bounty_awarded:
+                strength += 1.5*bounty_strength
+            else:
+                strength += 1
         elif my == opp:
             strength += 0.5
 
@@ -131,24 +137,26 @@ def generate_hole_card_strengths(output_file, iters=200):
     suits = ['s', 'h', 'd', 'c']
     ranks = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
     combinations = []
+    bounties = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
 
     # Generate all unique pairs of hole cards
     for i, rank1 in enumerate(ranks):
         for j, rank2 in enumerate(ranks[i:], start=i):
-            if rank1 == rank2:
-                # Pairs (same rank)
-                combinations.append((rank1 + 's', rank2 + 'h'))  # Arbitrary suited pair
-            else:
-                # Suited combinations
-                combinations.append((rank1 + 's', rank2 + 's'))
-                # Offsuit combinations
-                combinations.append((rank1 + 's', rank2 + 'h'))  # Arbitrary different suit pair
+            for bounty in bounties:
+                if rank1 == rank2:
+                    # Pairs (same rank)
+                    combinations.append((rank1 + 's', rank2 + 'h', bounty))  # Arbitrary pair
+                else:
+                    # Suited combinations
+                    combinations.append((rank1 + 's', rank2 + 's', bounty))
+                    # Offsuit combinations
+                    combinations.append((rank1 + 's', rank2 + 'h', bounty))  # Arbitrary different suit pair
 
     # Evaluate the strength of each pair
     results = []
     for combo in tqdm(combinations):
-        strength = estimate_strength(combo, iters=iters)
-        results.append({'Hole Cards': f'{combo[0]} {combo[1]}', 'Strength': strength})
+        strength = estimate_strength(combo[:2], iters=iters, bounty=combo[2])
+        results.append({'C1': combo[0], 'C2': combo[1], 'Bounty': combo[2], 'Strength': strength})
 
     # Sort by strength
     results.sort(key=lambda x: x['Strength'], reverse=True)
