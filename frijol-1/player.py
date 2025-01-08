@@ -105,13 +105,13 @@ class Player(Bot):
         my_pip = round_state.pips[
             active
         ]  # the number of chips you have contributed to the pot this round of betting
-        # opp_pip = round_state.pips[1-active]  # the number of chips your opponent has contributed to the pot this round of betting
-        # my_stack = round_state.stacks[active]  # the number of chips you have remaining
-        # opp_stack = round_state.stacks[1-active]  # the number of chips your opponent has remaining
-        # continue_cost = opp_pip - my_pip  # the number of chips needed to stay in the pot
-        # my_bounty = round_state.bounties[active]  # your current bounty rank
-        # my_contribution = STARTING_STACK - my_stack  # the number of chips you have contributed to the pot
-        # opp_contribution = STARTING_STACK - opp_stack  # the number of chips your opponent has contributed to the pot
+        opp_pip = round_state.pips[1-active]  # the number of chips your opponent has contributed to the pot this round of betting
+        my_stack = round_state.stacks[active]  # the number of chips you have remaining
+        opp_stack = round_state.stacks[1-active]  # the number of chips your opponent has remaining
+        continue_cost = opp_pip - my_pip  # the number of chips needed to stay in the pot
+        my_bounty = round_state.bounties[active]  # your current bounty rank
+        my_contribution = STARTING_STACK - my_stack  # the number of chips you have contributed to the pot
+        opp_contribution = STARTING_STACK - opp_stack  # the number of chips your opponent has contributed to the pot
         my_bankroll = (
             game_state.bankroll
         )  # the total number of chips you've gained or lost from the beginning of the game to the start of this round
@@ -141,11 +141,26 @@ class Player(Bot):
 
         if street == 0:  # ..............................Preflop
            if not big_blind: #You are button
-                if my_pip==1: #This is your first action
-                    if strength > 0.451:
-                        RaiseAction(opening_raise)
-                    elif strength:
-                        pass
+                if my_contribution==1: #This is your first action
+                    if strength > 0.451: #70th percentile
+                        return RaiseAction(opening_raise)
+                    elif strength>0.371: #95th percentile
+                        var=random.random()
+                        if var<0.5:
+                            return RaiseAction(opening_raise)
+                        else: 
+                            return CheckFold()
+                    else:
+                        CheckFold()
+                else:
+                    if opp_contribution > 50*BIG_BLIND:
+                        call_reraise_strength = 0.648 #8th percentile
+                    else: 
+                        call_reraise_strength = 0.60  #17th percentile
+                    if strength > call_reraise_strength:
+                        return CheckCall()
+                    else:
+                        return CheckFold()
            else:    
                pass
 
