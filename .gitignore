@@ -172,8 +172,10 @@ cython_debug/
 
 **.DS_Store
 
+.vscode/
+
+gamelog_parser/gamelog_enhanced.json
 A.txt
 B.txt
 gamelog.txt
-gamelog.
 config.py
