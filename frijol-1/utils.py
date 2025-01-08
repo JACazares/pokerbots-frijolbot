@@ -24,7 +24,7 @@ def RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount):
         if raise_amount < min_raise:
             raise_amount = min_raise
         return RaiseAction(raise_amount)
-    return CheckCall()
+    return CheckCall(legal_actions)
 
 
 def CheckFold(legal_actions):

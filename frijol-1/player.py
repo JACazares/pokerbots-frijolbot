@@ -61,6 +61,9 @@ class Player(Bot):
             my_bankroll > target_bankroll
         ):  # This routine always check-folds after reaching the guaranteed winning bankroll
             self.iwon = True
+        self.winprob=compute_checkfold_winprob(rounds_left, my_bankroll, big_blind)
+        if self.winprob>0.999:
+            self.iwon = True
 
     def handle_round_over(self, game_state, terminal_state, active):
         """
@@ -132,7 +135,7 @@ class Player(Bot):
         if self.iwon:
             return CheckFold(legal_actions)  # If you won, checkfold
 
-        strength = estimate_strength(my_cards)
+        strength = estimate_strength(my_cards, board_cards, iters=200)
         print("round: ", round_num)
         print("street: ", street)
         print("strength: ", strength)
