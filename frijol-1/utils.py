@@ -151,6 +151,8 @@ def mixed_strategy(legal_actions, my_pip, round_state, checkfold, checkcall, rai
         checkcall: The probabiity with which it will choose check-call action
         1-checkfold-checkcall will be the probability of raising.
         raise_amount: How much it will raise given that it chooses raise. 
+
+        Output: An action
     '''
     if random.random()<checkfold:
         return CheckFold(legal_actions)
