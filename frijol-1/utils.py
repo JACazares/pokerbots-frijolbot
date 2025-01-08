@@ -237,7 +237,7 @@ def mixed_strategy(
 
 if __name__ == "__main__":
     # Run the script
-    generate_hole_card_strengths('hole_card_strengths.csv', iters=10000)
+    generate_hole_card_strengths('hole_card_strengths77.csv', iters=10000)
 
 
     # print(compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c']))

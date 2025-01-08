@@ -137,10 +137,16 @@ class Player(Bot):
         print("street: ", street)
         print("strength: ", strength)
 
+        opening_raise=2.5*BIG_BLIND
+
         if street == 0:  # ..............................Preflop
-           if big_blind:
-               pass
-           else:
+           if not big_blind: #You are button
+                if my_pip==1: #This is your first action
+                    if strength > 0.451:
+                        RaiseAction(opening_raise)
+                    elif strength:
+                        pass
+           else:    
                pass
 
         if street == 3:  # ..............................Flop
