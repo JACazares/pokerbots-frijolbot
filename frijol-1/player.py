@@ -45,9 +45,14 @@ class Player(Bot):
         #game_clock = game_state.game_clock  # the total number of seconds your bot has left to play this game
         round_num = game_state.round_num  # the round number from 1 to NUM_ROUNDS
         #my_cards = round_state.hands[active]  # your cards
-        #big_blind = bool(active)  # True if you are the big blind
+        big_blind = bool(active)  # True if you are the big blind
         #my_bounty = round_state.bounties[active]  # your current bounty rank
-        pass
+        rounds_left=1001-round_num #Remaining rounds, including this one. 
+
+        self.iwon=False #Flag showing if the target bankroll is triggered
+        target_bankroll=12.5*rounds_left+(rounds_left%2)*(int(big_blind)-0.5) ## The bankroll at which always folding is a guaranteed winning strategy. 
+        if my_bankroll > target_bankroll: #This routine always check-folds after reaching the guaranteed winning bankroll
+            self.iwon=True 
 
     def handle_round_over(self, game_state, terminal_state, active):
         '''
@@ -96,19 +101,53 @@ class Player(Bot):
         my_bankroll = game_state.bankroll  # the total number of chips you've gained or lost from the beginning of the game to the start of this round
         round_num = game_state.round_num  # the round number from 1 to NUM_ROUNDS
         big_blind = bool(active)  # True if you are the big blind. Winnings are rounded up if you are the big blind, down if not
-        rounds_left=1001-round_num #Remaining rounds, including this one. 
-
-        target_bankroll=12.5*rounds_left+(rounds_left%2)*(int(big_blind)-0.5) ## The bankroll at which always folding is a guaranteed winning strategy. 
-        if my_bankroll > target_bankroll: #This routine always check-folds after reaching the guaranteed winning bankroll
-            CheckFold()
-
         if RaiseAction in legal_actions:
            min_raise, max_raise = round_state.raise_bounds()  # the smallest and largest numbers of chips for a legal bet/raise
            min_cost = min_raise - my_pip  # the cost of a minimum bet/raise
            max_cost = max_raise - my_pip  # the cost of a maximum bet/raise
+        else:
+            min_raise=0
+            max_raise=0
 
-        CheckCall()
+        if self.iwon:
+            return CheckFold(legal_actions) #If you won, checkfold
+        
+        strength=estimate_strength(my_cards)
+        print("round: ", round_num)
+        print("street: ", street)
+        print("strength: ", strength)
 
+        if street==0: #..............................Preflop 
+            if strength > 0.7:
+                return mixed_strategy(legal_actions, my_pip, round_state, checkfold=0.01, checkcall=0.20, raise_amount=min_raise)
+            if strength > 0.6:
+                return mixed_strategy(legal_actions, my_pip, round_state, checkfold=0.20, checkcall=0.59, raise_amount=min_raise)
+            if strength > 0.5:
+                return mixed_strategy(legal_actions, my_pip, round_state, checkfold=0.40, checkcall=0.59, raise_amount=min_raise)
+            if strength > 0.4:
+                return mixed_strategy(legal_actions, my_pip, round_state, checkfold=0.70, checkcall=0.30, raise_amount=min_raise)
+            else: 
+                return mixed_strategy(legal_actions, my_pip, round_state, checkfold=0.95, checkcall=0.04, raise_amount=min_raise)
+
+        if street==3: #..............................Flop
+            if strength>0.5:
+                return CheckCall(legal_actions)
+            else:
+                return CheckFold(legal_actions)
+
+        if street==4: #..............................Turn
+            if strength>0.5:
+                return CheckCall(legal_actions)
+            else:
+                return CheckFold(legal_actions)
+
+        if street==5: #..............................River
+            if strength>0.5:
+                return CheckCall(legal_actions)
+            else:
+                return CheckFold(legal_actions)
+
+        return CheckCall(legal_actions)
 
 if __name__ == '__main__':
     run_bot(Player(), parse_args())

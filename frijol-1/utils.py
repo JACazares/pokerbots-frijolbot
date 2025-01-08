@@ -8,6 +8,19 @@ from skeleton.states import GameState, TerminalState, RoundState
 from skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
 from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot
+import random
+
+def RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount):
+    if RaiseAction in legal_actions:
+        min_raise, max_raise = round_state.raise_bounds()  # the smallest and largest numbers of chips for a legal bet/raise
+        min_cost = min_raise - my_pip  # the cost of a minimum bet/raise
+        max_cost = max_raise - my_pip  # the cost of a maximum bet/raise
+        if raise_amount>max_raise:
+            raise_amount=max_raise
+        if raise_amount<min_raise:
+            raise_amount=min_raise
+        return RaiseAction(raise_amount)
+    return CheckCall()
 
 def CheckFold(legal_actions):
     if CheckAction in legal_actions: 
@@ -45,7 +58,7 @@ def compute_checkfold_winprob(rounds_left, bankroll, big_blind):
     probabilities=probabilities*(success_rate**winning_cases)*(1-success_rate)**(rounds_left-winning_cases)
     return np.sum(probabilities)
 
-def estimate_strength(hole, board=[], iters=5000):
+def estimate_strength(hole, board=[], iters=200):
     '''
         Performs a Montecarlo search to approximate the strength of a hand. 
         
@@ -111,8 +124,6 @@ def compute_strength(hole, board=[]):
     for card in board_cards:
         deck.cards.remove(card)
     for rest_of_board in combinations(deck, 5-len(board_cards)):
-        print(board_cards)
-        print(wins+ties+losses)
         for card in rest_of_board:
             deck.cards.remove(card)
         for opp_hole in combinations(deck, 2):
@@ -126,10 +137,33 @@ def compute_strength(hole, board=[]):
                 losses+=1
         for card in rest_of_board:
             deck.cards.append(card)
-    return wins, ties, losses
+    return wins/(wins+ties+losses)
 
+def mixed_strategy(legal_actions, my_pip, round_state, checkfold, checkcall, raise_amount=1):
+    '''
+        Does a randomized selection of actions depending on input probabilities
 
+        Inputs: 
+        legal actions: The set of legal actions
+        my_pip: Your total contribution of chips this betting round
+        round_state: Round state object from RoundState
+        checkfold: The probability with which it will choose check-fold action
+        checkcall: The probabiity with which it will choose check-call action
+        1-checkfold-checkcall will be the probability of raising.
+        raise_amount: How much it will raise given that it chooses raise. 
+    '''
+    if random.random()<checkfold:
+        return CheckFold(legal_actions)
+    if random.random()<checkfold+checkcall:
+        return CheckCall(legal_actions)
+    return RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount)
 
 if __name__ == "__main__":
-    print(estimate_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s']))
-    #compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c'])
+    print(estimate_strength(['Ah', 'As'], [], iters=50))
+    print(estimate_strength(['Ah', 'As'], [], iters=100))
+    print(estimate_strength(['Ah', 'As'], [], iters=200))
+    print(estimate_strength(['Ah', 'As'], [], iters=500))
+    print(estimate_strength(['Ah', 'As'], [], iters=1000))
+    print(estimate_strength(['Ah', 'As'], [], iters=5000))
+    
+    #print(compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c']))
