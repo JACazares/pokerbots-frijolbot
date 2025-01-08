@@ -190,6 +190,11 @@ def mixed_strategy(
         return CheckFold(legal_actions)
     elif random_var < checkfold + checkcall:
         return CheckCall(legal_actions)
+
+    min_raise, _ = round_state.raise_bounds()
+    std_dev = (raise_amount - min_raise) / 2
+    raise_amount = int(np.random.normal(raise_amount, std_dev))
+
     return RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount)
 
 
