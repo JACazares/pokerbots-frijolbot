@@ -184,10 +184,6 @@ class PokerLogParser:
             self.current_round.streets[-1].actions.append(
                 {"player": player, "action": "post_blind", "amount": amt}
             )
-            self.pot += amt
-            self.current_round.streets[-1].player_contributions_during_street[
-                player
-            ] += amt
 
             return True
         return False
@@ -215,11 +211,6 @@ class PokerLogParser:
                 amt_str = raw_action.split("raises to")[-1].strip()
                 amount_num = int(amt_str)
                 action_type = "raise"
-                current_street_contribution = self.current_round.streets[
-                    -1
-                ].player_contributions_during_street[player]
-                additional = amount_num - current_street_contribution
-                self.pot += additional
                 self.current_round.streets[-1].player_contributions_during_street[
                     player
                 ] = amount_num
@@ -228,7 +219,6 @@ class PokerLogParser:
                 amt_str = raw_action.split("bets")[-1].strip()
                 amount_num = int(amt_str)
                 action_type = "bet"
-                self.pot += amount_num
                 self.current_round.streets[-1].player_contributions_during_street[
                     player
                 ] = amount_num
@@ -236,18 +226,10 @@ class PokerLogParser:
             elif raw_action == "calls":
                 action_type = "call"
                 other = "A" if player == "B" else "B"
-                player_contribution_during_street = self.current_round.streets[
-                    -1
-                ].player_contributions_during_street[player]
                 other_contribution_during_street = self.current_round.streets[
                     -1
                 ].player_contributions_during_street[other]
-
-                required = (
-                    other_contribution_during_street - player_contribution_during_street
-                )
                 amount_num = other_contribution_during_street
-                self.pot += required
                 self.current_round.streets[-1].player_contributions_during_street[
                     player
                 ] = amount_num
@@ -362,12 +344,15 @@ class PokerLogParser:
             # Bounty check
             winner_id = self.current_round.showdown.winner
             if winner_id in ("A", "B"):
-                other_id = "A" if winner_id == "B" else "B"
-                if (
-                    self.current_round.awards[winner_id]
-                    != self.player_contributions[other_id]
-                ):
-                    self.current_round.bounty_awarded = True
+                for card in self.current_round.players[winner_id]["hole_cards"]:
+                    if card[0] == self.bounty[winner_id]:
+                        self.current_round.bounty_awarded = True
+                        break
+
+                for card in self.current_round.streets[-1].community_cards:
+                    if card[0] == self.bounty[winner_id]:
+                        self.current_round.bounty_awarded = True
+                        break
 
             return True
         return False
@@ -380,16 +365,11 @@ class PokerLogParser:
         """Populates pot/stacks/contributions info into the last Street."""
         if self.current_round and self.current_round.streets:
             last_street = self.current_round.streets[-1]
-            self.player_stacks = {
-                player: self.player_stacks[player]
-                - last_street.player_contributions_during_street[player]
-                for player in ["A", "B"]
-            }
-            self.player_contributions = {
-                player: self.player_contributions[player]
-                + last_street.player_contributions_during_street[player]
-                for player in ["A", "B"]
-            }
+            for player in ["A", "B"]:
+                self.pot += last_street.player_contributions_during_street[player]
+                self.player_stacks[player] -= last_street.player_contributions_during_street[player]
+                self.player_contributions[player] += last_street.player_contributions_during_street[player]
+
             last_street.pot_size_after_street = self.pot
             last_street.player_stacks_after_street = dict(self.player_stacks)
             last_street.player_contributions_after_street = dict(
@@ -399,6 +379,5 @@ class PokerLogParser:
     def finalize_current_round(self):
         """If there's a round in progress, finalize the last street and push it into rounds."""
         if self.current_round:
-            self.finalize_current_street()
             self.rounds.append(self.current_round)
             self.current_round = None
