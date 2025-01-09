@@ -1,3434 +1,4547 @@
 round:  1
-my bounty:  9
+my bounty:  T
 street:  0
-strength:  0.564375
+strength:  0.38
 round:  2
-my bounty:  9
+my bounty:  T
+street:  0
+strength:  0.35875
 round:  3
-my bounty:  9
-street:  0
-strength:  0.435
-round:  4
-my bounty:  9
-round:  5
-my bounty:  9
-street:  0
-strength:  0.599375
-street:  0
-strength:  0.61625
-street:  3
-strength:  0.3675
-street:  4
-strength:  0.250625
-street:  5
-strength:  0.090625
-round:  6
-my bounty:  9
-round:  7
-my bounty:  9
-street:  0
-strength:  0.78125
-round:  8
-my bounty:  9
-round:  9
-my bounty:  9
-street:  0
-strength:  0.4825
-street:  3
-strength:  0.3775
-street:  4
-strength:  0.374375
-street:  5
-strength:  0.16
-round:  10
-my bounty:  9
-round:  11
-my bounty:  9
-street:  0
-strength:  0.39
-round:  12
-my bounty:  9
-round:  13
-my bounty:  9
-street:  0
-strength:  0.285625
-round:  14
-my bounty:  9
-round:  15
-my bounty:  9
-street:  0
-strength:  0.459375
-round:  16
-my bounty:  9
-round:  17
-my bounty:  9
-street:  0
-strength:  0.46625
-street:  3
-strength:  0.47375
-street:  4
-strength:  0.79125
-round:  18
-my bounty:  9
-round:  19
-my bounty:  9
-street:  0
-strength:  0.48
-street:  0
-strength:  0.471875
-round:  20
-my bounty:  9
-round:  21
-my bounty:  9
-street:  0
-strength:  0.27125
-round:  22
-my bounty:  9
-round:  23
-my bounty:  9
-street:  0
-strength:  0.28625
-round:  24
-my bounty:  9
-round:  25
-my bounty:  9
-street:  0
-strength:  0.36
-round:  26
-my bounty:  5
-round:  27
-my bounty:  5
-street:  0
-strength:  0.325625
-round:  28
-my bounty:  5
-round:  29
-my bounty:  5
-street:  0
-strength:  0.28
-round:  30
-my bounty:  5
-round:  31
-my bounty:  5
-street:  0
-strength:  0.353125
-round:  32
-my bounty:  5
-round:  33
-my bounty:  5
-street:  0
-strength:  0.58625
-round:  34
-my bounty:  5
-round:  35
-my bounty:  5
-street:  0
-strength:  0.361875
-round:  36
-my bounty:  5
-round:  37
-my bounty:  5
-street:  0
-strength:  0.4
-street:  3
-strength:  0.231875
-street:  4
-strength:  0.709375
-street:  5
-strength:  0.76125
-round:  38
-my bounty:  5
-round:  39
-my bounty:  5
-street:  0
-strength:  0.49625
-street:  0
-strength:  0.53625
-round:  40
-my bounty:  5
-round:  41
-my bounty:  5
-street:  0
-strength:  0.448125
-street:  3
-strength:  0.31875
-street:  4
-strength:  0.883125
-round:  42
-my bounty:  5
-round:  43
-my bounty:  5
-street:  0
-strength:  0.55625
-street:  0
-strength:  0.614375
-street:  3
-strength:  0.44125
-street:  4
-strength:  0.338125
-street:  5
-strength:  0.5075
-round:  44
-my bounty:  5
-round:  45
-my bounty:  5
-street:  0
-strength:  0.275
-round:  46
-my bounty:  5
-round:  47
-my bounty:  5
-street:  0
-strength:  0.6525
-street:  3
-strength:  0.563125
-street:  4
-strength:  0.531875
-street:  5
-strength:  0.478125
-round:  48
-my bounty:  5
-round:  49
-my bounty:  5
-street:  0
-strength:  0.46125
-round:  50
-my bounty:  5
-round:  51
-my bounty:  2
-street:  0
-strength:  0.4625
-street:  0
-strength:  0.41375
-round:  52
-my bounty:  2
-round:  53
-my bounty:  2
-street:  0
-strength:  0.590625
-street:  3
-strength:  0.5575
-street:  4
-strength:  0.39125
-round:  54
-my bounty:  2
-round:  55
-my bounty:  2
-street:  0
-strength:  0.41625
-street:  3
-strength:  0.585625
-street:  4
-strength:  0.750625
-street:  5
-strength:  0.75125
-round:  56
-my bounty:  2
-round:  57
-my bounty:  2
-street:  0
-strength:  0.22875
-round:  58
-my bounty:  2
-round:  59
-my bounty:  2
-street:  0
-strength:  0.5775
-street:  0
-strength:  0.66
-street:  3
-strength:  0.55625
-street:  4
-strength:  0.468125
-street:  5
-strength:  0.45125
-round:  60
-my bounty:  2
-round:  61
-my bounty:  2
-street:  0
-strength:  0.433125
-round:  62
-my bounty:  2
-round:  63
-my bounty:  2
-street:  0
-strength:  0.28875
-round:  64
-my bounty:  2
-round:  65
-my bounty:  2
-street:  0
-strength:  0.44625
-street:  0
-strength:  0.344375
-round:  66
-my bounty:  2
-round:  67
-my bounty:  2
-street:  0
-strength:  0.370625
-round:  68
-my bounty:  2
-round:  69
-my bounty:  2
-street:  0
-strength:  0.345625
-round:  70
-my bounty:  2
-round:  71
-my bounty:  2
-street:  0
-strength:  0.53375
-street:  3
-strength:  0.261875
-street:  4
-strength:  0.191875
-street:  5
-strength:  0.189375
-round:  72
-my bounty:  2
-round:  73
-my bounty:  2
-street:  0
-strength:  0.300625
-round:  74
-my bounty:  2
-round:  75
-my bounty:  2
-street:  0
-strength:  0.619375
-street:  3
-strength:  0.89
-street:  4
-strength:  0.86125
-round:  76
-my bounty:  7
-round:  77
-my bounty:  7
-street:  0
-strength:  0.5375
-street:  3
-strength:  0.333125
-street:  4
-strength:  0.31625
-street:  5
-strength:  0.295
-round:  78
-my bounty:  7
-round:  79
-my bounty:  7
-street:  0
-strength:  0.414375
-round:  80
-my bounty:  7
-round:  81
-my bounty:  7
-street:  0
-strength:  0.461875
-round:  82
-my bounty:  7
-round:  83
-my bounty:  7
-street:  0
-strength:  0.45125
-street:  0
-strength:  0.44625
-round:  84
-my bounty:  7
-round:  85
-my bounty:  7
-street:  0
-strength:  0.326875
-round:  86
-my bounty:  7
-round:  87
-my bounty:  7
-street:  0
-strength:  0.46
-round:  88
-my bounty:  7
-round:  89
-my bounty:  7
-street:  0
-strength:  0.59375
-street:  3
-strength:  0.46125
-street:  4
-strength:  0.32625
-street:  5
-strength:  0.23375
-round:  90
-my bounty:  7
-round:  91
-my bounty:  7
-street:  0
-strength:  0.3475
-round:  92
-my bounty:  7
-round:  93
-my bounty:  7
-street:  0
-strength:  0.83375
-street:  3
-strength:  0.82625
-street:  4
-strength:  0.714375
-street:  5
-strength:  0.6975
-round:  94
-my bounty:  7
-round:  95
-my bounty:  7
-street:  0
-strength:  0.579375
-round:  96
-my bounty:  7
-round:  97
-my bounty:  7
-street:  0
-strength:  0.328125
-round:  98
-my bounty:  7
-round:  99
-my bounty:  7
-street:  0
-strength:  0.539375
-street:  3
-strength:  0.39125
-street:  4
-strength:  0.365
-street:  5
-strength:  0.35
-round:  100
-my bounty:  7
-round:  101
-my bounty:  7
-street:  0
-strength:  0.460625
-street:  3
-strength:  0.223125
-street:  4
-strength:  0.706875
-street:  5
-strength:  0.663125
-round:  102
-my bounty:  7
-round:  103
-my bounty:  7
-street:  0
-strength:  0.39875
-round:  104
-my bounty:  7
-round:  105
-my bounty:  7
-street:  0
-strength:  0.3925
-round:  106
-my bounty:  7
-round:  107
-my bounty:  7
-street:  0
-strength:  0.3175
-round:  108
-my bounty:  7
-round:  109
-my bounty:  7
+my bounty:  T
 street:  0
 strength:  0.514375
-street:  3
-strength:  0.955
-street:  4
-strength:  0.935
-street:  5
-strength:  0.95
-round:  110
-my bounty:  7
-round:  111
-my bounty:  7
 street:  0
-strength:  0.205625
-round:  112
-my bounty:  7
-round:  113
-my bounty:  7
-street:  0
-strength:  0.274375
-round:  114
-my bounty:  7
-round:  115
-my bounty:  7
-street:  0
-strength:  0.304375
-round:  116
-my bounty:  7
-round:  117
-my bounty:  7
-street:  0
-strength:  0.28
-round:  118
-my bounty:  7
-round:  119
-my bounty:  7
-street:  0
-strength:  0.6275
-street:  0
-strength:  0.580625
-round:  120
-my bounty:  7
-round:  121
-my bounty:  7
-street:  0
-strength:  0.523125
-round:  122
-my bounty:  7
-round:  123
-my bounty:  7
-street:  0
-strength:  0.33625
-round:  124
-my bounty:  7
-round:  125
-my bounty:  7
-street:  0
-strength:  0.431875
-street:  3
-strength:  0.46
-street:  4
-strength:  0.325
-street:  5
-strength:  0.21625
-round:  126
-my bounty:  9
-round:  127
-my bounty:  9
-street:  0
-strength:  0.4675
-round:  128
-my bounty:  9
-round:  129
-my bounty:  9
-street:  0
-strength:  0.545625
-street:  3
-strength:  0.64375
-street:  4
-strength:  0.9775
-street:  5
-strength:  0.8925
-round:  130
-my bounty:  9
-round:  131
-my bounty:  9
-street:  0
-strength:  0.635625
-round:  132
-my bounty:  9
-round:  133
-my bounty:  9
-street:  0
-strength:  0.405625
-round:  134
-my bounty:  9
-round:  135
-my bounty:  9
-street:  0
-strength:  0.25
-round:  136
-my bounty:  9
-round:  137
-my bounty:  9
-street:  0
-strength:  0.326875
-round:  138
-my bounty:  9
-round:  139
-my bounty:  9
-street:  0
-strength:  0.363125
-round:  140
-my bounty:  9
-round:  141
-my bounty:  9
-street:  0
-strength:  0.210625
-round:  142
-my bounty:  9
-round:  143
-my bounty:  9
-street:  0
-strength:  0.42125
-round:  144
-my bounty:  9
-round:  145
-my bounty:  9
-street:  0
-strength:  0.47
-street:  0
-strength:  0.498125
-round:  146
-my bounty:  9
-round:  147
-my bounty:  9
-street:  0
-strength:  0.563125
-street:  3
-strength:  0.35
-street:  4
-strength:  0.291875
-street:  5
-strength:  0.319375
-round:  148
-my bounty:  9
-round:  149
-my bounty:  9
-street:  0
-strength:  0.288125
-round:  150
-my bounty:  9
-round:  151
+strength:  0.530625
+round:  4
 my bounty:  T
 street:  0
-strength:  0.34875
-round:  152
-my bounty:  T
-round:  153
-my bounty:  T
-street:  0
-strength:  0.226875
-round:  154
-my bounty:  T
-round:  155
-my bounty:  T
-street:  0
-strength:  0.48
+strength:  0.51875
 street:  3
-strength:  0.47375
+strength:  0.27
 street:  4
-strength:  0.4425
-street:  5
-strength:  0.225625
-round:  156
-my bounty:  T
-round:  157
-my bounty:  T
-street:  0
-strength:  0.543125
-street:  0
-strength:  0.546875
-round:  158
-my bounty:  T
-round:  159
-my bounty:  T
-street:  0
-strength:  0.57875
-street:  3
-strength:  0.659375
-street:  4
-strength:  0.580625
-street:  5
-strength:  0.469375
-round:  160
-my bounty:  T
-round:  161
-my bounty:  T
-street:  0
-strength:  0.408125
-round:  162
-my bounty:  T
-round:  163
-my bounty:  T
-street:  0
-strength:  0.24125
-round:  164
-my bounty:  T
-round:  165
-my bounty:  T
-street:  0
-strength:  0.705625
-street:  3
-strength:  0.66875
-street:  4
-strength:  0.7175
-round:  166
-my bounty:  T
-round:  167
-my bounty:  T
-street:  0
-strength:  0.30125
-round:  168
-my bounty:  T
-round:  169
-my bounty:  T
-street:  0
-strength:  0.481875
-street:  3
-strength:  0.271875
-street:  4
-strength:  0.316875
-street:  5
-strength:  0.795625
-round:  170
-my bounty:  T
-round:  171
-my bounty:  T
-street:  0
-strength:  0.485
-street:  3
-strength:  0.420625
-street:  4
-strength:  0.398125
-street:  5
-strength:  0.5225
-round:  172
-my bounty:  T
-round:  173
-my bounty:  T
-street:  0
-strength:  0.49875
-street:  3
-strength:  0.92625
-street:  4
-strength:  0.895
-street:  5
-strength:  0.951875
-round:  174
-my bounty:  T
-round:  175
-my bounty:  T
-street:  0
-strength:  0.52625
-round:  176
-my bounty:  J
-round:  177
-my bounty:  J
-street:  0
-strength:  0.58875
-round:  178
-my bounty:  J
-round:  179
-my bounty:  J
-street:  0
-strength:  0.5825
-street:  3
-strength:  0.836875
-street:  4
-strength:  0.875
-round:  180
-my bounty:  J
-round:  181
-my bounty:  J
-street:  0
-strength:  0.40125
-round:  182
-my bounty:  J
-round:  183
-my bounty:  J
-street:  0
-strength:  0.296875
-round:  184
-my bounty:  J
-round:  185
-my bounty:  J
-street:  0
-strength:  0.485625
-street:  0
-strength:  0.5525
-round:  186
-my bounty:  J
-round:  187
-my bounty:  J
-street:  0
-strength:  0.334375
-round:  188
-my bounty:  J
-round:  189
-my bounty:  J
-street:  0
-strength:  0.425625
-round:  190
-my bounty:  J
-round:  191
-my bounty:  J
-street:  0
-strength:  0.4375
-round:  192
-my bounty:  J
-round:  193
-my bounty:  J
-street:  0
-strength:  0.5625
-street:  3
-strength:  0.2825
-street:  4
-strength:  0.423125
-street:  5
-strength:  0.365
-round:  194
-my bounty:  J
-round:  195
-my bounty:  J
-street:  0
-strength:  0.41875
-round:  196
-my bounty:  J
-round:  197
-my bounty:  J
-street:  0
-strength:  0.601875
-street:  3
-strength:  0.493125
-street:  4
-strength:  0.48125
-round:  198
-my bounty:  J
-round:  199
-my bounty:  J
-street:  0
-strength:  0.32
-round:  200
-my bounty:  J
-round:  201
-my bounty:  K
-street:  0
-strength:  0.37
-round:  202
-my bounty:  K
-round:  203
-my bounty:  K
-street:  0
-strength:  0.60125
-street:  3
-strength:  0.52375
-street:  4
-strength:  0.4725
-street:  5
-strength:  0.865
-round:  204
-my bounty:  K
-round:  205
-my bounty:  K
-street:  0
-strength:  0.30625
-round:  206
-my bounty:  K
-round:  207
-my bounty:  K
-street:  0
-strength:  0.525
-street:  0
-strength:  0.554375
-round:  208
-my bounty:  K
-round:  209
-my bounty:  K
-street:  0
-strength:  0.32125
-round:  210
-my bounty:  K
-round:  211
-my bounty:  K
-street:  0
-strength:  0.445
-street:  3
-strength:  0.3425
-street:  4
-strength:  0.225625
-street:  5
-strength:  0.2125
-round:  212
-my bounty:  K
-round:  213
-my bounty:  K
-street:  0
-strength:  0.641875
-street:  3
-strength:  0.506875
-street:  4
-strength:  0.38
-street:  5
-strength:  0.11375
-round:  214
-my bounty:  K
-round:  215
-my bounty:  K
-street:  0
-strength:  0.42125
-round:  216
-my bounty:  K
-round:  217
-my bounty:  K
-street:  0
-strength:  0.38625
-round:  218
-my bounty:  K
-round:  219
-my bounty:  K
-street:  0
-strength:  0.5775
-street:  3
-strength:  0.3425
-street:  4
-strength:  0.56375
-street:  5
-strength:  0.2925
-round:  220
-my bounty:  K
-round:  221
-my bounty:  K
-street:  0
-strength:  0.45
-street:  0
-strength:  0.43625
-round:  222
-my bounty:  K
-round:  223
-my bounty:  K
-street:  0
-strength:  0.5825
-street:  3
-strength:  0.445
-street:  4
-strength:  0.480625
-round:  224
-my bounty:  K
-round:  225
-my bounty:  K
-street:  0
-strength:  0.478125
-round:  226
-my bounty:  3
-round:  227
-my bounty:  3
-street:  0
-strength:  0.574375
-street:  0
-strength:  0.45125
-round:  228
-my bounty:  3
-round:  229
-my bounty:  3
-street:  0
-strength:  0.5225
-street:  0
-strength:  0.464375
-round:  230
-my bounty:  3
-round:  231
-my bounty:  3
-street:  0
-strength:  0.2775
-round:  232
-my bounty:  3
-round:  233
-my bounty:  3
-street:  0
-strength:  0.455
-round:  234
-my bounty:  3
-round:  235
-my bounty:  3
-street:  0
-strength:  0.469375
-street:  3
-strength:  0.434375
-street:  4
-strength:  0.310625
-street:  5
-strength:  0.1375
-round:  236
-my bounty:  3
-round:  237
-my bounty:  3
-street:  0
-strength:  0.474375
-street:  3
-strength:  0.4825
-street:  4
-strength:  0.36625
-street:  5
-strength:  0.17875
-round:  238
-my bounty:  3
-round:  239
-my bounty:  3
-street:  0
-strength:  0.398125
-street:  3
-strength:  0.135625
-street:  4
-strength:  0.15375
-street:  5
-strength:  0.100625
-round:  240
-my bounty:  3
-round:  241
-my bounty:  3
-street:  0
-strength:  0.305625
-round:  242
-my bounty:  3
-round:  243
-my bounty:  3
-street:  0
-strength:  0.510625
-street:  3
-strength:  0.84875
-street:  4
-strength:  0.73875
-street:  5
-strength:  0.61
-round:  244
-my bounty:  3
-round:  245
-my bounty:  3
-street:  0
-strength:  0.34125
-round:  246
-my bounty:  3
-round:  247
-my bounty:  3
-street:  0
-strength:  0.40875
-street:  0
-strength:  0.423125
-round:  248
-my bounty:  3
-round:  249
-my bounty:  3
-street:  0
-strength:  0.5225
-street:  0
-strength:  0.488125
-round:  250
-my bounty:  3
-round:  251
-my bounty:  J
-street:  0
-strength:  0.276875
-round:  252
-my bounty:  J
-round:  253
-my bounty:  J
-street:  0
-strength:  0.55
-street:  3
-strength:  0.484375
-street:  4
-strength:  0.320625
-round:  254
-my bounty:  J
-round:  255
-my bounty:  J
-street:  0
-strength:  0.4175
-round:  256
-my bounty:  J
-round:  257
-my bounty:  J
-street:  0
-strength:  0.238125
-round:  258
-my bounty:  J
-round:  259
-my bounty:  J
-street:  0
-strength:  0.454375
-round:  260
-my bounty:  J
-round:  261
-my bounty:  J
-street:  0
-strength:  0.28875
-round:  262
-my bounty:  J
-round:  263
-my bounty:  J
-street:  0
-strength:  0.351875
-round:  264
-my bounty:  J
-round:  265
-my bounty:  J
-street:  0
-strength:  0.34875
-round:  266
-my bounty:  J
-round:  267
-my bounty:  J
-street:  0
-strength:  0.481875
-round:  268
-my bounty:  J
-round:  269
-my bounty:  J
-street:  0
-strength:  0.3775
-round:  270
-my bounty:  J
-round:  271
-my bounty:  J
-street:  0
-strength:  0.344375
-round:  272
-my bounty:  J
-round:  273
-my bounty:  J
-street:  0
-strength:  0.556875
-round:  274
-my bounty:  J
-round:  275
-my bounty:  J
-street:  0
-strength:  0.534375
-street:  3
-strength:  0.31375
-street:  4
-strength:  0.209375
-street:  5
-strength:  0.11875
-round:  276
-my bounty:  9
-round:  277
-my bounty:  9
-street:  0
-strength:  0.551875
-round:  278
-my bounty:  9
-round:  279
-my bounty:  9
-street:  0
-strength:  0.41125
-round:  280
-my bounty:  9
-round:  281
-my bounty:  9
-street:  0
-strength:  0.535625
-street:  0
-strength:  0.57625
-round:  282
-my bounty:  9
-round:  283
-my bounty:  9
-street:  0
-strength:  0.299375
-round:  284
-my bounty:  9
-round:  285
-my bounty:  9
-street:  0
-strength:  0.34375
-round:  286
-my bounty:  9
-round:  287
-my bounty:  9
-street:  0
-strength:  0.420625
-round:  288
-my bounty:  9
-round:  289
-my bounty:  9
-street:  0
-strength:  0.593125
-street:  0
-strength:  0.614375
-street:  3
-strength:  0.511875
-street:  4
-strength:  0.450625
-street:  5
-strength:  0.858125
-round:  290
-my bounty:  9
-round:  291
-my bounty:  9
-street:  0
-strength:  0.43375
-round:  292
-my bounty:  9
-round:  293
-my bounty:  9
-street:  0
-strength:  0.356875
-round:  294
-my bounty:  9
-round:  295
-my bounty:  9
-street:  0
-strength:  0.371875
-round:  296
-my bounty:  9
-round:  297
-my bounty:  9
-street:  0
-strength:  0.554375
-street:  3
-strength:  0.36375
-street:  4
-strength:  0.159375
-street:  5
-strength:  0.34
-round:  298
-my bounty:  9
-round:  299
-my bounty:  9
-street:  0
-strength:  0.533125
-round:  300
-my bounty:  9
-round:  301
-my bounty:  5
-street:  0
-strength:  0.555
-round:  302
-my bounty:  5
-round:  303
-my bounty:  5
-street:  0
-strength:  0.360625
-round:  304
-my bounty:  5
-round:  305
-my bounty:  5
-street:  0
-strength:  0.159375
-round:  306
-my bounty:  5
-round:  307
-my bounty:  5
-street:  0
-strength:  0.4425
-street:  0
-strength:  0.430625
-round:  308
-my bounty:  5
-round:  309
-my bounty:  5
-street:  0
-strength:  0.51375
-round:  310
-my bounty:  5
-round:  311
-my bounty:  5
-street:  0
-strength:  0.454375
-street:  3
-strength:  0.349375
-street:  4
-strength:  0.358125
+strength:  0.211875
 street:  5
 strength:  0.259375
-round:  312
-my bounty:  5
-round:  313
-my bounty:  5
-street:  0
-strength:  0.41125
-round:  314
-my bounty:  5
-round:  315
-my bounty:  5
-street:  0
-strength:  0.460625
-round:  316
-my bounty:  5
-round:  317
-my bounty:  5
-street:  0
-strength:  0.400625
-round:  318
-my bounty:  5
-round:  319
-my bounty:  5
-street:  0
-strength:  0.489375
-round:  320
-my bounty:  5
-round:  321
-my bounty:  5
-street:  0
-strength:  0.29125
-round:  322
-my bounty:  5
-round:  323
-my bounty:  5
-street:  0
-strength:  0.26125
-round:  324
-my bounty:  5
-round:  325
-my bounty:  5
-street:  0
-strength:  0.41375
-round:  326
-my bounty:  Q
-round:  327
-my bounty:  Q
-street:  0
-strength:  0.4425
-round:  328
-my bounty:  Q
-round:  329
-my bounty:  Q
-street:  0
-strength:  0.510625
-street:  0
-strength:  0.58125
-round:  330
-my bounty:  Q
-round:  331
-my bounty:  Q
-street:  0
-strength:  0.396875
-round:  332
-my bounty:  Q
-round:  333
-my bounty:  Q
-street:  0
-strength:  0.235625
-round:  334
-my bounty:  Q
-round:  335
-my bounty:  Q
-street:  0
-strength:  0.49875
-street:  3
-strength:  0.650625
-street:  4
-strength:  0.67875
 street:  5
-strength:  0.61
-round:  336
-my bounty:  Q
-round:  337
-my bounty:  Q
+strength:  0.203125
+round:  5
+my bounty:  T
 street:  0
-strength:  0.413125
-round:  338
-my bounty:  Q
-round:  339
-my bounty:  Q
+strength:  0.399375
+round:  6
+my bounty:  T
 street:  0
-strength:  0.491875
+strength:  0.46125
 street:  3
-strength:  0.331875
+strength:  0.581875
 street:  4
-strength:  0.485
+strength:  0.445625
 street:  5
-strength:  0.4975
-round:  340
-my bounty:  Q
-round:  341
-my bounty:  Q
+strength:  0.143125
+round:  7
+my bounty:  T
 street:  0
-strength:  0.370625
-round:  342
-my bounty:  Q
-round:  343
-my bounty:  Q
+strength:  0.3425
+round:  8
+my bounty:  T
+round:  9
+my bounty:  T
 street:  0
-strength:  0.369375
-round:  344
-my bounty:  Q
-round:  345
-my bounty:  Q
+strength:  0.475625
 street:  0
-strength:  0.45875
+strength:  0.435625
+round:  10
+my bounty:  T
+round:  11
+my bounty:  T
+street:  0
+strength:  0.5075
+round:  12
+my bounty:  T
+street:  0
+strength:  0.346875
+round:  13
+my bounty:  T
+street:  0
+strength:  0.3025
+round:  14
+my bounty:  T
+street:  0
+strength:  0.295
+round:  15
+my bounty:  T
+street:  0
+strength:  0.5675
+round:  16
+my bounty:  T
+street:  0
+strength:  0.48125
 street:  3
-strength:  0.34875
+strength:  0.395
 street:  4
-strength:  0.7975
+strength:  0.354375
 street:  5
-strength:  0.65625
-round:  346
-my bounty:  Q
-round:  347
-my bounty:  Q
-street:  0
-strength:  0.434375
-round:  348
-my bounty:  Q
-round:  349
-my bounty:  Q
-street:  0
-strength:  0.326875
-round:  350
-my bounty:  Q
-round:  351
-my bounty:  4
-street:  0
-strength:  0.249375
-round:  352
-my bounty:  4
-round:  353
-my bounty:  4
-street:  0
-strength:  0.27125
-round:  354
-my bounty:  4
-round:  355
-my bounty:  4
-street:  0
-strength:  0.53625
-round:  356
-my bounty:  4
-round:  357
-my bounty:  4
-street:  0
-strength:  0.575
-street:  3
-strength:  0.423125
-street:  4
-strength:  0.508125
-street:  5
-strength:  0.319375
-round:  358
-my bounty:  4
-round:  359
-my bounty:  4
-street:  0
-strength:  0.450625
-round:  360
-my bounty:  4
-round:  361
-my bounty:  4
-street:  0
-strength:  0.46625
-round:  362
-my bounty:  4
-round:  363
-my bounty:  4
-street:  0
-strength:  0.385
-street:  3
-strength:  0.218125
-street:  4
-strength:  0.696875
-street:  5
-strength:  0.691875
-round:  364
-my bounty:  4
-round:  365
-my bounty:  4
-street:  0
-strength:  0.524375
-round:  366
-my bounty:  4
-round:  367
-my bounty:  4
-street:  0
-strength:  0.49375
-street:  3
-strength:  0.699375
-street:  4
-strength:  0.615
-street:  5
-strength:  0.971875
-round:  368
-my bounty:  4
-round:  369
-my bounty:  4
-street:  0
-strength:  0.585
-street:  0
-strength:  0.57125
-round:  370
-my bounty:  4
-round:  371
-my bounty:  4
-street:  0
-strength:  0.423125
-round:  372
-my bounty:  4
-round:  373
-my bounty:  4
-street:  0
-strength:  0.576875
-street:  3
-strength:  0.78875
-street:  4
-strength:  0.89375
-round:  374
-my bounty:  4
-round:  375
-my bounty:  4
-street:  0
-strength:  0.361875
-round:  376
-my bounty:  7
-round:  377
-my bounty:  7
-street:  0
-strength:  0.30875
-round:  378
-my bounty:  7
-round:  379
-my bounty:  7
-street:  0
-strength:  0.485
-street:  3
-strength:  0.29375
-street:  4
-strength:  0.2225
-street:  5
-strength:  0.129375
-round:  380
-my bounty:  7
-round:  381
-my bounty:  7
-street:  0
-strength:  0.2975
-round:  382
-my bounty:  7
-round:  383
-my bounty:  7
-street:  0
-strength:  0.350625
-round:  384
-my bounty:  7
-round:  385
-my bounty:  7
-street:  0
-strength:  0.47625
-round:  386
-my bounty:  7
-round:  387
-my bounty:  7
-street:  0
-strength:  0.2925
-round:  388
-my bounty:  7
-round:  389
-my bounty:  7
-street:  0
-strength:  0.433125
-street:  3
-strength:  0.420625
-street:  4
-strength:  0.225
-street:  5
-strength:  0.9125
-round:  390
-my bounty:  7
-round:  391
-my bounty:  7
-street:  0
-strength:  0.40625
-round:  392
-my bounty:  7
-round:  393
-my bounty:  7
-street:  0
-strength:  0.31875
-round:  394
-my bounty:  7
-round:  395
-my bounty:  7
-street:  0
-strength:  0.51375
-round:  396
-my bounty:  7
-round:  397
-my bounty:  7
-street:  0
-strength:  0.30625
-round:  398
-my bounty:  7
-round:  399
-my bounty:  7
-street:  0
-strength:  0.53375
-round:  400
-my bounty:  7
-round:  401
-my bounty:  A
-street:  0
-strength:  0.374375
-round:  402
-my bounty:  A
-round:  403
-my bounty:  A
+strength:  0.613125
+round:  17
+my bounty:  T
 street:  0
 strength:  0.501875
 street:  3
-strength:  0.38
+strength:  0.4825
 street:  4
-strength:  0.32625
+strength:  0.455625
 street:  5
-strength:  0.19125
-round:  404
-my bounty:  A
-round:  405
+strength:  0.26
+round:  18
+my bounty:  T
+street:  0
+strength:  0.30375
+round:  19
+my bounty:  T
+street:  0
+strength:  0.273125
+round:  20
+my bounty:  T
+street:  0
+strength:  0.614375
+round:  21
+my bounty:  T
+street:  0
+strength:  0.635
+round:  22
+my bounty:  T
+round:  23
+my bounty:  T
+street:  0
+strength:  0.37625
+round:  24
+my bounty:  T
+round:  25
+my bounty:  T
+street:  0
+strength:  0.433125
+street:  0
+strength:  0.5
+round:  26
+my bounty:  6
+round:  27
+my bounty:  6
+street:  0
+strength:  0.341875
+round:  28
+my bounty:  6
+street:  0
+strength:  0.485625
+street:  3
+strength:  0.380625
+street:  4
+strength:  0.64125
+street:  5
+strength:  0.775625
+round:  29
+my bounty:  6
+street:  0
+strength:  0.351875
+round:  30
+my bounty:  6
+street:  0
+strength:  0.3875
+round:  31
+my bounty:  6
+street:  0
+strength:  0.296875
+round:  32
+my bounty:  6
+round:  33
+my bounty:  6
+street:  0
+strength:  0.499375
+round:  34
+my bounty:  6
+round:  35
+my bounty:  6
+street:  0
+strength:  0.339375
+round:  36
+my bounty:  6
+street:  0
+strength:  0.506875
+street:  3
+strength:  0.4075
+street:  4
+strength:  0.55875
+street:  5
+strength:  0.73125
+round:  37
+my bounty:  6
+street:  0
+strength:  0.60625
+round:  38
+my bounty:  6
+round:  39
+my bounty:  6
+street:  0
+strength:  0.5325
+street:  3
+strength:  0.599375
+street:  4
+strength:  0.509375
+street:  5
+strength:  0.75875
+round:  40
+my bounty:  6
+round:  41
+my bounty:  6
+street:  0
+strength:  0.4175
+street:  3
+strength:  0.360625
+street:  4
+strength:  0.585625
+street:  5
+strength:  0.326875
+round:  42
+my bounty:  6
+street:  0
+strength:  0.275625
+round:  43
+my bounty:  6
+street:  0
+strength:  0.66875
+street:  0
+strength:  0.706875
+street:  3
+strength:  0.74
+round:  44
+my bounty:  6
+round:  45
+my bounty:  6
+street:  0
+strength:  0.34375
+round:  46
+my bounty:  6
+round:  47
+my bounty:  6
+street:  0
+strength:  0.345
+round:  48
+my bounty:  6
+round:  49
+my bounty:  6
+street:  0
+strength:  0.230625
+round:  50
+my bounty:  6
+street:  0
+strength:  0.32375
+round:  51
 my bounty:  A
 street:  0
-strength:  0.309375
-round:  406
+strength:  0.460625
+street:  0
+strength:  0.445625
+round:  52
 my bounty:  A
-round:  407
+street:  0
+strength:  0.509375
+street:  3
+strength:  0.301875
+street:  4
+strength:  0.23
+street:  5
+strength:  0.118125
+round:  53
+my bounty:  A
+street:  0
+strength:  0.27
+round:  54
+my bounty:  A
+street:  0
+strength:  0.261875
+round:  55
+my bounty:  A
+street:  0
+strength:  0.53125
+street:  3
+strength:  0.3725
+street:  4
+strength:  0.284375
+street:  5
+strength:  0.384375
+round:  56
+my bounty:  A
+street:  0
+strength:  0.6
+round:  57
+my bounty:  A
+street:  0
+strength:  0.325625
+round:  58
+my bounty:  A
+round:  59
+my bounty:  A
+street:  0
+strength:  0.230625
+round:  60
+my bounty:  A
+street:  0
+strength:  0.27625
+round:  61
 my bounty:  A
 street:  0
 strength:  0.46125
-round:  408
-my bounty:  A
-round:  409
-my bounty:  A
-street:  0
-strength:  0.4825
-street:  0
-strength:  0.505625
-round:  410
-my bounty:  A
-round:  411
-my bounty:  A
-street:  0
-strength:  0.55
 street:  3
-strength:  0.270625
+strength:  0.450625
 street:  4
-strength:  0.303125
+strength:  0.315
 street:  5
+strength:  0.419375
+round:  62
+my bounty:  A
+street:  0
+strength:  0.389375
+round:  63
+my bounty:  A
+street:  0
 strength:  0.35375
-round:  412
-my bounty:  A
-round:  413
+round:  64
 my bounty:  A
 street:  0
-strength:  0.696875
-street:  3
+strength:  0.360625
+round:  65
+my bounty:  A
+street:  0
+strength:  0.32
+round:  66
+my bounty:  A
+round:  67
+my bounty:  A
+street:  0
 strength:  0.435
-street:  4
-strength:  0.398125
-street:  5
-strength:  0.32875
-round:  414
-my bounty:  A
-round:  415
+round:  68
 my bounty:  A
 street:  0
-strength:  0.269375
-round:  416
-my bounty:  A
-round:  417
-my bounty:  A
-street:  0
-strength:  0.596875
+strength:  0.481875
 street:  3
-strength:  0.5725
+strength:  0.94
+round:  69
+my bounty:  A
+street:  0
+strength:  0.43625
+round:  70
+my bounty:  A
+street:  0
+strength:  0.521875
+street:  3
+strength:  0.831875
+round:  71
+my bounty:  A
+street:  0
+strength:  0.540625
+street:  0
+strength:  0.586875
+round:  72
+my bounty:  A
+round:  73
+my bounty:  A
+street:  0
+strength:  0.286875
+round:  74
+my bounty:  A
+round:  75
+my bounty:  A
+street:  0
+strength:  0.8075
+street:  3
+strength:  0.93625
 street:  4
-strength:  0.36375
-round:  418
-my bounty:  A
-round:  419
-my bounty:  A
+strength:  1.0
+street:  5
+strength:  1.0
+round:  76
+my bounty:  3
+round:  77
+my bounty:  3
 street:  0
-strength:  0.525625
-round:  420
-my bounty:  A
-round:  421
-my bounty:  A
+strength:  0.32625
+round:  78
+my bounty:  3
+round:  79
+my bounty:  3
 street:  0
-strength:  0.434375
-round:  422
-my bounty:  A
-round:  423
-my bounty:  A
+strength:  0.2675
+round:  80
+my bounty:  3
+round:  81
+my bounty:  3
+street:  0
+strength:  0.248125
+round:  82
+my bounty:  3
+street:  0
+strength:  0.48125
+street:  3
+strength:  0.268125
+street:  4
+strength:  0.194375
+street:  5
+strength:  0.2375
+street:  5
+strength:  0.16375
+round:  83
+my bounty:  3
+street:  0
+strength:  0.215625
+round:  84
+my bounty:  3
+round:  85
+my bounty:  3
+street:  0
+strength:  0.421875
+round:  86
+my bounty:  3
+street:  0
+strength:  0.548125
+street:  3
+strength:  0.96125
+round:  87
+my bounty:  3
+street:  0
+strength:  0.349375
+round:  88
+my bounty:  3
+street:  0
+strength:  0.516875
+street:  3
+strength:  0.715625
+street:  4
+strength:  0.774375
+round:  89
+my bounty:  3
+street:  0
+strength:  0.480625
+round:  90
+my bounty:  3
+round:  91
+my bounty:  3
+street:  0
+strength:  0.375625
+round:  92
+my bounty:  3
+street:  0
+strength:  0.351875
+round:  93
+my bounty:  3
+street:  0
+strength:  0.570625
+round:  94
+my bounty:  3
+street:  0
+strength:  0.7225
+round:  95
+my bounty:  3
+street:  0
+strength:  0.414375
+round:  96
+my bounty:  3
+street:  0
+strength:  0.385
+round:  97
+my bounty:  3
+street:  0
+strength:  0.384375
+round:  98
+my bounty:  3
+street:  0
+strength:  0.40125
+round:  99
+my bounty:  3
+street:  0
+strength:  0.661875
+round:  100
+my bounty:  3
+street:  0
+strength:  0.28
+round:  101
+my bounty:  K
+street:  0
+strength:  0.199375
+round:  102
+my bounty:  K
+street:  0
+strength:  0.346875
+round:  103
+my bounty:  K
+street:  0
+strength:  0.59875
+round:  104
+my bounty:  K
+round:  105
+my bounty:  K
+street:  0
+strength:  0.52125
+street:  3
+strength:  0.490625
+street:  4
+strength:  0.315625
+street:  5
+strength:  0.513125
+round:  106
+my bounty:  K
+round:  107
+my bounty:  K
+street:  0
+strength:  0.63125
+street:  3
+strength:  0.955
+round:  108
+my bounty:  K
+round:  109
+my bounty:  K
+street:  0
+strength:  0.389375
+street:  3
+strength:  0.25625
+street:  4
+strength:  0.704375
+round:  110
+my bounty:  K
+round:  111
+my bounty:  K
+street:  0
+strength:  0.460625
+street:  3
+strength:  0.20875
+street:  4
+strength:  0.245
+street:  5
+strength:  0.105
+round:  112
+my bounty:  K
+round:  113
+my bounty:  K
+street:  0
+strength:  0.6725
+round:  114
+my bounty:  K
+street:  0
+strength:  0.491875
+street:  3
+strength:  0.464375
+street:  4
+strength:  0.2825
+street:  5
+strength:  0.059375
+round:  115
+my bounty:  K
+street:  0
+strength:  0.29875
+round:  116
+my bounty:  K
+round:  117
+my bounty:  K
+street:  0
+strength:  0.290625
+round:  118
+my bounty:  K
+round:  119
+my bounty:  K
+street:  0
+strength:  0.51625
+street:  3
+strength:  0.38375
+street:  4
+strength:  0.391875
+street:  5
+strength:  0.44875
+round:  120
+my bounty:  K
+street:  0
+strength:  0.511875
+street:  3
+strength:  0.55875
+street:  4
+strength:  0.4375
+street:  5
+strength:  0.3825
+round:  121
+my bounty:  K
+street:  0
+strength:  0.8075
+street:  3
+strength:  0.885625
+street:  4
+strength:  1.0
+street:  5
+strength:  1.0
+round:  122
+my bounty:  K
+street:  0
+strength:  0.3375
+round:  123
+my bounty:  K
+street:  0
+strength:  0.4225
+round:  124
+my bounty:  K
+street:  0
+strength:  0.5425
+street:  3
+strength:  0.6775
+street:  4
+strength:  0.67875
+street:  5
+strength:  0.448125
+round:  125
+my bounty:  K
+street:  0
+strength:  0.515
+street:  3
+strength:  0.3975
+street:  4
+strength:  0.3575
+street:  5
+strength:  0.21
+round:  126
+my bounty:  2
+round:  127
+my bounty:  2
+street:  0
+strength:  0.58
+street:  3
+strength:  0.921875
+street:  4
+strength:  0.864375
+street:  5
+strength:  0.9325
+round:  128
+my bounty:  2
+street:  0
+strength:  0.32125
+round:  129
+my bounty:  2
+street:  0
+strength:  0.37
+round:  130
+my bounty:  2
+street:  0
+strength:  0.44125
+round:  131
+my bounty:  2
+street:  0
+strength:  0.448125
+round:  132
+my bounty:  2
+round:  133
+my bounty:  2
+street:  0
+strength:  0.513125
+street:  0
+strength:  0.6475
+street:  3
+strength:  0.7425
+street:  4
+strength:  0.79375
+round:  134
+my bounty:  2
+street:  0
+strength:  0.689375
+round:  135
+my bounty:  2
+street:  0
+strength:  0.47
+street:  3
+strength:  0.49375
+street:  4
+strength:  0.310625
+street:  5
+strength:  0.995
+round:  136
+my bounty:  2
+round:  137
+my bounty:  2
 street:  0
 strength:  0.365
-round:  424
-my bounty:  A
-round:  425
-my bounty:  A
+round:  138
+my bounty:  2
+round:  139
+my bounty:  2
 street:  0
-strength:  0.494375
-round:  426
+strength:  0.5825
+round:  140
+my bounty:  2
+street:  0
+strength:  0.48125
+street:  3
+strength:  0.53125
+street:  4
+strength:  0.47875
+street:  5
+strength:  0.316875
+round:  141
+my bounty:  2
+street:  0
+strength:  0.378125
+round:  142
+my bounty:  2
+round:  143
+my bounty:  2
+street:  0
+strength:  0.45375
+street:  3
+strength:  0.2475
+street:  4
+strength:  0.276875
+street:  5
+strength:  0.109375
+round:  144
+my bounty:  2
+street:  0
+strength:  0.346875
+round:  145
+my bounty:  2
+street:  0
+strength:  0.31125
+round:  146
+my bounty:  2
+round:  147
+my bounty:  2
+street:  0
+strength:  0.546875
+round:  148
+my bounty:  2
+street:  0
+strength:  0.458125
+street:  3
+strength:  0.396875
+street:  4
+strength:  0.763125
+street:  4
+strength:  0.789375
+street:  5
+strength:  0.819375
+round:  149
+my bounty:  2
+street:  0
+strength:  0.239375
+round:  150
+my bounty:  2
+street:  0
+strength:  0.42625
+round:  151
+my bounty:  6
+street:  0
+strength:  0.579375
+round:  152
+my bounty:  6
+round:  153
+my bounty:  6
+street:  0
+strength:  0.445625
+round:  154
+my bounty:  6
+street:  0
+strength:  0.323125
+round:  155
+my bounty:  6
+street:  0
+strength:  0.374375
+street:  3
+strength:  0.26625
+street:  4
+strength:  0.25
+street:  5
+strength:  0.204375
+round:  156
+my bounty:  6
+street:  0
+strength:  0.361875
+round:  157
+my bounty:  6
+street:  0
+strength:  0.46125
+round:  158
+my bounty:  6
+street:  0
+strength:  0.3175
+round:  159
+my bounty:  6
+street:  0
+strength:  0.335
+round:  160
+my bounty:  6
+street:  0
+strength:  0.585625
+round:  161
+my bounty:  6
+street:  0
+strength:  0.443125
+street:  3
+strength:  0.743125
+street:  4
+strength:  0.645
+street:  5
+strength:  0.681875
+round:  162
+my bounty:  6
+street:  0
+strength:  0.505625
+street:  3
+strength:  0.43875
+street:  4
+strength:  0.3475
+street:  5
+strength:  0.29
+round:  163
+my bounty:  6
+street:  0
+strength:  0.57125
+round:  164
+my bounty:  6
+street:  0
+strength:  0.55875
+street:  3
+strength:  0.68125
+street:  4
+strength:  0.64125
+street:  5
+strength:  0.523125
+street:  5
+strength:  0.4625
+round:  165
+my bounty:  6
+street:  0
+strength:  0.499375
+round:  166
+my bounty:  6
+round:  167
+my bounty:  6
+street:  0
+strength:  0.556875
+street:  3
+strength:  0.7575
+street:  4
+strength:  0.71625
+street:  5
+strength:  0.799375
+round:  168
+my bounty:  6
+round:  169
+my bounty:  6
+street:  0
+strength:  0.575625
+round:  170
+my bounty:  6
+round:  171
+my bounty:  6
+street:  0
+strength:  0.300625
+round:  172
+my bounty:  6
+round:  173
+my bounty:  6
+street:  0
+strength:  0.544375
+round:  174
+my bounty:  6
+street:  0
+strength:  0.491875
+street:  3
+strength:  0.560625
+street:  4
+strength:  0.48125
+street:  5
+strength:  0.679375
+round:  175
+my bounty:  6
+street:  0
+strength:  0.54875
+street:  3
+strength:  0.805
+round:  176
 my bounty:  8
-round:  427
+round:  177
 my bounty:  8
+street:  0
+strength:  0.503125
+round:  178
+my bounty:  8
+street:  0
+strength:  0.385625
+round:  179
+my bounty:  8
+street:  0
+strength:  0.585625
+round:  180
+my bounty:  8
+round:  181
+my bounty:  8
+street:  0
+strength:  0.7825
+street:  3
+strength:  0.7925
+street:  4
+strength:  0.875
+street:  5
+strength:  0.7925
+round:  182
+my bounty:  8
+round:  183
+my bounty:  8
+street:  0
+strength:  0.371875
+round:  184
+my bounty:  8
+street:  0
+strength:  0.4
+round:  185
+my bounty:  8
+street:  0
+strength:  0.5475
+round:  186
+my bounty:  8
+round:  187
+my bounty:  8
+street:  0
+strength:  0.5825
+street:  0
+strength:  0.54625
+round:  188
+my bounty:  8
+street:  0
+strength:  0.37
+round:  189
+my bounty:  8
+street:  0
+strength:  0.336875
+round:  190
+my bounty:  8
+street:  0
+strength:  0.71125
+street:  3
+strength:  0.640625
+street:  4
+strength:  0.63
+street:  4
+strength:  0.698125
+round:  191
+my bounty:  8
+street:  0
+strength:  0.575625
+street:  0
+strength:  0.44
+round:  192
+my bounty:  8
+round:  193
+my bounty:  8
+street:  0
+strength:  0.33375
+round:  194
+my bounty:  8
+street:  0
+strength:  0.271875
+round:  195
+my bounty:  8
+street:  0
+strength:  0.446875
+round:  196
+my bounty:  8
+street:  0
+strength:  0.320625
+round:  197
+my bounty:  8
+street:  0
+strength:  0.508125
+round:  198
+my bounty:  8
+street:  0
+strength:  0.490625
+street:  3
+strength:  0.34
+street:  4
+strength:  0.315
+street:  5
+strength:  0.10125
+round:  199
+my bounty:  8
+street:  0
+strength:  0.41125
+street:  3
+strength:  0.6825
+street:  4
+strength:  0.728125
+street:  5
+strength:  0.70625
+round:  200
+my bounty:  8
+round:  201
+my bounty:  J
+street:  0
+strength:  0.383125
+round:  202
+my bounty:  J
+round:  203
+my bounty:  J
+street:  0
+strength:  0.504375
+round:  204
+my bounty:  J
+street:  0
+strength:  0.5325
+street:  3
+strength:  0.370625
+street:  4
+strength:  0.370625
+street:  4
+strength:  0.375625
+round:  205
+my bounty:  J
+street:  0
+strength:  0.475
+round:  206
+my bounty:  J
+street:  0
+strength:  0.289375
+round:  207
+my bounty:  J
+street:  0
+strength:  0.461875
+round:  208
+my bounty:  J
+street:  0
+strength:  0.365625
+round:  209
+my bounty:  J
+street:  0
+strength:  0.35125
+round:  210
+my bounty:  J
+street:  0
+strength:  0.258125
+round:  211
+my bounty:  J
+street:  0
+strength:  0.600625
+round:  212
+my bounty:  J
+round:  213
+my bounty:  J
 street:  0
 strength:  0.5925
+street:  0
+strength:  0.50625
+round:  214
+my bounty:  J
+street:  0
+strength:  0.590625
+round:  215
+my bounty:  J
+street:  0
+strength:  0.856875
 street:  3
-strength:  0.3825
+strength:  0.7375
+round:  216
+my bounty:  J
+street:  0
+strength:  0.5275
+street:  3
+strength:  0.695
+street:  3
+strength:  0.68875
+round:  217
+my bounty:  J
+street:  0
+strength:  0.3475
+round:  218
+my bounty:  J
+round:  219
+my bounty:  J
+street:  0
+strength:  0.48375
+round:  220
+my bounty:  J
+street:  0
+strength:  0.423125
+round:  221
+my bounty:  J
+street:  0
+strength:  0.49125
+round:  222
+my bounty:  J
+street:  0
+strength:  0.268125
+round:  223
+my bounty:  J
+street:  0
+strength:  0.4175
+round:  224
+my bounty:  J
+street:  0
+strength:  0.55375
+street:  3
+strength:  0.298125
 street:  4
-strength:  0.465625
+strength:  0.29125
+street:  4
+strength:  0.370625
+round:  225
+my bounty:  J
+street:  0
+strength:  0.4725
+street:  3
+strength:  0.44
+street:  4
+strength:  0.40625
 street:  5
-strength:  0.46125
-round:  428
+strength:  0.204375
+round:  226
 my bounty:  8
-round:  429
+street:  0
+strength:  0.44625
+round:  227
+my bounty:  8
+street:  0
+strength:  0.439375
+round:  228
+my bounty:  8
+round:  229
+my bounty:  8
+street:  0
+strength:  0.51375
+round:  230
+my bounty:  8
+round:  231
+my bounty:  8
+street:  0
+strength:  0.213125
+round:  232
+my bounty:  8
+street:  0
+strength:  0.533125
+street:  3
+strength:  0.77375
+street:  4
+strength:  0.73875
+street:  5
+strength:  0.71625
+street:  5
+strength:  0.666875
+round:  233
+my bounty:  8
+street:  0
+strength:  0.37
+round:  234
+my bounty:  8
+street:  0
+strength:  0.484375
+street:  3
+strength:  0.27125
+street:  3
+strength:  0.320625
+round:  235
+my bounty:  8
+street:  0
+strength:  0.270625
+round:  236
+my bounty:  8
+street:  0
+strength:  0.428125
+round:  237
+my bounty:  8
+street:  0
+strength:  0.543125
+round:  238
+my bounty:  8
+street:  0
+strength:  0.445
+round:  239
+my bounty:  8
+street:  0
+strength:  0.348125
+round:  240
+my bounty:  8
+street:  0
+strength:  0.28875
+round:  241
+my bounty:  8
+street:  0
+strength:  0.445625
+round:  242
+my bounty:  8
+round:  243
+my bounty:  8
+street:  0
+strength:  0.5025
+round:  244
+my bounty:  8
+street:  0
+strength:  0.4925
+street:  3
+strength:  0.2825
+street:  4
+strength:  0.315
+street:  5
+strength:  0.18375
+round:  245
 my bounty:  8
 street:  0
 strength:  0.475625
 street:  0
-strength:  0.52
-round:  430
+strength:  0.525
+round:  246
 my bounty:  8
-round:  431
+round:  247
 my bounty:  8
+street:  0
+strength:  0.544375
+round:  248
+my bounty:  8
+round:  249
+my bounty:  8
+street:  0
+strength:  0.554375
+round:  250
+my bounty:  8
+street:  0
+strength:  0.43
+round:  251
+my bounty:  3
+street:  0
+strength:  0.295
+round:  252
+my bounty:  3
+round:  253
+my bounty:  3
+street:  0
+strength:  0.361875
+round:  254
+my bounty:  3
+round:  255
+my bounty:  3
+street:  0
+strength:  0.265
+round:  256
+my bounty:  3
+street:  0
+strength:  0.401875
+round:  257
+my bounty:  3
+street:  0
+strength:  0.43625
+round:  258
+my bounty:  3
+street:  0
+strength:  0.2025
+round:  259
+my bounty:  3
+street:  0
+strength:  0.27375
+round:  260
+my bounty:  3
+street:  0
+strength:  0.476875
+street:  3
+strength:  0.421875
+street:  4
+strength:  0.264375
+street:  5
+strength:  0.37625
+round:  261
+my bounty:  3
+street:  0
+strength:  0.31875
+round:  262
+my bounty:  3
+street:  0
+strength:  0.364375
+round:  263
+my bounty:  3
+street:  0
+strength:  0.51625
+round:  264
+my bounty:  3
+round:  265
+my bounty:  3
+street:  0
+strength:  0.316875
+round:  266
+my bounty:  3
+round:  267
+my bounty:  3
+street:  0
+strength:  0.6275
+street:  3
+strength:  0.505625
+street:  4
+strength:  0.483125
+street:  5
+strength:  0.76125
+round:  268
+my bounty:  3
+round:  269
+my bounty:  3
+street:  0
+strength:  0.564375
+street:  3
+strength:  0.339375
+street:  4
+strength:  0.268125
+street:  5
+strength:  0.894375
+round:  270
+my bounty:  3
+round:  271
+my bounty:  3
+street:  0
+strength:  0.626875
+street:  3
+strength:  0.8675
+street:  4
+strength:  0.773125
+street:  5
+strength:  0.86625
+round:  272
+my bounty:  3
+street:  0
+strength:  0.463125
+street:  3
+strength:  0.303125
+street:  4
+strength:  0.264375
+street:  5
+strength:  0.076875
+round:  273
+my bounty:  3
 street:  0
 strength:  0.455
-round:  432
-my bounty:  8
-round:  433
-my bounty:  8
+round:  274
+my bounty:  3
 street:  0
-strength:  0.373125
-round:  434
-my bounty:  8
-round:  435
-my bounty:  8
-street:  0
-strength:  0.54125
-round:  436
-my bounty:  8
-round:  437
-my bounty:  8
-street:  0
-strength:  0.325625
-round:  438
-my bounty:  8
-round:  439
-my bounty:  8
-street:  0
-strength:  0.365625
-round:  440
-my bounty:  8
-round:  441
-my bounty:  8
-street:  0
-strength:  0.53625
+strength:  0.503125
 street:  3
-strength:  0.4575
+strength:  0.309375
 street:  4
-strength:  0.273125
+strength:  0.220625
 street:  5
-strength:  0.12875
-round:  442
-my bounty:  8
-round:  443
+strength:  0.170625
+round:  275
+my bounty:  3
+street:  0
+strength:  0.569375
+street:  3
+strength:  0.5125
+street:  4
+strength:  0.418125
+street:  5
+strength:  0.4075
+round:  276
+my bounty:  T
+street:  0
+strength:  0.340625
+round:  277
+my bounty:  T
+street:  0
+strength:  0.400625
+round:  278
+my bounty:  T
+street:  0
+strength:  0.420625
+round:  279
+my bounty:  T
+street:  0
+strength:  0.463125
+round:  280
+my bounty:  T
+round:  281
+my bounty:  T
+street:  0
+strength:  0.56
+round:  282
+my bounty:  T
+street:  0
+strength:  0.3425
+round:  283
+my bounty:  T
+street:  0
+strength:  0.513125
+street:  3
+strength:  0.2825
+street:  4
+strength:  0.215
+street:  5
+strength:  0.056875
+round:  284
+my bounty:  T
+street:  0
+strength:  0.415625
+round:  285
+my bounty:  T
+street:  0
+strength:  0.354375
+round:  286
+my bounty:  T
+round:  287
+my bounty:  T
+street:  0
+strength:  0.2725
+round:  288
+my bounty:  T
+round:  289
+my bounty:  T
+street:  0
+strength:  0.60125
+street:  3
+strength:  0.66875
+street:  4
+strength:  0.81125
+street:  5
+strength:  0.85
+round:  290
+my bounty:  T
+round:  291
+my bounty:  T
+street:  0
+strength:  0.635625
+street:  3
+strength:  0.56875
+street:  4
+strength:  0.435625
+street:  5
+strength:  0.264375
+round:  292
+my bounty:  T
+street:  0
+strength:  0.36625
+round:  293
+my bounty:  T
+street:  0
+strength:  0.24625
+round:  294
+my bounty:  T
+round:  295
+my bounty:  T
+street:  0
+strength:  0.391875
+street:  3
+strength:  0.6425
+street:  4
+strength:  0.60625
+round:  296
+my bounty:  T
+street:  0
+strength:  0.285625
+round:  297
+my bounty:  T
+street:  0
+strength:  0.365
+round:  298
+my bounty:  T
+round:  299
+my bounty:  T
+street:  0
+strength:  0.27125
+round:  300
+my bounty:  T
+street:  0
+strength:  0.19125
+round:  301
+my bounty:  2
+street:  0
+strength:  0.358125
+round:  302
+my bounty:  2
+round:  303
+my bounty:  2
+street:  0
+strength:  0.473125
+street:  3
+strength:  0.485
+street:  4
+strength:  0.385
+street:  5
+strength:  0.3825
+round:  304
+my bounty:  2
+street:  0
+strength:  0.308125
+round:  305
+my bounty:  2
+street:  0
+strength:  0.3525
+round:  306
+my bounty:  2
+round:  307
+my bounty:  2
+street:  0
+strength:  0.549375
+round:  308
+my bounty:  2
+round:  309
+my bounty:  2
+street:  0
+strength:  0.27125
+round:  310
+my bounty:  2
+street:  0
+strength:  0.504375
+street:  3
+strength:  0.241875
+street:  4
+strength:  0.223125
+street:  5
+strength:  0.06875
+round:  311
+my bounty:  2
+street:  0
+strength:  0.328125
+round:  312
+my bounty:  2
+street:  0
+strength:  0.478125
+street:  3
+strength:  0.40625
+street:  4
+strength:  0.206875
+street:  5
+strength:  -0.05125
+round:  313
+my bounty:  2
+street:  0
+strength:  0.56625
+round:  314
+my bounty:  2
+street:  0
+strength:  0.480625
+street:  3
+strength:  0.3575
+street:  4
+strength:  0.331875
+street:  5
+strength:  0.565
+round:  315
+my bounty:  2
+street:  0
+strength:  0.3625
+round:  316
+my bounty:  2
+round:  317
+my bounty:  2
+street:  0
+strength:  0.575
+round:  318
+my bounty:  2
+street:  0
+strength:  0.42625
+round:  319
+my bounty:  2
+street:  0
+strength:  0.313125
+round:  320
+my bounty:  2
+round:  321
+my bounty:  2
+street:  0
+strength:  0.506875
+round:  322
+my bounty:  2
+street:  0
+strength:  0.3475
+round:  323
+my bounty:  2
+street:  0
+strength:  0.43
+round:  324
+my bounty:  2
+round:  325
+my bounty:  2
+street:  0
+strength:  0.389375
+round:  326
+my bounty:  9
+street:  0
+strength:  0.58375
+round:  327
+my bounty:  9
+street:  0
+strength:  0.774375
+street:  0
+strength:  0.725625
+street:  3
+strength:  0.66125
+round:  328
+my bounty:  9
+street:  0
+strength:  0.3275
+round:  329
+my bounty:  9
+street:  0
+strength:  0.3075
+round:  330
+my bounty:  9
+street:  0
+strength:  0.66625
+round:  331
+my bounty:  9
+street:  0
+strength:  0.4875
+round:  332
+my bounty:  9
+street:  0
+strength:  0.3575
+round:  333
+my bounty:  9
+street:  0
+strength:  0.319375
+round:  334
+my bounty:  9
+street:  0
+strength:  0.376875
+round:  335
+my bounty:  9
+street:  0
+strength:  0.450625
+round:  336
+my bounty:  9
+street:  0
+strength:  0.311875
+round:  337
+my bounty:  9
+street:  0
+strength:  0.545
+round:  338
+my bounty:  9
+round:  339
+my bounty:  9
+street:  0
+strength:  0.800625
+street:  3
+strength:  0.641875
+street:  4
+strength:  0.70875
+street:  5
+strength:  0.78375
+round:  340
+my bounty:  9
+round:  341
+my bounty:  9
+street:  0
+strength:  0.476875
+street:  3
+strength:  0.461875
+street:  4
+strength:  0.89875
+round:  342
+my bounty:  9
+round:  343
+my bounty:  9
+street:  0
+strength:  0.579375
+street:  3
+strength:  0.495
+street:  4
+strength:  0.3225
+street:  5
+strength:  0.220625
+round:  344
+my bounty:  9
+round:  345
+my bounty:  9
+street:  0
+strength:  0.35875
+round:  346
+my bounty:  9
+street:  0
+strength:  0.41
+round:  347
+my bounty:  9
+street:  0
+strength:  0.559375
+round:  348
+my bounty:  9
+round:  349
+my bounty:  9
+street:  0
+strength:  0.44
+street:  3
+strength:  0.604375
+street:  4
+strength:  0.58625
+street:  5
+strength:  0.339375
+round:  350
+my bounty:  9
+round:  351
 my bounty:  8
 street:  0
-strength:  0.395625
-round:  444
-my bounty:  8
-round:  445
+strength:  0.4975
+street:  0
+strength:  0.556875
+round:  352
 my bounty:  8
 street:  0
 strength:  0.47
 street:  3
-strength:  0.239375
+strength:  0.688125
 street:  4
-strength:  0.11625
+strength:  0.664375
 street:  5
-strength:  0.06875
-round:  446
-my bounty:  8
-round:  447
+strength:  0.77625
+round:  353
 my bounty:  8
 street:  0
-strength:  0.35
-round:  448
+strength:  0.435
+round:  354
 my bounty:  8
-round:  449
+round:  355
 my bounty:  8
 street:  0
-strength:  0.535
-street:  3
-strength:  0.67375
-street:  4
-strength:  0.535625
-street:  5
-strength:  0.516875
-round:  450
+strength:  0.7875
+round:  356
 my bounty:  8
-round:  451
-my bounty:  7
 street:  0
-strength:  0.306875
-round:  452
-my bounty:  7
-round:  453
-my bounty:  7
-street:  0
-strength:  0.413125
-round:  454
-my bounty:  7
-round:  455
-my bounty:  7
-street:  0
-strength:  0.410625
-street:  3
-strength:  0.71625
-round:  456
-my bounty:  7
-round:  457
-my bounty:  7
-street:  0
-strength:  0.579375
-street:  3
-strength:  0.456875
-street:  4
-strength:  0.33125
-street:  5
-strength:  0.395
-round:  458
-my bounty:  7
-round:  459
-my bounty:  7
-street:  0
-strength:  0.40625
-street:  0
-strength:  0.351875
-round:  460
-my bounty:  7
-round:  461
-my bounty:  7
-street:  0
-strength:  0.549375
-round:  462
-my bounty:  7
-round:  463
-my bounty:  7
-street:  0
-strength:  0.338125
-round:  464
-my bounty:  7
-round:  465
-my bounty:  7
-street:  0
-strength:  0.56125
-street:  3
-strength:  0.458125
-street:  4
-strength:  0.469375
-street:  5
-strength:  0.39125
-round:  466
-my bounty:  7
-round:  467
-my bounty:  7
-street:  0
-strength:  0.3575
-round:  468
-my bounty:  7
-round:  469
-my bounty:  7
-street:  0
-strength:  0.5075
-street:  3
-strength:  0.285625
-street:  4
-strength:  0.194375
-street:  5
-strength:  0.289375
-round:  470
-my bounty:  7
-round:  471
-my bounty:  7
-street:  0
-strength:  0.34125
-round:  472
-my bounty:  7
-round:  473
-my bounty:  7
-street:  0
-strength:  0.361875
-round:  474
-my bounty:  7
-round:  475
-my bounty:  7
-street:  0
-strength:  0.40625
-round:  476
-my bounty:  K
-round:  477
-my bounty:  K
-street:  0
-strength:  0.469375
-street:  3
-strength:  0.499375
-round:  478
-my bounty:  K
-round:  479
-my bounty:  K
-street:  0
-strength:  0.339375
-round:  480
-my bounty:  K
-round:  481
-my bounty:  K
+strength:  0.40875
+round:  357
+my bounty:  8
 street:  0
 strength:  0.37125
-round:  482
-my bounty:  K
-round:  483
-my bounty:  K
+round:  358
+my bounty:  8
+round:  359
+my bounty:  8
 street:  0
-strength:  0.57125
-street:  3
-strength:  0.5425
-street:  4
-strength:  0.4175
-street:  5
-strength:  0.299375
-round:  484
-my bounty:  K
-round:  485
-my bounty:  K
-street:  0
-strength:  0.611875
-street:  3
-strength:  0.86875
-round:  486
-my bounty:  K
-round:  487
-my bounty:  K
-street:  0
-strength:  0.504375
-street:  3
-strength:  0.51
-street:  4
-strength:  0.50375
-street:  5
-strength:  0.3225
-round:  488
-my bounty:  K
-round:  489
-my bounty:  K
-street:  0
-strength:  0.24
-round:  490
-my bounty:  K
-round:  491
-my bounty:  K
-street:  0
-strength:  0.508125
-round:  492
-my bounty:  K
-round:  493
-my bounty:  K
-street:  0
-strength:  0.56125
-round:  494
-my bounty:  K
-round:  495
-my bounty:  K
-street:  0
-strength:  0.555625
-round:  496
-my bounty:  K
-round:  497
-my bounty:  K
-street:  0
-strength:  0.438125
-street:  3
-strength:  0.403125
-street:  4
-strength:  0.326875
-street:  5
-strength:  0.428125
-round:  498
-my bounty:  K
-round:  499
-my bounty:  K
-street:  0
-strength:  0.28
-round:  500
-my bounty:  K
-round:  501
-my bounty:  3
-street:  0
-strength:  0.391875
-street:  0
-strength:  0.378125
-round:  502
-my bounty:  3
-round:  503
-my bounty:  3
-street:  0
-strength:  0.28125
-round:  504
-my bounty:  3
-round:  505
-my bounty:  3
-street:  0
-strength:  0.454375
-street:  0
-strength:  0.4625
-round:  506
-my bounty:  3
-round:  507
-my bounty:  3
-street:  0
-strength:  0.51375
-round:  508
-my bounty:  3
-round:  509
-my bounty:  3
-street:  0
-strength:  0.348125
-round:  510
-my bounty:  3
-round:  511
-my bounty:  3
-street:  0
-strength:  0.508125
-round:  512
-my bounty:  3
-round:  513
-my bounty:  3
-street:  0
-strength:  0.425625
-round:  514
-my bounty:  3
-round:  515
-my bounty:  3
-street:  0
-strength:  0.36875
-round:  516
-my bounty:  3
-round:  517
-my bounty:  3
-street:  0
-strength:  0.500625
-street:  0
-strength:  0.426875
-round:  518
-my bounty:  3
-round:  519
-my bounty:  3
-street:  0
-strength:  0.37375
-round:  520
-my bounty:  3
-round:  521
-my bounty:  3
-street:  0
-strength:  0.47375
-round:  522
-my bounty:  3
-round:  523
-my bounty:  3
-street:  0
-strength:  0.308125
-round:  524
-my bounty:  3
-round:  525
-my bounty:  3
-street:  0
-strength:  0.46125
-street:  0
-strength:  0.51875
-round:  526
-my bounty:  J
-round:  527
-my bounty:  J
-street:  0
-strength:  0.288125
-round:  528
-my bounty:  J
-round:  529
-my bounty:  J
-street:  0
-strength:  0.54625
-round:  530
-my bounty:  J
-round:  531
-my bounty:  J
-street:  0
-strength:  0.33875
-round:  532
-my bounty:  J
-round:  533
-my bounty:  J
-street:  0
-strength:  0.460625
-street:  0
-strength:  0.42125
-round:  534
-my bounty:  J
-round:  535
-my bounty:  J
-street:  0
-strength:  0.4325
-round:  536
-my bounty:  J
-round:  537
-my bounty:  J
-street:  0
-strength:  0.3125
-round:  538
-my bounty:  J
-round:  539
-my bounty:  J
-street:  0
-strength:  0.4825
-street:  3
-strength:  0.185625
-street:  4
-strength:  0.235625
-street:  5
-strength:  0.88
-round:  540
-my bounty:  J
-round:  541
-my bounty:  J
-street:  0
-strength:  0.386875
-round:  542
-my bounty:  J
-round:  543
-my bounty:  J
-street:  0
-strength:  0.469375
-round:  544
-my bounty:  J
-round:  545
-my bounty:  J
-street:  0
-strength:  0.29625
-round:  546
-my bounty:  J
-round:  547
-my bounty:  J
-street:  0
-strength:  0.4425
-street:  0
-strength:  0.374375
-round:  548
-my bounty:  J
-round:  549
-my bounty:  J
-street:  0
-strength:  0.545625
-street:  3
-strength:  0.310625
-street:  4
-strength:  0.2375
-round:  550
-my bounty:  J
-round:  551
-my bounty:  5
-street:  0
-strength:  0.42375
-street:  3
-strength:  0.660625
-street:  4
-strength:  0.445625
-street:  5
-strength:  0.96625
-round:  552
-my bounty:  5
-round:  553
-my bounty:  5
-street:  0
-strength:  0.5425
-round:  554
-my bounty:  5
-round:  555
-my bounty:  5
-street:  0
-strength:  0.524375
-street:  3
-strength:  0.51
-street:  4
-strength:  0.29375
-street:  5
-strength:  0.155
-round:  556
-my bounty:  5
-round:  557
-my bounty:  5
-street:  0
-strength:  0.73875
-round:  558
-my bounty:  5
-round:  559
-my bounty:  5
-street:  0
-strength:  0.3
-round:  560
-my bounty:  5
-round:  561
-my bounty:  5
+strength:  0.236875
+round:  360
+my bounty:  8
 street:  0
 strength:  0.484375
 street:  3
-strength:  0.254375
-street:  4
-strength:  0.14875
-street:  5
-strength:  0.0525
-round:  562
-my bounty:  5
-round:  563
-my bounty:  5
-street:  0
-strength:  0.45125
-street:  0
-strength:  0.504375
-round:  564
-my bounty:  5
-round:  565
-my bounty:  5
-street:  0
-strength:  0.503125
+strength:  0.47375
 street:  3
-strength:  0.779375
-street:  4
-strength:  0.8125
-street:  5
-strength:  0.818125
-round:  566
-my bounty:  5
-round:  567
-my bounty:  5
+strength:  0.435
+round:  361
+my bounty:  8
+street:  0
+strength:  0.46375
+round:  362
+my bounty:  8
+round:  363
+my bounty:  8
+street:  0
+strength:  0.606875
+round:  364
+my bounty:  8
+round:  365
+my bounty:  8
+street:  0
+strength:  0.57875
+round:  366
+my bounty:  8
+round:  367
+my bounty:  8
+street:  0
+strength:  0.41625
+street:  3
+strength:  0.278125
+round:  368
+my bounty:  8
+street:  0
+strength:  0.28125
+round:  369
+my bounty:  8
 street:  0
 strength:  0.435
-round:  568
-my bounty:  5
-round:  569
-my bounty:  5
+round:  370
+my bounty:  8
 street:  0
-strength:  0.63875
-round:  570
-my bounty:  5
-round:  571
-my bounty:  5
+strength:  0.59
+round:  371
+my bounty:  8
 street:  0
-strength:  0.51875
+strength:  0.33625
+round:  372
+my bounty:  8
+round:  373
+my bounty:  8
 street:  0
-strength:  0.449375
-round:  572
-my bounty:  5
-round:  573
-my bounty:  5
+strength:  0.46875
+round:  374
+my bounty:  8
+round:  375
+my bounty:  8
 street:  0
-strength:  0.2675
-round:  574
-my bounty:  5
-round:  575
-my bounty:  5
+strength:  0.51
 street:  0
-strength:  0.39375
-round:  576
-my bounty:  Q
-round:  577
-my bounty:  Q
+strength:  0.485
+round:  376
+my bounty:  4
+round:  377
+my bounty:  4
 street:  0
-strength:  0.5675
-round:  578
-my bounty:  Q
-round:  579
-my bounty:  Q
+strength:  0.330625
+round:  378
+my bounty:  4
 street:  0
-strength:  0.3025
-round:  580
-my bounty:  Q
-round:  581
-my bounty:  Q
-street:  0
-strength:  0.5675
+strength:  0.481875
 street:  3
-strength:  0.633125
+strength:  0.6875
 street:  4
-strength:  0.479375
+strength:  0.56875
 street:  5
+strength:  0.81875
+round:  379
+my bounty:  4
+street:  0
+strength:  0.524375
+street:  3
+strength:  0.398125
+street:  4
+strength:  0.32
+street:  5
+strength:  0.29125
+round:  380
+my bounty:  4
+street:  0
+strength:  0.81
+round:  381
+my bounty:  4
+street:  0
+strength:  0.3
+round:  382
+my bounty:  4
+round:  383
+my bounty:  4
+street:  0
+strength:  0.544375
+round:  384
+my bounty:  4
+street:  0
+strength:  0.565
+street:  3
+strength:  0.58
+street:  4
+strength:  0.556875
+street:  4
+strength:  0.52375
+round:  385
+my bounty:  4
+street:  0
+strength:  0.360625
+round:  386
+my bounty:  4
+street:  0
+strength:  0.5575
+street:  3
+strength:  0.701875
+round:  387
+my bounty:  4
+street:  0
+strength:  0.455
+round:  388
+my bounty:  4
+round:  389
+my bounty:  4
+street:  0
+strength:  0.690625
+round:  390
+my bounty:  4
+round:  391
+my bounty:  4
+street:  0
+strength:  0.253125
+round:  392
+my bounty:  4
+round:  393
+my bounty:  4
+street:  0
+strength:  0.47875
+street:  3
+strength:  0.27125
+street:  4
+strength:  0.174375
+street:  5
+strength:  0.1275
+round:  394
+my bounty:  4
+street:  0
+strength:  0.573125
+street:  3
+strength:  0.62375
+street:  3
+strength:  0.630625
+round:  395
+my bounty:  4
+street:  0
+strength:  0.388125
+round:  396
+my bounty:  4
+street:  0
+strength:  0.4725
+street:  3
+strength:  0.275625
+street:  4
+strength:  0.1575
+street:  5
+strength:  0.059375
+street:  5
+strength:  0.115625
+round:  397
+my bounty:  4
+street:  0
+strength:  0.44125
+round:  398
+my bounty:  4
+street:  0
+strength:  0.2725
+round:  399
+my bounty:  4
+street:  0
+strength:  0.369375
+round:  400
+my bounty:  4
+street:  0
+strength:  0.26625
+round:  401
+my bounty:  Q
+street:  0
+strength:  0.283125
+round:  402
+my bounty:  Q
+street:  0
+strength:  0.7025
+round:  403
+my bounty:  Q
+street:  0
+strength:  0.42625
+round:  404
+my bounty:  Q
+street:  0
+strength:  0.59375
+round:  405
+my bounty:  Q
+street:  0
+strength:  0.481875
+street:  3
+strength:  0.939375
+street:  4
+strength:  0.935
+street:  5
+strength:  0.86125
+round:  406
+my bounty:  Q
+street:  0
+strength:  0.385
+round:  407
+my bounty:  Q
+street:  0
+strength:  0.386875
+round:  408
+my bounty:  Q
+street:  0
+strength:  0.360625
+round:  409
+my bounty:  Q
+street:  0
+strength:  0.505
+round:  410
+my bounty:  Q
+street:  0
+strength:  0.585625
+round:  411
+my bounty:  Q
+street:  0
+strength:  0.57625
+street:  3
+strength:  0.643125
+street:  4
+strength:  0.679375
+street:  5
+strength:  0.874375
+round:  412
+my bounty:  Q
+street:  0
+strength:  0.415
+round:  413
+my bounty:  Q
+street:  0
+strength:  0.389375
+round:  414
+my bounty:  Q
+round:  415
+my bounty:  Q
+street:  0
+strength:  0.744375
+street:  3
+strength:  0.665
+street:  4
+strength:  0.6775
+street:  5
+strength:  0.83625
+round:  416
+my bounty:  Q
+round:  417
+my bounty:  Q
+street:  0
+strength:  0.475625
+round:  418
+my bounty:  Q
+street:  0
+strength:  0.498125
+street:  3
+strength:  0.35875
+street:  4
+strength:  0.27375
+street:  5
+strength:  0.42
+round:  419
+my bounty:  Q
+street:  0
 strength:  0.2375
-round:  582
-my bounty:  Q
-round:  583
+round:  420
 my bounty:  Q
 street:  0
-strength:  0.60875
-round:  584
-my bounty:  Q
-round:  585
+strength:  0.36375
+round:  421
 my bounty:  Q
 street:  0
-strength:  0.278125
-round:  586
-my bounty:  Q
-round:  587
+strength:  0.2725
+round:  422
 my bounty:  Q
 street:  0
+strength:  0.498125
+street:  3
+strength:  0.5725
+street:  4
+strength:  0.898125
+round:  423
+my bounty:  Q
+street:  0
+strength:  0.260625
+round:  424
+my bounty:  Q
+street:  0
+strength:  0.49125
+street:  3
+strength:  0.4875
+street:  4
+strength:  0.509375
+street:  5
+strength:  0.68125
+round:  425
+my bounty:  Q
+street:  0
+strength:  0.43625
+round:  426
+my bounty:  2
+round:  427
+my bounty:  2
+street:  0
+strength:  0.291875
+round:  428
+my bounty:  2
+street:  0
+strength:  0.433125
+round:  429
+my bounty:  2
+street:  0
+strength:  0.246875
+round:  430
+my bounty:  2
+round:  431
+my bounty:  2
+street:  0
+strength:  0.475
+street:  3
 strength:  0.445625
-round:  588
-my bounty:  Q
-round:  589
-my bounty:  Q
+street:  4
+strength:  0.173125
+round:  432
+my bounty:  2
 street:  0
+strength:  0.43
+round:  433
+my bounty:  2
+street:  0
+strength:  0.41625
+round:  434
+my bounty:  2
+street:  0
+strength:  0.57375
+street:  3
+strength:  0.63125
+street:  3
+strength:  0.56
+round:  435
+my bounty:  2
+street:  0
+strength:  0.453125
+street:  3
 strength:  0.4075
-round:  590
-my bounty:  Q
-round:  591
-my bounty:  Q
+street:  4
+strength:  0.4125
+street:  5
+strength:  0.17125
+round:  436
+my bounty:  2
 street:  0
-strength:  0.514375
-street:  3
-strength:  0.86875
-round:  592
-my bounty:  Q
-round:  593
-my bounty:  Q
+strength:  0.806875
+round:  437
+my bounty:  2
 street:  0
-strength:  0.5025
-street:  3
-strength:  0.491875
-round:  594
-my bounty:  Q
-round:  595
-my bounty:  Q
+strength:  0.33625
+round:  438
+my bounty:  2
 street:  0
-strength:  0.4475
-round:  596
-my bounty:  Q
-round:  597
-my bounty:  Q
+strength:  0.328125
+round:  439
+my bounty:  2
 street:  0
-strength:  0.29375
-round:  598
-my bounty:  Q
-round:  599
-my bounty:  Q
+strength:  0.273125
+round:  440
+my bounty:  2
 street:  0
-strength:  0.45125
+strength:  0.5825
+round:  441
+my bounty:  2
 street:  0
-strength:  0.419375
-round:  600
-my bounty:  Q
-round:  601
-my bounty:  5
-street:  0
-strength:  0.55125
-round:  602
-my bounty:  5
-round:  603
-my bounty:  5
-street:  0
-strength:  0.511875
-round:  604
-my bounty:  5
-round:  605
-my bounty:  5
-street:  0
-strength:  0.534375
+strength:  0.346875
+round:  442
+my bounty:  2
+round:  443
+my bounty:  2
 street:  0
 strength:  0.45625
-round:  606
-my bounty:  5
-round:  607
+round:  444
+my bounty:  2
+round:  445
+my bounty:  2
+street:  0
+strength:  0.61625
+round:  446
+my bounty:  2
+street:  0
+strength:  0.421875
+round:  447
+my bounty:  2
+street:  0
+strength:  0.4825
+round:  448
+my bounty:  2
+street:  0
+strength:  0.3075
+round:  449
+my bounty:  2
+street:  0
+strength:  0.394375
+street:  0
+strength:  0.4025
+round:  450
+my bounty:  2
+round:  451
 my bounty:  5
 street:  0
-strength:  0.569375
-round:  608
-my bounty:  5
-round:  609
+strength:  0.50125
+round:  452
 my bounty:  5
 street:  0
-strength:  0.29875
-round:  610
-my bounty:  5
-round:  611
+strength:  0.333125
+round:  453
 my bounty:  5
 street:  0
-strength:  0.5
+strength:  0.50625
 street:  0
-strength:  0.47375
-round:  612
+strength:  0.471875
+round:  454
 my bounty:  5
-round:  613
+round:  455
 my bounty:  5
 street:  0
-strength:  0.685625
+strength:  0.52625
+round:  456
+my bounty:  5
+round:  457
+my bounty:  5
 street:  0
-strength:  0.68625
+strength:  0.256875
+round:  458
+my bounty:  5
+street:  0
+strength:  0.52375
 street:  3
-strength:  0.70125
-round:  614
-my bounty:  5
-round:  615
-my bounty:  5
-street:  0
-strength:  0.286875
-round:  616
-my bounty:  5
-round:  617
-my bounty:  5
-street:  0
-strength:  0.6
-street:  3
-strength:  0.454375
+strength:  0.535625
 street:  4
+strength:  0.835625
+round:  459
+my bounty:  5
+street:  0
+strength:  0.326875
+round:  460
+my bounty:  5
+street:  0
+strength:  0.576875
+street:  3
+strength:  0.770625
+round:  461
+my bounty:  5
+street:  0
+strength:  0.419375
+round:  462
+my bounty:  5
+round:  463
+my bounty:  5
+street:  0
+strength:  0.56375
+round:  464
+my bounty:  5
+street:  0
+strength:  0.305625
+round:  465
+my bounty:  5
+street:  0
+strength:  0.3875
+round:  466
+my bounty:  5
+street:  0
+strength:  0.353125
+round:  467
+my bounty:  5
+street:  0
+strength:  0.424375
+round:  468
+my bounty:  5
+round:  469
+my bounty:  5
+street:  0
+strength:  0.566875
+street:  0
+strength:  0.61
+street:  3
+strength:  0.85625
+street:  4
+strength:  0.861875
+round:  470
+my bounty:  5
+street:  0
+strength:  0.35625
+round:  471
+my bounty:  5
+street:  0
+strength:  0.533125
+round:  472
+my bounty:  5
+round:  473
+my bounty:  5
+street:  0
+strength:  0.414375
+round:  474
+my bounty:  5
+round:  475
+my bounty:  5
+street:  0
+strength:  0.520625
+street:  3
+strength:  0.3175
+street:  4
+strength:  0.2675
+street:  5
+strength:  0.02625
+round:  476
+my bounty:  8
+street:  0
+strength:  0.571875
+street:  3
+strength:  0.890625
+round:  477
+my bounty:  8
+street:  0
+strength:  0.283125
+round:  478
+my bounty:  8
+street:  0
+strength:  0.428125
+round:  479
+my bounty:  8
+street:  0
+strength:  0.239375
+round:  480
+my bounty:  8
+round:  481
+my bounty:  8
+street:  0
+strength:  0.40625
+round:  482
+my bounty:  8
+round:  483
+my bounty:  8
+street:  0
+strength:  0.46375
+street:  0
+strength:  0.469375
+round:  484
+my bounty:  8
+round:  485
+my bounty:  8
+street:  0
+strength:  0.4225
+round:  486
+my bounty:  8
+street:  0
+strength:  0.269375
+round:  487
+my bounty:  8
+street:  0
+strength:  0.6275
+round:  488
+my bounty:  8
+round:  489
+my bounty:  8
+street:  0
+strength:  0.241875
+round:  490
+my bounty:  8
+round:  491
+my bounty:  8
+street:  0
 strength:  0.391875
-street:  5
-strength:  0.2225
-round:  618
-my bounty:  5
-round:  619
-my bounty:  5
-street:  0
-strength:  0.450625
-round:  620
-my bounty:  5
-round:  621
-my bounty:  5
-street:  0
-strength:  0.408125
-round:  622
-my bounty:  5
-round:  623
-my bounty:  5
-street:  0
-strength:  0.455625
-street:  3
-strength:  0.780625
-round:  624
-my bounty:  5
-round:  625
-my bounty:  5
-street:  0
-strength:  0.371875
-street:  0
-strength:  0.306875
-round:  626
-my bounty:  8
-round:  627
+round:  492
 my bounty:  8
 street:  0
-strength:  0.519375
-street:  3
-strength:  0.6375
-street:  4
-strength:  0.534375
-street:  5
-strength:  0.76375
-round:  628
-my bounty:  8
-round:  629
-my bounty:  8
-street:  0
-strength:  0.36875
-round:  630
-my bounty:  8
-round:  631
-my bounty:  8
-street:  0
-strength:  0.3725
-round:  632
-my bounty:  8
-round:  633
-my bounty:  8
-street:  0
-strength:  0.403125
-round:  634
-my bounty:  8
-round:  635
-my bounty:  8
-street:  0
-strength:  0.55625
-round:  636
-my bounty:  8
-round:  637
+strength:  0.83125
+round:  493
 my bounty:  8
 street:  0
 strength:  0.5625
+round:  494
+my bounty:  8
+round:  495
+my bounty:  8
+street:  0
+strength:  0.518125
+round:  496
+my bounty:  8
+street:  0
+strength:  0.34875
+round:  497
+my bounty:  8
+street:  0
+strength:  0.35625
+round:  498
+my bounty:  8
+street:  0
+strength:  0.319375
+round:  499
+my bounty:  8
+street:  0
+strength:  0.4225
+round:  500
+my bounty:  8
+round:  501
+my bounty:  7
+street:  0
+strength:  0.606875
 street:  3
-strength:  0.42625
+strength:  0.50625
 street:  4
-strength:  0.28125
+strength:  0.37375
 street:  5
-strength:  0.243125
-round:  638
-my bounty:  8
-round:  639
-my bounty:  8
+strength:  0.50375
+round:  502
+my bounty:  7
 street:  0
-strength:  0.480625
+strength:  0.61375
+round:  503
+my bounty:  7
+street:  0
+strength:  0.4925
+round:  504
+my bounty:  7
+round:  505
+my bounty:  7
+street:  0
+strength:  0.36
+round:  506
+my bounty:  7
+street:  0
+strength:  0.280625
+round:  507
+my bounty:  7
+street:  0
+strength:  0.504375
 street:  3
-strength:  0.796875
+strength:  0.469375
+round:  508
+my bounty:  7
+round:  509
+my bounty:  7
+street:  0
+strength:  0.496875
+street:  3
+strength:  0.49875
+round:  510
+my bounty:  7
+street:  0
+strength:  0.335625
+round:  511
+my bounty:  7
+street:  0
+strength:  0.316875
+round:  512
+my bounty:  7
+round:  513
+my bounty:  7
+street:  0
+strength:  0.368125
+round:  514
+my bounty:  7
+street:  0
+strength:  0.56625
+street:  3
+strength:  0.756875
+round:  515
+my bounty:  7
+street:  0
+strength:  0.804375
+round:  516
+my bounty:  7
+street:  0
+strength:  0.588125
+round:  517
+my bounty:  7
+street:  0
+strength:  0.45
+round:  518
+my bounty:  7
+round:  519
+my bounty:  7
+street:  0
+strength:  0.323125
+round:  520
+my bounty:  7
+round:  521
+my bounty:  7
+street:  0
+strength:  0.401875
+street:  3
+strength:  0.206875
 street:  4
-strength:  0.725625
-round:  640
-my bounty:  8
-round:  641
-my bounty:  8
+strength:  0.18125
+street:  5
+strength:  0.260625
+round:  522
+my bounty:  7
 street:  0
-strength:  0.35375
-round:  642
-my bounty:  8
-round:  643
-my bounty:  8
+strength:  0.451875
+street:  3
+strength:  0.504375
+street:  4
+strength:  0.47625
+street:  5
+strength:  0.88375
+round:  523
+my bounty:  7
 street:  0
-strength:  0.4775
-round:  644
-my bounty:  8
-round:  645
-my bounty:  8
+strength:  0.58875
+street:  3
+strength:  0.536875
+street:  4
+strength:  0.35125
+street:  5
+strength:  0.118125
+round:  524
+my bounty:  7
 street:  0
-strength:  0.505625
+strength:  0.524375
+street:  3
+strength:  0.3975
+street:  3
+strength:  0.34375
+round:  525
+my bounty:  7
 street:  0
-strength:  0.498125
-round:  646
-my bounty:  8
-round:  647
-my bounty:  8
+strength:  0.53
+round:  526
+my bounty:  7
+round:  527
+my bounty:  7
+street:  0
+strength:  0.545
+round:  528
+my bounty:  7
+round:  529
+my bounty:  7
+street:  0
+strength:  0.446875
+street:  3
+strength:  0.36
+street:  4
+strength:  0.29375
+street:  5
+strength:  0.62625
+round:  530
+my bounty:  7
+round:  531
+my bounty:  7
+street:  0
+strength:  0.42125
+round:  532
+my bounty:  7
+round:  533
+my bounty:  7
+street:  0
+strength:  0.545625
+street:  3
+strength:  0.80875
+round:  534
+my bounty:  7
+street:  0
+strength:  0.338125
+round:  535
+my bounty:  7
+street:  0
+strength:  0.363125
+round:  536
+my bounty:  7
+street:  0
+strength:  0.680625
+round:  537
+my bounty:  7
+street:  0
+strength:  0.491875
+round:  538
+my bounty:  7
+street:  0
+strength:  0.279375
+round:  539
+my bounty:  7
+street:  0
+strength:  0.34875
+round:  540
+my bounty:  7
+round:  541
+my bounty:  7
+street:  0
+strength:  0.545
+street:  3
+strength:  0.42
+street:  4
+strength:  0.74125
+street:  5
+strength:  0.82625
+round:  542
+my bounty:  7
+street:  0
+strength:  0.316875
+round:  543
+my bounty:  7
+street:  0
+strength:  0.2
+round:  544
+my bounty:  7
+round:  545
+my bounty:  7
+street:  0
+strength:  0.6125
+round:  546
+my bounty:  7
+street:  0
+strength:  0.3275
+round:  547
+my bounty:  7
+street:  0
+strength:  0.4825
+round:  548
+my bounty:  7
+street:  0
+strength:  0.5
+street:  3
+strength:  0.443125
+street:  4
+strength:  0.275
+street:  5
+strength:  0.12125
+round:  549
+my bounty:  7
+street:  0
+strength:  0.59
+street:  3
+strength:  0.661875
+street:  4
+strength:  0.519375
+round:  550
+my bounty:  7
+round:  551
+my bounty:  K
+street:  0
+strength:  0.485
+street:  3
+strength:  0.586875
+street:  4
+strength:  0.52
+street:  5
+strength:  0.57875
+round:  552
+my bounty:  K
+round:  553
+my bounty:  K
+street:  0
+strength:  0.453125
+round:  554
+my bounty:  K
+street:  0
+strength:  0.643125
+round:  555
+my bounty:  K
+street:  0
+strength:  0.28
+round:  556
+my bounty:  K
+round:  557
+my bounty:  K
 street:  0
 strength:  0.33875
-round:  648
-my bounty:  8
-round:  649
-my bounty:  8
+round:  558
+my bounty:  K
+round:  559
+my bounty:  K
 street:  0
-strength:  0.405
-round:  650
-my bounty:  8
-round:  651
-my bounty:  6
+strength:  0.3475
+round:  560
+my bounty:  K
 street:  0
-strength:  0.385
+strength:  0.493125
 street:  3
-strength:  0.27
+strength:  0.555
 street:  4
-strength:  0.1775
+strength:  0.698125
 street:  5
-strength:  0.099375
-round:  652
-my bounty:  6
-round:  653
-my bounty:  6
+strength:  0.763125
+round:  561
+my bounty:  K
 street:  0
-strength:  0.4575
+strength:  0.473125
+street:  0
+strength:  0.471875
+round:  562
+my bounty:  K
+round:  563
+my bounty:  K
+street:  0
+strength:  0.390625
+street:  3
+strength:  0.183125
+street:  4
+strength:  0.161875
+street:  5
+strength:  0.02
+round:  564
+my bounty:  K
+round:  565
+my bounty:  K
+street:  0
+strength:  0.364375
+round:  566
+my bounty:  K
+street:  0
+strength:  0.2425
+round:  567
+my bounty:  K
+street:  0
+strength:  0.520625
+round:  568
+my bounty:  K
+street:  0
+strength:  0.500625
+street:  3
+strength:  0.29
+street:  4
+strength:  0.211875
+street:  5
+strength:  -0.005
+round:  569
+my bounty:  K
+street:  0
+strength:  0.544375
+round:  570
+my bounty:  K
+round:  571
+my bounty:  K
+street:  0
+strength:  0.3125
+round:  572
+my bounty:  K
+street:  0
+strength:  0.40125
+round:  573
+my bounty:  K
+street:  0
+strength:  0.46375
 street:  3
 strength:  0.326875
 street:  4
-strength:  0.338125
+strength:  0.3425
 street:  5
-strength:  0.391875
-round:  654
-my bounty:  6
-round:  655
-my bounty:  6
-street:  0
-strength:  0.25625
-round:  656
-my bounty:  6
-round:  657
-my bounty:  6
-street:  0
-strength:  0.425
-round:  658
-my bounty:  6
-round:  659
-my bounty:  6
-street:  0
-strength:  0.296875
-round:  660
-my bounty:  6
-round:  661
-my bounty:  6
-street:  0
-strength:  0.41625
-round:  662
-my bounty:  6
-round:  663
-my bounty:  6
-street:  0
-strength:  0.42875
-round:  664
-my bounty:  6
-round:  665
-my bounty:  6
-street:  0
-strength:  0.429375
-round:  666
-my bounty:  6
-round:  667
-my bounty:  6
-street:  0
-strength:  0.323125
-round:  668
-my bounty:  6
-round:  669
-my bounty:  6
-street:  0
-strength:  0.306875
-round:  670
-my bounty:  6
-round:  671
-my bounty:  6
-street:  0
-strength:  0.438125
-round:  672
-my bounty:  6
-round:  673
-my bounty:  6
-street:  0
-strength:  0.385625
-round:  674
-my bounty:  6
-round:  675
-my bounty:  6
-street:  0
-strength:  0.385625
-street:  0
-strength:  0.37
-round:  676
+strength:  0.43375
+round:  574
 my bounty:  K
-round:  677
+round:  575
 my bounty:  K
 street:  0
-strength:  0.21375
-round:  678
-my bounty:  K
-round:  679
-my bounty:  K
+strength:  0.336875
+round:  576
+my bounty:  9
 street:  0
-strength:  0.445625
-round:  680
-my bounty:  K
-round:  681
-my bounty:  K
-street:  0
-strength:  0.448125
-round:  682
-my bounty:  K
-round:  683
-my bounty:  K
-street:  0
-strength:  0.593125
+strength:  0.53875
 street:  3
-strength:  0.53
+strength:  0.4175
 street:  4
-strength:  0.44625
+strength:  0.446875
 street:  5
-strength:  0.43125
+strength:  0.36875
+round:  577
+my bounty:  9
+street:  0
+strength:  0.38125
+round:  578
+my bounty:  9
+round:  579
+my bounty:  9
+street:  0
+strength:  0.6525
+street:  3
+strength:  0.449375
+street:  4
+strength:  0.39125
+street:  5
+strength:  0.229375
+round:  580
+my bounty:  9
+street:  0
+strength:  0.381875
+round:  581
+my bounty:  9
+street:  0
+strength:  0.5575
+street:  3
+strength:  0.48375
+street:  4
+strength:  0.5975
+street:  5
+strength:  0.595625
+round:  582
+my bounty:  9
+round:  583
+my bounty:  9
+street:  0
+strength:  0.273125
+round:  584
+my bounty:  9
+street:  0
+strength:  0.76
+street:  3
+strength:  0.65875
+street:  4
+strength:  0.755625
+street:  4
+strength:  0.69625
+round:  585
+my bounty:  9
+street:  0
+strength:  0.42625
+street:  3
+strength:  0.274375
+street:  4
+strength:  0.174375
+street:  5
+strength:  0.058125
+round:  586
+my bounty:  9
+street:  0
+strength:  0.3525
+round:  587
+my bounty:  9
+street:  0
+strength:  0.54125
+street:  3
+strength:  0.479375
+street:  4
+strength:  0.454375
+street:  5
+strength:  0.35875
+round:  588
+my bounty:  9
+street:  0
+strength:  0.561875
+street:  3
+strength:  0.47125
+street:  4
+strength:  0.479375
+street:  5
+strength:  0.98
+street:  5
+strength:  0.96875
+round:  589
+my bounty:  9
+street:  0
+strength:  0.25875
+round:  590
+my bounty:  9
+street:  0
+strength:  0.513125
+street:  3
+strength:  0.453125
+street:  4
+strength:  0.5275
+street:  5
+strength:  0.92375
+round:  591
+my bounty:  9
+street:  0
+strength:  0.5725
+round:  592
+my bounty:  9
+street:  0
+strength:  0.4925
+street:  3
+strength:  0.45625
+street:  4
+strength:  0.403125
+street:  5
+strength:  0.446875
+round:  593
+my bounty:  9
+street:  0
+strength:  0.588125
+round:  594
+my bounty:  9
+street:  0
+strength:  0.48125
+street:  3
+strength:  0.641875
+street:  4
+strength:  0.749375
+street:  5
+strength:  0.589375
+round:  595
+my bounty:  9
+street:  0
+strength:  0.609375
+street:  0
+strength:  0.56375
+round:  596
+my bounty:  9
+round:  597
+my bounty:  9
+street:  0
+strength:  0.5525
+street:  3
+strength:  0.6375
+street:  4
+strength:  0.665
+street:  5
+strength:  0.68375
+round:  598
+my bounty:  9
+street:  0
+strength:  0.44
+round:  599
+my bounty:  9
+street:  0
+strength:  0.325625
+round:  600
+my bounty:  9
+street:  0
+strength:  0.461875
+street:  3
+strength:  0.275
+street:  4
+strength:  0.229375
+street:  4
+strength:  0.26
+round:  601
+my bounty:  8
+street:  0
+strength:  0.455625
+street:  3
+strength:  0.273125
+street:  4
+strength:  0.2175
+round:  602
+my bounty:  8
+street:  0
+strength:  0.44375
+round:  603
+my bounty:  8
+street:  0
+strength:  0.396875
+street:  0
+strength:  0.37875
+round:  604
+my bounty:  8
+round:  605
+my bounty:  8
+street:  0
+strength:  0.453125
+round:  606
+my bounty:  8
+round:  607
+my bounty:  8
+street:  0
+strength:  0.395
+round:  608
+my bounty:  8
+round:  609
+my bounty:  8
+street:  0
+strength:  0.8625
+street:  3
+strength:  0.92625
+street:  4
+strength:  1.0
+round:  610
+my bounty:  8
+street:  0
+strength:  0.57375
+street:  3
+strength:  0.50375
+street:  4
+strength:  0.794375
+street:  5
+strength:  0.78
+round:  611
+my bounty:  8
+street:  0
+strength:  0.5475
+street:  3
+strength:  0.6025
+street:  4
+strength:  0.64875
+street:  5
+strength:  0.429375
+round:  612
+my bounty:  8
+round:  613
+my bounty:  8
+street:  0
+strength:  0.318125
+round:  614
+my bounty:  8
+street:  0
+strength:  0.421875
+round:  615
+my bounty:  8
+street:  0
+strength:  0.3975
+round:  616
+my bounty:  8
+round:  617
+my bounty:  8
+street:  0
+strength:  0.3775
+street:  3
+strength:  0.240625
+street:  4
+strength:  0.121875
+street:  5
+strength:  0.70625
+round:  618
+my bounty:  8
+round:  619
+my bounty:  8
+street:  0
+strength:  0.48125
+round:  620
+my bounty:  8
+round:  621
+my bounty:  8
+street:  0
+strength:  0.32375
+round:  622
+my bounty:  8
+round:  623
+my bounty:  8
+street:  0
+strength:  0.48875
+round:  624
+my bounty:  8
+street:  0
+strength:  0.458125
+street:  3
+strength:  0.423125
+street:  4
+strength:  0.3475
+street:  5
+strength:  0.34875
+round:  625
+my bounty:  8
+street:  0
+strength:  0.2925
+round:  626
+my bounty:  3
+round:  627
+my bounty:  3
+street:  0
+strength:  0.253125
+round:  628
+my bounty:  3
+round:  629
+my bounty:  3
+street:  0
+strength:  0.518125
+round:  630
+my bounty:  3
+street:  0
+strength:  0.530625
+street:  3
+strength:  0.439375
+street:  4
+strength:  0.975625
+round:  631
+my bounty:  3
+street:  0
+strength:  0.601875
+round:  632
+my bounty:  3
+street:  0
+strength:  0.4225
+round:  633
+my bounty:  3
+street:  0
+strength:  0.348125
+round:  634
+my bounty:  3
+street:  0
+strength:  0.328125
+round:  635
+my bounty:  3
+street:  0
+strength:  0.3925
+round:  636
+my bounty:  3
+street:  0
+strength:  0.361875
+round:  637
+my bounty:  3
+street:  0
+strength:  0.550625
+street:  3
+strength:  0.336875
+round:  638
+my bounty:  3
+street:  0
+strength:  0.473125
+street:  3
+strength:  0.325625
+street:  4
+strength:  0.37125
+street:  5
+strength:  0.585
+round:  639
+my bounty:  3
+street:  0
+strength:  0.2525
+round:  640
+my bounty:  3
+street:  0
+strength:  0.3125
+round:  641
+my bounty:  3
+street:  0
+strength:  0.598125
+street:  3
+strength:  0.381875
+round:  642
+my bounty:  3
+round:  643
+my bounty:  3
+street:  0
+strength:  0.515
+round:  644
+my bounty:  3
+street:  0
+strength:  0.56625
+street:  3
+strength:  0.433125
+street:  4
+strength:  0.28625
+street:  5
+strength:  0.049375
+street:  5
+strength:  0.07875
+round:  645
+my bounty:  3
+street:  0
+strength:  0.411875
+street:  3
+strength:  0.48125
+round:  646
+my bounty:  3
+street:  0
+strength:  0.443125
+round:  647
+my bounty:  3
+street:  0
+strength:  0.468125
+street:  3
+strength:  0.403125
+street:  4
+strength:  0.34
+round:  648
+my bounty:  3
+street:  0
+strength:  0.551875
+street:  3
+strength:  0.636875
+street:  4
+strength:  0.995
+round:  649
+my bounty:  3
+street:  0
+strength:  0.44375
+street:  3
+strength:  0.550625
+street:  4
+strength:  0.426875
+round:  650
+my bounty:  3
+street:  0
+strength:  0.356875
+round:  651
+my bounty:  8
+street:  0
+strength:  0.308125
+round:  652
+my bounty:  8
+street:  0
+strength:  0.608125
+round:  653
+my bounty:  8
+street:  0
+strength:  0.616875
+street:  3
+strength:  0.989375
+round:  654
+my bounty:  8
+round:  655
+my bounty:  8
+street:  0
+strength:  0.59
+round:  656
+my bounty:  8
+street:  0
+strength:  0.311875
+round:  657
+my bounty:  8
+street:  0
+strength:  0.588125
+street:  0
+strength:  0.495
+round:  658
+my bounty:  8
+street:  0
+strength:  0.3725
+round:  659
+my bounty:  8
+street:  0
+strength:  0.74875
+street:  3
+strength:  0.67
+street:  4
+strength:  0.67
+street:  5
+strength:  0.6475
+round:  660
+my bounty:  8
+street:  0
+strength:  0.384375
+round:  661
+my bounty:  8
+street:  0
+strength:  0.570625
+round:  662
+my bounty:  8
+round:  663
+my bounty:  8
+street:  0
+strength:  0.49375
+round:  664
+my bounty:  8
+round:  665
+my bounty:  8
+street:  0
+strength:  0.376875
+round:  666
+my bounty:  8
+round:  667
+my bounty:  8
+street:  0
+strength:  0.263125
+round:  668
+my bounty:  8
+street:  0
+strength:  0.375
+round:  669
+my bounty:  8
+street:  0
+strength:  0.4525
+street:  0
+strength:  0.391875
+round:  670
+my bounty:  8
+round:  671
+my bounty:  8
+street:  0
+strength:  0.683125
+round:  672
+my bounty:  8
+round:  673
+my bounty:  8
+street:  0
+strength:  0.38
+street:  3
+strength:  0.29625
+street:  4
+strength:  0.261875
+street:  5
+strength:  0.264375
+round:  674
+my bounty:  8
+street:  0
+strength:  0.820625
+round:  675
+my bounty:  8
+street:  0
+strength:  0.573125
+street:  0
+strength:  0.635
+street:  3
+strength:  0.57125
+round:  676
+my bounty:  A
+round:  677
+my bounty:  A
+street:  0
+strength:  0.3225
+round:  678
+my bounty:  A
+round:  679
+my bounty:  A
+street:  0
+strength:  0.5675
+round:  680
+my bounty:  A
+street:  0
+strength:  0.561875
+street:  3
+strength:  0.61
+street:  4
+strength:  0.405625
+street:  5
+strength:  0.130625
+street:  5
+strength:  0.14
+round:  681
+my bounty:  A
+street:  0
+strength:  0.466875
+street:  3
+strength:  0.704375
+round:  682
+my bounty:  A
+street:  0
+strength:  0.570625
+street:  3
+strength:  0.319375
+street:  4
+strength:  0.84625
+street:  4
+strength:  0.816875
+street:  5
+strength:  0.815625
+round:  683
+my bounty:  A
+street:  0
+strength:  0.658125
+street:  3
+strength:  0.4575
+street:  4
+strength:  0.736875
 round:  684
-my bounty:  K
+my bounty:  A
 round:  685
-my bounty:  K
+my bounty:  A
+street:  0
+strength:  0.490625
+round:  686
+my bounty:  A
+street:  0
+strength:  0.326875
+round:  687
+my bounty:  A
+street:  0
+strength:  0.569375
+street:  0
+strength:  0.491875
+round:  688
+my bounty:  A
+street:  0
+strength:  0.31125
+round:  689
+my bounty:  A
+street:  0
+strength:  0.450625
+round:  690
+my bounty:  A
+street:  0
+strength:  0.425625
+round:  691
+my bounty:  A
+street:  0
+strength:  0.43
+street:  3
+strength:  0.271875
+street:  4
+strength:  0.14125
+street:  5
+strength:  0.06
+round:  692
+my bounty:  A
+street:  0
+strength:  0.47
+street:  3
+strength:  0.25375
+street:  4
+strength:  0.189375
+street:  5
+strength:  0.00375
+round:  693
+my bounty:  A
+street:  0
+strength:  0.49
+street:  3
+strength:  0.36625
+street:  4
+strength:  0.274375
+round:  694
+my bounty:  A
 street:  0
 strength:  0.536875
-round:  686
-my bounty:  K
-round:  687
-my bounty:  K
-street:  0
-strength:  0.3575
-round:  688
-my bounty:  K
-round:  689
-my bounty:  K
-street:  0
-strength:  0.400625
-street:  0
-strength:  0.268125
-round:  690
-my bounty:  K
-round:  691
-my bounty:  K
-street:  0
-strength:  0.445625
-round:  692
-my bounty:  K
-round:  693
-my bounty:  K
-street:  0
-strength:  0.53375
-street:  0
-strength:  0.355
-round:  694
-my bounty:  K
+street:  3
+strength:  0.2175
+street:  4
+strength:  0.14375
+street:  5
+strength:  -0.039375
 round:  695
-my bounty:  K
+my bounty:  A
 street:  0
-strength:  0.29
+strength:  0.375625
 round:  696
-my bounty:  K
+my bounty:  A
 round:  697
-my bounty:  K
+my bounty:  A
 street:  0
-strength:  0.385625
+strength:  0.395625
 round:  698
-my bounty:  K
+my bounty:  A
+street:  0
+strength:  0.35375
 round:  699
-my bounty:  K
+my bounty:  A
 street:  0
-strength:  0.509375
-street:  0
-strength:  0.534375
+strength:  0.5325
+street:  3
+strength:  0.42125
+street:  4
+strength:  0.375625
 round:  700
-my bounty:  K
+my bounty:  A
+street:  0
+strength:  0.586875
 round:  701
 my bounty:  A
 street:  0
-strength:  0.23375
+strength:  0.44125
 round:  702
 my bounty:  A
 round:  703
 my bounty:  A
 street:  0
-strength:  0.41
-street:  3
-strength:  0.39375
-street:  4
-strength:  0.94375
-street:  5
-strength:  0.93875
+strength:  0.52
 round:  704
 my bounty:  A
+street:  0
+strength:  0.341875
 round:  705
 my bounty:  A
 street:  0
-strength:  0.601875
-street:  3
-strength:  0.919375
-street:  4
-strength:  0.840625
-street:  5
-strength:  0.75875
+strength:  0.50875
 round:  706
 my bounty:  A
+street:  0
+strength:  0.5175
+street:  3
+strength:  0.82375
 round:  707
 my bounty:  A
 street:  0
-strength:  0.518125
-street:  0
-strength:  0.370625
+strength:  0.485
+street:  3
+strength:  0.381875
+street:  4
+strength:  0.204375
+street:  5
+strength:  0.38375
 round:  708
 my bounty:  A
 round:  709
 my bounty:  A
 street:  0
-strength:  0.59375
+strength:  0.50125
 street:  3
-strength:  0.838125
+strength:  0.294375
 street:  4
-strength:  0.861875
+strength:  0.1875
+street:  5
+strength:  0.341875
 round:  710
 my bounty:  A
 round:  711
 my bounty:  A
 street:  0
-strength:  0.40375
+strength:  0.51125
+street:  0
+strength:  0.38125
 round:  712
 my bounty:  A
+street:  0
+strength:  0.340625
 round:  713
 my bounty:  A
 street:  0
-strength:  0.609375
-street:  3
-strength:  0.405625
-street:  4
-strength:  0.458125
-street:  5
-strength:  0.445625
+strength:  0.513125
 round:  714
 my bounty:  A
+street:  0
+strength:  0.400625
 round:  715
 my bounty:  A
 street:  0
-strength:  0.35375
+strength:  0.36
 round:  716
 my bounty:  A
 round:  717
 my bounty:  A
 street:  0
-strength:  0.633125
+strength:  0.53
 street:  3
-strength:  0.855625
-street:  4
-strength:  0.81125
+strength:  0.843125
 round:  718
 my bounty:  A
 round:  719
 my bounty:  A
 street:  0
-strength:  0.479375
+strength:  0.54875
 street:  3
-strength:  0.6125
+strength:  0.415625
 street:  4
-strength:  0.538125
+strength:  0.323125
 street:  5
-strength:  0.58625
+strength:  0.201875
 round:  720
 my bounty:  A
+street:  0
+strength:  0.38
 round:  721
 my bounty:  A
 street:  0
-strength:  0.415625
+strength:  0.421875
 round:  722
 my bounty:  A
+street:  0
+strength:  0.506875
+street:  3
+strength:  0.344375
+street:  4
+strength:  0.341875
+street:  5
+strength:  0.165625
 round:  723
 my bounty:  A
 street:  0
-strength:  0.508125
-street:  0
-strength:  0.396875
+strength:  0.48375
+street:  3
+strength:  0.7425
 round:  724
 my bounty:  A
 round:  725
 my bounty:  A
 street:  0
-strength:  0.541875
-street:  0
-strength:  0.494375
+strength:  0.343125
 round:  726
-my bounty:  K
+my bounty:  7
 round:  727
-my bounty:  K
+my bounty:  7
 street:  0
-strength:  0.568125
+strength:  0.505625
 street:  3
-strength:  0.79
+strength:  0.449375
 street:  4
-strength:  0.6725
+strength:  0.268125
 street:  5
-strength:  0.44375
+strength:  0.19875
 round:  728
-my bounty:  K
+my bounty:  7
 round:  729
-my bounty:  K
+my bounty:  7
 street:  0
-strength:  0.601875
-street:  3
-strength:  0.509375
-street:  4
-strength:  0.979375
-street:  5
-strength:  0.988125
+strength:  0.545
 round:  730
-my bounty:  K
+my bounty:  7
+street:  0
+strength:  0.476875
+street:  3
+strength:  0.381875
+street:  3
+strength:  0.441875
 round:  731
-my bounty:  K
+my bounty:  7
+street:  0
+strength:  0.273125
+round:  732
+my bounty:  7
+street:  0
+strength:  0.486875
+street:  3
+strength:  0.285625
+street:  4
+strength:  0.5025
+street:  5
+strength:  0.408125
+round:  733
+my bounty:  7
+street:  0
+strength:  0.536875
+round:  734
+my bounty:  7
+street:  0
+strength:  0.434375
+round:  735
+my bounty:  7
+street:  0
+strength:  0.605625
+round:  736
+my bounty:  7
 street:  0
 strength:  0.303125
-round:  732
-my bounty:  K
-round:  733
-my bounty:  K
-street:  0
-strength:  0.329375
-round:  734
-my bounty:  K
-round:  735
-my bounty:  K
-street:  0
-strength:  0.526875
-street:  0
-strength:  0.48375
-round:  736
-my bounty:  K
 round:  737
-my bounty:  K
+my bounty:  7
 street:  0
-strength:  0.566875
+strength:  0.805
+street:  0
+strength:  0.755
 street:  3
-strength:  0.861875
+strength:  0.968125
 round:  738
-my bounty:  K
+my bounty:  7
+street:  0
+strength:  0.335
 round:  739
-my bounty:  K
+my bounty:  7
+street:  0
+strength:  0.371875
+round:  740
+my bounty:  7
+street:  0
+strength:  0.31375
+round:  741
+my bounty:  7
+street:  0
+strength:  0.41
+round:  742
+my bounty:  7
+round:  743
+my bounty:  7
+street:  0
+strength:  0.446875
+round:  744
+my bounty:  7
+round:  745
+my bounty:  7
+street:  0
+strength:  0.445
+round:  746
+my bounty:  7
+round:  747
+my bounty:  7
+street:  0
+strength:  0.3675
+round:  748
+my bounty:  7
+street:  0
+strength:  0.72875
+round:  749
+my bounty:  7
+street:  0
+strength:  0.6325
+street:  3
+strength:  0.83375
+round:  750
+my bounty:  7
+round:  751
+my bounty:  2
+street:  0
+strength:  0.4875
+round:  752
+my bounty:  2
+round:  753
+my bounty:  2
+street:  0
+strength:  0.469375
+street:  0
+strength:  0.530625
+round:  754
+my bounty:  2
+round:  755
+my bounty:  2
+street:  0
+strength:  0.454375
+round:  756
+my bounty:  2
+street:  0
+strength:  0.41625
+round:  757
+my bounty:  2
+street:  0
+strength:  0.494375
+street:  3
+strength:  0.5925
+street:  4
+strength:  0.5525
+round:  758
+my bounty:  2
+street:  0
+strength:  0.480625
+street:  3
+strength:  0.4275
+street:  4
+strength:  0.3225
+street:  5
+strength:  0.17625
+round:  759
+my bounty:  2
+street:  0
+strength:  0.64375
+street:  3
+strength:  0.544375
+street:  4
+strength:  0.42
+street:  5
+strength:  0.5
+round:  760
+my bounty:  2
+street:  0
+strength:  0.5625
+street:  3
+strength:  0.295625
+street:  4
+strength:  0.16625
+street:  4
+strength:  0.174375
+round:  761
+my bounty:  2
+street:  0
+strength:  0.525625
+round:  762
+my bounty:  2
+street:  0
+strength:  0.4175
+round:  763
+my bounty:  2
+street:  0
+strength:  0.3275
+round:  764
+my bounty:  2
+street:  0
+strength:  0.39625
+round:  765
+my bounty:  2
 street:  0
 strength:  0.354375
-round:  740
-my bounty:  K
-round:  741
-my bounty:  K
+round:  766
+my bounty:  2
 street:  0
-strength:  0.4825
+strength:  0.6075
 street:  3
-strength:  0.269375
+strength:  0.353125
 street:  4
-strength:  0.21875
-round:  742
-my bounty:  K
-round:  743
-my bounty:  K
-street:  0
-strength:  0.22625
-round:  744
-my bounty:  K
-round:  745
-my bounty:  K
-street:  0
-strength:  0.4925
-round:  746
-my bounty:  K
-round:  747
-my bounty:  K
-street:  0
-strength:  0.40875
-round:  748
-my bounty:  K
-round:  749
-my bounty:  K
-street:  0
-strength:  0.45125
-street:  3
-strength:  0.315
-street:  4
-strength:  0.640625
+strength:  0.248125
 street:  5
-strength:  0.49375
-round:  750
+strength:  0.625625
+round:  767
+my bounty:  2
+street:  0
+strength:  0.400625
+round:  768
+my bounty:  2
+street:  0
+strength:  0.51875
+street:  3
+strength:  0.61
+street:  4
+strength:  0.535
+street:  5
+strength:  0.48375
+round:  769
+my bounty:  2
+street:  0
+strength:  0.26625
+round:  770
+my bounty:  2
+round:  771
+my bounty:  2
+street:  0
+strength:  0.604375
+street:  3
+strength:  0.724375
+round:  772
+my bounty:  2
+street:  0
+strength:  0.384375
+round:  773
+my bounty:  2
+street:  0
+strength:  0.215
+round:  774
+my bounty:  2
+round:  775
+my bounty:  2
+street:  0
+strength:  0.35625
+round:  776
 my bounty:  K
-round:  751
-my bounty:  8
+round:  777
+my bounty:  K
 street:  0
-strength:  0.399375
-round:  752
-my bounty:  8
-round:  753
-my bounty:  8
+strength:  0.345
+round:  778
+my bounty:  K
+round:  779
+my bounty:  K
 street:  0
-strength:  0.35875
-round:  754
-my bounty:  8
-round:  755
-my bounty:  8
+strength:  0.315
+round:  780
+my bounty:  K
+street:  0
+strength:  0.4025
+round:  781
+my bounty:  K
+street:  0
+strength:  0.311875
+round:  782
+my bounty:  K
+round:  783
+my bounty:  K
+street:  0
+strength:  0.236875
+round:  784
+my bounty:  K
+street:  0
+strength:  0.345
+round:  785
+my bounty:  K
+street:  0
+strength:  0.550625
+street:  0
+strength:  0.54625
+round:  786
+my bounty:  K
+street:  0
+strength:  0.6025
+round:  787
+my bounty:  K
+street:  0
+strength:  0.434375
+street:  0
+strength:  0.445
+round:  788
+my bounty:  K
+round:  789
+my bounty:  K
+street:  0
+strength:  0.30125
+round:  790
+my bounty:  K
+street:  0
+strength:  0.69125
+street:  3
+strength:  0.69
+street:  4
+strength:  0.625
+street:  5
+strength:  0.63625
+round:  791
+my bounty:  K
+street:  0
+strength:  0.401875
+round:  792
+my bounty:  K
+street:  0
+strength:  0.444375
+round:  793
+my bounty:  K
+street:  0
+strength:  0.64625
+round:  794
+my bounty:  K
+street:  0
+strength:  0.351875
+round:  795
+my bounty:  K
+street:  0
+strength:  0.438125
+round:  796
+my bounty:  K
+street:  0
+strength:  0.475625
+street:  3
+strength:  0.641875
+street:  4
+strength:  0.6775
+street:  5
+strength:  0.7575
+round:  797
+my bounty:  K
+street:  0
+strength:  0.548125
+street:  3
+strength:  0.4575
+street:  4
+strength:  0.31
+street:  5
+strength:  0.081875
+round:  798
+my bounty:  K
+round:  799
+my bounty:  K
+street:  0
+strength:  0.56375
+round:  800
+my bounty:  K
+round:  801
+my bounty:  2
+street:  0
+strength:  0.473125
+street:  3
+strength:  0.585625
+street:  4
+strength:  0.47375
+street:  5
+strength:  0.44875
+round:  802
+my bounty:  2
+street:  0
+strength:  0.36
+round:  803
+my bounty:  2
+street:  0
+strength:  0.229375
+round:  804
+my bounty:  2
+street:  0
+strength:  0.4625
+street:  3
+strength:  0.539375
+street:  4
+strength:  0.300625
+street:  5
+strength:  0.299375
+round:  805
+my bounty:  2
+street:  0
+strength:  0.518125
+round:  806
+my bounty:  2
+street:  0
+strength:  0.471875
+street:  3
+strength:  0.62875
+street:  3
+strength:  0.594375
+round:  807
+my bounty:  2
+street:  0
+strength:  0.54875
+street:  0
+strength:  0.579375
+round:  808
+my bounty:  2
+street:  0
+strength:  0.59
+round:  809
+my bounty:  2
+street:  0
+strength:  0.269375
+round:  810
+my bounty:  2
+round:  811
+my bounty:  2
+street:  0
+strength:  0.6025
+street:  3
+strength:  0.345
+street:  4
+strength:  0.82
+round:  812
+my bounty:  2
+street:  0
+strength:  0.53875
+street:  3
+strength:  0.22875
+street:  4
+strength:  0.24125
+street:  5
+strength:  0.5925
+round:  813
+my bounty:  2
+street:  0
+strength:  0.360625
+round:  814
+my bounty:  2
+street:  0
+strength:  0.55625
+street:  3
+strength:  0.456875
+street:  4
+strength:  0.448125
+street:  5
+strength:  0.96
+round:  815
+my bounty:  2
+street:  0
+strength:  0.45375
+round:  816
+my bounty:  2
+street:  0
+strength:  0.411875
+round:  817
+my bounty:  2
+street:  0
+strength:  0.236875
+round:  818
+my bounty:  2
+street:  0
+strength:  0.415625
+round:  819
+my bounty:  2
+street:  0
+strength:  0.405625
+round:  820
+my bounty:  2
+street:  0
+strength:  0.540625
+street:  3
+strength:  0.701875
+round:  821
+my bounty:  2
+street:  0
+strength:  0.52625
+street:  0
+strength:  0.5425
+round:  822
+my bounty:  2
+street:  0
+strength:  0.258125
+round:  823
+my bounty:  2
+street:  0
+strength:  0.44875
+round:  824
+my bounty:  2
+round:  825
+my bounty:  2
+street:  0
+strength:  0.369375
+round:  826
+my bounty:  3
+street:  0
+strength:  0.27
+round:  827
+my bounty:  3
+street:  0
+strength:  0.534375
+round:  828
+my bounty:  3
+street:  0
+strength:  0.316875
+round:  829
+my bounty:  3
+street:  0
+strength:  0.525
+street:  3
+strength:  0.45625
+street:  4
+strength:  0.309375
+street:  5
+strength:  0.251875
+round:  830
+my bounty:  3
+street:  0
+strength:  0.383125
+round:  831
+my bounty:  3
+street:  0
+strength:  0.52625
+round:  832
+my bounty:  3
+round:  833
+my bounty:  3
+street:  0
+strength:  0.330625
+round:  834
+my bounty:  3
+round:  835
+my bounty:  3
+street:  0
+strength:  0.481875
+round:  836
+my bounty:  3
+round:  837
+my bounty:  3
+street:  0
+strength:  0.5675
+street:  3
+strength:  0.745
+round:  838
+my bounty:  3
+street:  0
+strength:  0.2775
+round:  839
+my bounty:  3
+street:  0
+strength:  0.479375
+street:  0
+strength:  0.363125
+round:  840
+my bounty:  3
+round:  841
+my bounty:  3
+street:  0
+strength:  0.535625
+street:  3
+strength:  0.676875
+street:  4
+strength:  0.43
+round:  842
+my bounty:  3
+round:  843
+my bounty:  3
+street:  0
+strength:  0.455
+round:  844
+my bounty:  3
+street:  0
+strength:  0.2825
+round:  845
+my bounty:  3
+street:  0
+strength:  0.38
+street:  0
+strength:  0.445
+round:  846
+my bounty:  3
+round:  847
+my bounty:  3
+street:  0
+strength:  0.31875
+round:  848
+my bounty:  3
 street:  0
 strength:  0.5075
 street:  3
-strength:  0.485625
-round:  756
-my bounty:  8
-round:  757
-my bounty:  8
-street:  0
-strength:  0.451875
-street:  0
-strength:  0.548125
-round:  758
-my bounty:  8
-round:  759
-my bounty:  8
-street:  0
-strength:  0.691875
+strength:  0.339375
 street:  3
-strength:  0.50625
-street:  4
-strength:  0.505625
-street:  5
-strength:  0.320625
-round:  760
-my bounty:  8
-round:  761
-my bounty:  8
-street:  0
-strength:  0.305
-round:  762
-my bounty:  8
-round:  763
-my bounty:  8
-street:  0
-strength:  0.4975
-round:  764
-my bounty:  8
-round:  765
-my bounty:  8
-street:  0
-strength:  0.54875
-street:  3
-strength:  0.239375
-street:  4
-strength:  0.185
-street:  5
-strength:  0.22875
-round:  766
-my bounty:  8
-round:  767
-my bounty:  8
-street:  0
-strength:  0.331875
-round:  768
-my bounty:  8
-round:  769
-my bounty:  8
-street:  0
-strength:  0.415
-round:  770
-my bounty:  8
-round:  771
-my bounty:  8
-street:  0
-strength:  0.536875
-round:  772
-my bounty:  8
-round:  773
-my bounty:  8
-street:  0
-strength:  0.565625
-street:  0
-strength:  0.52375
-round:  774
-my bounty:  8
-round:  775
-my bounty:  8
-street:  0
-strength:  0.47625
-street:  3
-strength:  0.57875
-street:  4
-strength:  0.436875
-street:  5
-strength:  0.97625
-round:  776
-my bounty:  6
-round:  777
-my bounty:  6
+strength:  0.411875
+round:  849
+my bounty:  3
 street:  0
 strength:  0.39
-round:  778
-my bounty:  6
-round:  779
-my bounty:  6
-street:  0
-strength:  0.546875
-round:  780
-my bounty:  6
-round:  781
-my bounty:  6
-street:  0
-strength:  0.455
-street:  0
-strength:  0.476875
-round:  782
-my bounty:  6
-round:  783
-my bounty:  6
-round:  784
-my bounty:  6
-round:  785
-my bounty:  6
-round:  786
-my bounty:  6
-round:  787
-my bounty:  6
-round:  788
-my bounty:  6
-round:  789
-my bounty:  6
-round:  790
-my bounty:  6
-round:  791
-my bounty:  6
-round:  792
-my bounty:  6
-round:  793
-my bounty:  6
-round:  794
-my bounty:  6
-round:  795
-my bounty:  6
-round:  796
-my bounty:  6
-round:  797
-my bounty:  6
-round:  798
-my bounty:  6
-round:  799
-my bounty:  6
-round:  800
-my bounty:  6
-round:  801
-my bounty:  6
-round:  802
-my bounty:  6
-round:  803
-my bounty:  6
-round:  804
-my bounty:  6
-round:  805
-my bounty:  6
-round:  806
-my bounty:  6
-round:  807
-my bounty:  6
-round:  808
-my bounty:  6
-round:  809
-my bounty:  6
-round:  810
-my bounty:  6
-round:  811
-my bounty:  6
-round:  812
-my bounty:  6
-round:  813
-my bounty:  6
-round:  814
-my bounty:  6
-round:  815
-my bounty:  6
-round:  816
-my bounty:  6
-round:  817
-my bounty:  6
-round:  818
-my bounty:  6
-round:  819
-my bounty:  6
-round:  820
-my bounty:  6
-round:  821
-my bounty:  6
-round:  822
-my bounty:  6
-round:  823
-my bounty:  6
-round:  824
-my bounty:  6
-round:  825
-my bounty:  6
-round:  826
-my bounty:  8
-round:  827
-my bounty:  8
-round:  828
-my bounty:  8
-round:  829
-my bounty:  8
-round:  830
-my bounty:  8
-round:  831
-my bounty:  8
-round:  832
-my bounty:  8
-round:  833
-my bounty:  8
-round:  834
-my bounty:  8
-round:  835
-my bounty:  8
-round:  836
-my bounty:  8
-round:  837
-my bounty:  8
-round:  838
-my bounty:  8
-round:  839
-my bounty:  8
-round:  840
-my bounty:  8
-round:  841
-my bounty:  8
-round:  842
-my bounty:  8
-round:  843
-my bounty:  8
-round:  844
-my bounty:  8
-round:  845
-my bounty:  8
-round:  846
-my bounty:  8
-round:  847
-my bounty:  8
-round:  848
-my bounty:  8
-round:  849
-my bounty:  8
 round:  850
-my bounty:  8
+my bounty:  3
+street:  0
+strength:  0.25875
 round:  851
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.214375
 round:  852
-my bounty:  T
+my bounty:  6
 round:  853
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.569375
+street:  3
+strength:  0.358125
+street:  4
+strength:  0.16625
+street:  5
+strength:  0.095
 round:  854
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.46125
+street:  3
+strength:  0.579375
+street:  4
+strength:  0.67875
+street:  5
+strength:  0.741875
 round:  855
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.353125
 round:  856
-my bounty:  T
+my bounty:  6
 round:  857
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.319375
 round:  858
-my bounty:  T
+my bounty:  6
 round:  859
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.269375
 round:  860
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.344375
 round:  861
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.51375
+street:  0
+strength:  0.565
 round:  862
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.563125
+street:  3
+strength:  0.423125
+street:  4
+strength:  0.4825
+street:  5
+strength:  0.434375
 round:  863
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.4475
 round:  864
-my bounty:  T
+my bounty:  6
 round:  865
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.38
 round:  866
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.49875
+street:  3
+strength:  0.5
+street:  4
+strength:  0.52375
+street:  5
+strength:  0.92625
 round:  867
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.38125
+street:  3
+strength:  0.685
+street:  4
+strength:  0.69375
+street:  5
+strength:  0.796875
 round:  868
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.44
 round:  869
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.570625
 round:  870
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.3825
 round:  871
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.545625
 round:  872
-my bounty:  T
+my bounty:  6
 round:  873
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.569375
+street:  3
+strength:  0.79875
 round:  874
-my bounty:  T
+my bounty:  6
+street:  0
+strength:  0.64
 round:  875
-my bounty:  T
+my bounty:  6
+I won at round:  875
 round:  876
 my bounty:  2
+I won at round:  876
 round:  877
 my bounty:  2
+I won at round:  877
 round:  878
 my bounty:  2
+I won at round:  878
 round:  879
 my bounty:  2
+I won at round:  879
 round:  880
 my bounty:  2
 round:  881
 my bounty:  2
+I won at round:  881
 round:  882
 my bounty:  2
 round:  883
 my bounty:  2
+I won at round:  883
 round:  884
 my bounty:  2
+I won at round:  884
 round:  885
 my bounty:  2
+I won at round:  885
 round:  886
 my bounty:  2
 round:  887
 my bounty:  2
+I won at round:  887
 round:  888
 my bounty:  2
+I won at round:  888
 round:  889
 my bounty:  2
+I won at round:  889
 round:  890
 my bounty:  2
+I won at round:  890
 round:  891
 my bounty:  2
+I won at round:  891
 round:  892
 my bounty:  2
+I won at round:  892
 round:  893
 my bounty:  2
+I won at round:  893
 round:  894
 my bounty:  2
+I won at round:  894
 round:  895
 my bounty:  2
+I won at round:  895
 round:  896
 my bounty:  2
 round:  897
 my bounty:  2
+I won at round:  897
 round:  898
 my bounty:  2
+I won at round:  898
 round:  899
 my bounty:  2
+I won at round:  899
 round:  900
 my bounty:  2
 round:  901
-my bounty:  4
+my bounty:  7
+I won at round:  901
 round:  902
-my bounty:  4
+my bounty:  7
+I won at round:  902
 round:  903
-my bounty:  4
+my bounty:  7
+I won at round:  903
 round:  904
-my bounty:  4
+my bounty:  7
+I won at round:  904
 round:  905
-my bounty:  4
+my bounty:  7
+I won at round:  905
 round:  906
-my bounty:  4
+my bounty:  7
 round:  907
-my bounty:  4
+my bounty:  7
+I won at round:  907
 round:  908
-my bounty:  4
+my bounty:  7
+I won at round:  908
 round:  909
-my bounty:  4
+my bounty:  7
+I won at round:  909
 round:  910
-my bounty:  4
+my bounty:  7
+I won at round:  910
 round:  911
-my bounty:  4
+my bounty:  7
+I won at round:  911
 round:  912
-my bounty:  4
+my bounty:  7
 round:  913
-my bounty:  4
+my bounty:  7
+I won at round:  913
 round:  914
-my bounty:  4
+my bounty:  7
 round:  915
-my bounty:  4
+my bounty:  7
+I won at round:  915
 round:  916
-my bounty:  4
+my bounty:  7
+I won at round:  916
 round:  917
-my bounty:  4
+my bounty:  7
+I won at round:  917
 round:  918
-my bounty:  4
+my bounty:  7
 round:  919
-my bounty:  4
+my bounty:  7
+I won at round:  919
 round:  920
-my bounty:  4
+my bounty:  7
+I won at round:  920
 round:  921
-my bounty:  4
+my bounty:  7
+I won at round:  921
 round:  922
-my bounty:  4
+my bounty:  7
+I won at round:  922
 round:  923
-my bounty:  4
+my bounty:  7
+I won at round:  923
 round:  924
-my bounty:  4
+my bounty:  7
 round:  925
-my bounty:  4
+my bounty:  7
+I won at round:  925
 round:  926
-my bounty:  K
+my bounty:  3
+I won at round:  926
 round:  927
-my bounty:  K
+my bounty:  3
+I won at round:  927
 round:  928
-my bounty:  K
+my bounty:  3
+I won at round:  928
 round:  929
-my bounty:  K
+my bounty:  3
+I won at round:  929
 round:  930
-my bounty:  K
+my bounty:  3
+I won at round:  930
 round:  931
-my bounty:  K
+my bounty:  3
+I won at round:  931
 round:  932
-my bounty:  K
+my bounty:  3
+I won at round:  932
 round:  933
-my bounty:  K
+my bounty:  3
+I won at round:  933
 round:  934
-my bounty:  K
+my bounty:  3
+I won at round:  934
 round:  935
-my bounty:  K
+my bounty:  3
+I won at round:  935
 round:  936
-my bounty:  K
+my bounty:  3
 round:  937
-my bounty:  K
+my bounty:  3
+I won at round:  937
 round:  938
-my bounty:  K
+my bounty:  3
+I won at round:  938
 round:  939
-my bounty:  K
+my bounty:  3
+I won at round:  939
 round:  940
-my bounty:  K
+my bounty:  3
+I won at round:  940
 round:  941
-my bounty:  K
+my bounty:  3
+I won at round:  941
 round:  942
-my bounty:  K
+my bounty:  3
+I won at round:  942
 round:  943
-my bounty:  K
+my bounty:  3
+I won at round:  943
 round:  944
-my bounty:  K
+my bounty:  3
+I won at round:  944
 round:  945
-my bounty:  K
+my bounty:  3
+I won at round:  945
 round:  946
-my bounty:  K
+my bounty:  3
 round:  947
-my bounty:  K
+my bounty:  3
+I won at round:  947
 round:  948
-my bounty:  K
+my bounty:  3
 round:  949
-my bounty:  K
+my bounty:  3
+I won at round:  949
 round:  950
-my bounty:  K
+my bounty:  3
+I won at round:  950
 round:  951
-my bounty:  J
+my bounty:  Q
+I won at round:  951
 round:  952
-my bounty:  J
+my bounty:  Q
+I won at round:  952
 round:  953
-my bounty:  J
+my bounty:  Q
+I won at round:  953
 round:  954
-my bounty:  J
+my bounty:  Q
 round:  955
-my bounty:  J
+my bounty:  Q
+I won at round:  955
 round:  956
-my bounty:  J
+my bounty:  Q
+I won at round:  956
 round:  957
-my bounty:  J
+my bounty:  Q
+I won at round:  957
 round:  958
-my bounty:  J
+my bounty:  Q
+I won at round:  958
 round:  959
-my bounty:  J
+my bounty:  Q
+I won at round:  959
 round:  960
-my bounty:  J
+my bounty:  Q
 round:  961
-my bounty:  J
+my bounty:  Q
+I won at round:  961
 round:  962
-my bounty:  J
+my bounty:  Q
 round:  963
-my bounty:  J
+my bounty:  Q
+I won at round:  963
 round:  964
-my bounty:  J
+my bounty:  Q
+I won at round:  964
 round:  965
-my bounty:  J
+my bounty:  Q
+I won at round:  965
 round:  966
-my bounty:  J
+my bounty:  Q
+I won at round:  966
 round:  967
-my bounty:  J
+my bounty:  Q
+I won at round:  967
 round:  968
-my bounty:  J
+my bounty:  Q
 round:  969
-my bounty:  J
+my bounty:  Q
+I won at round:  969
 round:  970
-my bounty:  J
+my bounty:  Q
+I won at round:  970
 round:  971
-my bounty:  J
+my bounty:  Q
+I won at round:  971
 round:  972
-my bounty:  J
+my bounty:  Q
+I won at round:  972
 round:  973
-my bounty:  J
+my bounty:  Q
+I won at round:  973
 round:  974
-my bounty:  J
+my bounty:  Q
+I won at round:  974
 round:  975
-my bounty:  J
+my bounty:  Q
+I won at round:  975
 round:  976
-my bounty:  7
+my bounty:  6
+I won at round:  976
 round:  977
-my bounty:  7
+my bounty:  6
+I won at round:  977
 round:  978
-my bounty:  7
+my bounty:  6
+I won at round:  978
 round:  979
-my bounty:  7
+my bounty:  6
+I won at round:  979
 round:  980
-my bounty:  7
+my bounty:  6
+I won at round:  980
 round:  981
-my bounty:  7
+my bounty:  6
+I won at round:  981
 round:  982
-my bounty:  7
+my bounty:  6
+I won at round:  982
 round:  983
-my bounty:  7
+my bounty:  6
+I won at round:  983
 round:  984
-my bounty:  7
+my bounty:  6
+I won at round:  984
 round:  985
-my bounty:  7
+my bounty:  6
+I won at round:  985
 round:  986
-my bounty:  7
+my bounty:  6
 round:  987
-my bounty:  7
+my bounty:  6
+I won at round:  987
 round:  988
-my bounty:  7
+my bounty:  6
 round:  989
-my bounty:  7
+my bounty:  6
+I won at round:  989
 round:  990
-my bounty:  7
+my bounty:  6
 round:  991
-my bounty:  7
+my bounty:  6
+I won at round:  991
 round:  992
-my bounty:  7
+my bounty:  6
 round:  993
-my bounty:  7
+my bounty:  6
+I won at round:  993
 round:  994
-my bounty:  7
+my bounty:  6
+I won at round:  994
 round:  995
-my bounty:  7
+my bounty:  6
+I won at round:  995
 round:  996
-my bounty:  7
+my bounty:  6
+I won at round:  996
 round:  997
-my bounty:  7
+my bounty:  6
+I won at round:  997
 round:  998
-my bounty:  7
+my bounty:  6
+I won at round:  998
 round:  999
-my bounty:  7
+my bounty:  6
+I won at round:  999
 round:  1000
-my bounty:  7
+my bounty:  6
+I won at round:  1000

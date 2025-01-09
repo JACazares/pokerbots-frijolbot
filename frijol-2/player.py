@@ -135,6 +135,7 @@ class Player(Bot):
             max_raise = 0
 
         if self.iwon:
+            print("I won at round: ", round_num)
             return CheckFold(legal_actions)  # If you won, checkfold
 
         strength = estimate_strength(my_cards, board_cards, iters=200)
