@@ -263,7 +263,7 @@ def mixed_strategy(
 
 if __name__ == "__main__":
     # Run the script
-    print(estimate_strength(['7h', '2s'], iters=10000, bounty='2', bounty_strength=1, opp_bounty_distrib=[1/13]*13))
-
+    #print(estimate_strength(['7h', '2s'], iters=10000, bounty='2', bounty_strength=1, opp_bounty_distrib=[1/13]*13))
+    print(compute_checkfold_winprob(450, 927, True))
 
     # print(compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c']))
