@@ -50,7 +50,7 @@ class Player(Bot):
         round_num = game_state.round_num  # the round number from 1 to NUM_ROUNDS
         # my_cards = round_state.hands[active]  # your cards
         big_blind = bool(active)  # True if you are the big blind
-        # my_bounty = round_state.bounties[active]  # your current bounty rank
+        my_bounty = round_state.bounties[active]  # your current bounty rank
         rounds_left = 1001 - round_num  # Remaining rounds, including this one.
 
         self.iwon = False  # Flag showing if the target bankroll is triggered
@@ -64,6 +64,8 @@ class Player(Bot):
         self.winprob=compute_checkfold_winprob(rounds_left, my_bankroll, big_blind)
         if self.winprob>0.999:
             self.iwon = True
+        print("round: ", round_num)
+        print("my bounty: ", my_bounty)
 
     def handle_round_over(self, game_state, terminal_state, active):
         """
@@ -136,14 +138,13 @@ class Player(Bot):
             return CheckFold(legal_actions)  # If you won, checkfold
 
         strength = estimate_strength(my_cards, board_cards, iters=200)
-        print("round: ", round_num)
         print("street: ", street)
         print("strength: ", strength)
 
         pot=opp_contribution+my_contribution
         pot_odds=continue_cost/pot
-        opening_raise=2.5*BIG_BLIND
-        three_bet_raise=3*pot+BIG_BLIND
+        opening_raise=int(2.5*BIG_BLIND)
+        three_bet_raise=int(3*pot+BIG_BLIND)
 
         if street == 0:  # ..............................Preflop
            if not big_blind: #You are button
