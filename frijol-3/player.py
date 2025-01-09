@@ -143,8 +143,8 @@ class Player(Bot):
         print("strength: ", strength)
 
         pot=opp_contribution+my_contribution
-        my_bounty_present = np.any([my_bounty == eval7.ranks[card.rank] for card in my_cards]) \
-                          or np.any([my_bounty == eval7.ranks[card.rank] for card in board_cards])
+        my_bounty_present = np.any([my_bounty == card for card in my_cards]) \
+                          or np.any([my_bounty == card for card in board_cards])
         if my_bounty_present:
             pot_odds=continue_cost/(pot+continue_cost+0.5*opp_contribution+10)
         else:
