@@ -13,6 +13,9 @@ class Street:
     street_name: str
     community_cards: List[str] = field(default_factory=list)
     actions: List[Dict] = field(default_factory=list)  # e.g. [{"player":"A","action":"raise","amount":10}]
+    player_contributions_during_street: Dict[str, int] = field(
+        default_factory=lambda: {"A": 0, "B": 0}
+    )
     pot_size_after_street: int = 0
     player_stacks_after_street: Dict[str, int] = field(
         default_factory=lambda: {"A": 400, "B": 400}

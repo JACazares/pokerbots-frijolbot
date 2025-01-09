@@ -2,6 +2,7 @@ import re
 from dataclasses import asdict
 from poker_parser.structures import RoundData, Street, Showdown
 
+
 class PokerLogParser:
     """
     A class-based parser that processes heads-up Hold'em logs line by line.
@@ -12,7 +13,7 @@ class PokerLogParser:
         # Storage for final results
         self.rounds = []
         self.current_round = None
-        
+
         # Round-level tracking
         self.pot = 0
         self.player_stacks = {"A": 400, "B": 400}
@@ -27,8 +28,12 @@ class PokerLogParser:
             r"^Bounties reset to ([2-9TJQKA]) for player (A|B) and ([2-9TJQKA]) for player (A|B)$"
         )
         self.blind_pattern = re.compile(r"^(A|B) posts the blind of (\d+)$")
-        self.dealt_pattern = re.compile(r"^(A|B) dealt \[([2-9TJQKA][cdhs])\s+([2-9TJQKA][cdhs])\]$")
-        self.action_pattern = re.compile(r"^(A|B)\s+(folds|calls|checks|bets\s+\d+|raises to\s+\d+)$")
+        self.dealt_pattern = re.compile(
+            r"^(A|B) dealt \[([2-9TJQKA][cdhs])\s+([2-9TJQKA][cdhs])\]$"
+        )
+        self.action_pattern = re.compile(
+            r"^(A|B)\s+(folds|calls|checks|bets\s+\d+|raises to\s+\d+)$"
+        )
         self.awarded_pattern = re.compile(r"^(A|B)\s+awarded\s+(-?\d+)$")
         self.winning_pattern = re.compile(
             r"^Winning counts at the end of the round:\s+,\s+(A|B)\s+\((-?\d+)\),\s+(A|B)\s+\((-?\d+)\)$"
@@ -37,11 +42,13 @@ class PokerLogParser:
             r"^(Flop|Turn|River)\s+\[(.+)\],\s+(A|B)\s+\(\d+\),\s+(A|B)\s+\(\d+\)$"
         )
         self.stacks_pattern = re.compile(r"^Current stacks:\s+(\d+),\s+(\d+)$")
-        self.shows_pattern = re.compile(r"^(A|B)\s+shows\s+\[([2-9TJQKA][cdhs])\s+([2-9TJQKA][cdhs])\]$")
+        self.shows_pattern = re.compile(
+            r"^(A|B)\s+shows\s+\[([2-9TJQKA][cdhs])\s+([2-9TJQKA][cdhs])\]$"
+        )
 
     def parse_file(self, filepath: str):
         """
-        Main entry point to parse an entire file. 
+        Main entry point to parse an entire file.
         Reads line by line, calls parse_line(), and returns a list of dictionaries suitable for JSON.
         """
         with open(filepath, "r") as infile:
@@ -56,7 +63,7 @@ class PokerLogParser:
 
         # Convert to dicts (so it's JSON-serializable)
         return [asdict(r) for r in self.rounds]
-    
+
     def parse_string(self, log_text: str):
         """
         Allows testing with a string-based log
@@ -122,7 +129,7 @@ class PokerLogParser:
                 streets=[],
                 awards={"A": 0, "B": 0},
                 winning_counts_end_round={"A": None, "B": None},
-                showdown=Showdown()
+                showdown=Showdown(),
             )
             # set actual scores
             self.current_round.score_at_start[p1] = p1_score
@@ -163,19 +170,24 @@ class PokerLogParser:
 
             # If small_blind not set, set it; else big_blind
             if "small_blind" not in self.current_round.blinds:
-                self.current_round.blinds["small_blind"] = {"player": player, "amount": amt}
+                self.current_round.blinds["small_blind"] = {
+                    "player": player,
+                    "amount": amt,
+                }
             else:
-                self.current_round.blinds["big_blind"] = {"player": player, "amount": amt}
+                self.current_round.blinds["big_blind"] = {
+                    "player": player,
+                    "amount": amt,
+                }
 
             # record action
-            self.current_round.streets[-1].actions.append({
-                "player": player,
-                "action": "post_blind",
-                "amount": amt
-            })
+            self.current_round.streets[-1].actions.append(
+                {"player": player, "action": "post_blind", "amount": amt}
+            )
             self.pot += amt
-            self.player_stacks[player] -= amt
-            self.player_contributions[player] += amt
+            self.current_round.streets[-1].player_contributions_during_street[
+                player
+            ] += amt
 
             return True
         return False
@@ -203,27 +215,42 @@ class PokerLogParser:
                 amt_str = raw_action.split("raises to")[-1].strip()
                 amount_num = int(amt_str)
                 action_type = "raise"
-                additional = amount_num - self.player_contributions[player]
+                current_street_contribution = self.current_round.streets[
+                    -1
+                ].player_contributions_during_street[player]
+                additional = amount_num - current_street_contribution
                 self.pot += additional
-                self.player_stacks[player] -= additional
-                self.player_contributions[player] = amount_num
+                self.current_round.streets[-1].player_contributions_during_street[
+                    player
+                ] = amount_num
 
             elif raw_action.startswith("bets"):
                 amt_str = raw_action.split("bets")[-1].strip()
                 amount_num = int(amt_str)
                 action_type = "bet"
                 self.pot += amount_num
-                self.player_stacks[player] -= amount_num
-                self.player_contributions[player] += amount_num
+                self.current_round.streets[-1].player_contributions_during_street[
+                    player
+                ] = amount_num
 
             elif raw_action == "calls":
                 action_type = "call"
                 other = "A" if player == "B" else "B"
-                required = self.player_contributions[other] - self.player_contributions[player]
-                amount_num = required
+                player_contribution_during_street = self.current_round.streets[
+                    -1
+                ].player_contributions_during_street[player]
+                other_contribution_during_street = self.current_round.streets[
+                    -1
+                ].player_contributions_during_street[other]
+
+                required = (
+                    other_contribution_during_street - player_contribution_during_street
+                )
+                amount_num = other_contribution_during_street
                 self.pot += required
-                self.player_stacks[player] -= required
-                self.player_contributions[player] += required
+                self.current_round.streets[-1].player_contributions_during_street[
+                    player
+                ] = amount_num
 
             elif raw_action == "checks":
                 action_type = "check"
@@ -231,11 +258,9 @@ class PokerLogParser:
             elif raw_action == "folds":
                 action_type = "fold"
 
-            self.current_round.streets[-1].actions.append({
-                "player": player,
-                "action": action_type,
-                "amount": amount_num
-            })
+            self.current_round.streets[-1].actions.append(
+                {"player": player, "action": action_type, "amount": amount_num}
+            )
             return True
         return False
 
@@ -247,16 +272,16 @@ class PokerLogParser:
             card_string = match.group(2)
             community_cards = card_string.split()
 
-            new_street = Street(street_name=street_keyword,
-                                community_cards=community_cards,
-                                actions=[])
+            new_street = Street(
+                street_name=street_keyword, community_cards=community_cards, actions=[]
+            )
             self.current_round.streets.append(new_street)
             return True
         return False
 
     def handle_stacks_line(self, line: str) -> bool:
         # "Current stacks: 394, 394"
-        # We can ignore or cross-check. 
+        # We can ignore or cross-check.
         match = self.stacks_pattern.match(line)
         if match:
             # Cross-check or store if needed
@@ -311,7 +336,9 @@ class PokerLogParser:
                 self.current_round.showdown.went_to_showdown = False
                 winner = "A" if folded_player == "B" else "B"
                 self.current_round.showdown.winner = winner
-                self.current_round.showdown.winning_amount = self.current_round.awards[winner]
+                self.current_round.showdown.winning_amount = self.current_round.awards[
+                    winner
+                ]
             else:
                 # showdown
                 self.current_round.showdown.went_to_showdown = True
@@ -336,7 +363,10 @@ class PokerLogParser:
             winner_id = self.current_round.showdown.winner
             if winner_id in ("A", "B"):
                 other_id = "A" if winner_id == "B" else "B"
-                if self.current_round.awards[winner_id] != self.player_contributions[other_id]:
+                if (
+                    self.current_round.awards[winner_id]
+                    != self.player_contributions[other_id]
+                ):
                     self.current_round.bounty_awarded = True
 
             return True
@@ -350,9 +380,21 @@ class PokerLogParser:
         """Populates pot/stacks/contributions info into the last Street."""
         if self.current_round and self.current_round.streets:
             last_street = self.current_round.streets[-1]
+            self.player_stacks = {
+                player: self.player_stacks[player]
+                - last_street.player_contributions_during_street[player]
+                for player in ["A", "B"]
+            }
+            self.player_contributions = {
+                player: self.player_contributions[player]
+                + last_street.player_contributions_during_street[player]
+                for player in ["A", "B"]
+            }
             last_street.pot_size_after_street = self.pot
             last_street.player_stacks_after_street = dict(self.player_stacks)
-            last_street.player_contributions_after_street = dict(self.player_contributions)
+            last_street.player_contributions_after_street = dict(
+                self.player_contributions
+            )
 
     def finalize_current_round(self):
         """If there's a round in progress, finalize the last street and push it into rounds."""

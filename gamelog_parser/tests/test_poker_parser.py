@@ -222,3 +222,53 @@ Winning counts at the end of the round: , A (22), B (-22)
     # A's total call contributions are presumably < 22 if we sum the bets
     # So this suggests a bounty was triggered
     assert rd["bounty_awarded"] is True
+
+def test_raise_amounts():
+    log_text = """\
+Round #326, B (-575), A (575)
+Bounties reset to 7 for player B and 5 for player A
+B posts the blind of 1
+A posts the blind of 2
+B dealt [Qc Qs]
+A dealt [Jh Js]
+B raises to 5
+A raises to 23
+B calls
+Flop [2d 2c 2h], B (23), A (23)
+Current stacks: 377, 377
+A bets 138
+B raises to 377
+A calls
+Turn [2d 2c 2h 8c], B (400), A (400)
+Current stacks: 0, 0
+A checks
+B checks
+River [2d 2c 2h 8c 8d], B (400), A (400)
+Current stacks: 0, 0
+A checks
+B checks
+B shows [Qc Qs]
+A shows [Jh Js]
+B awarded 400
+A awarded -400
+Winning counts at the end of the round: , B (-175), A (175)
+"""
+
+    parser = PokerLogParser()
+    results = parser.parse_string(log_text)
+    assert len(results) == 1
+    rd = results[0]
+
+    # Check raise amounts
+    streets = rd["streets"]
+    assert len(streets) == 4
+    assert streets[0]["actions"][2]["amount"] == 5
+    assert streets[0]["actions"][3]["amount"] == 23
+    assert streets[1]["actions"][0]["amount"] == 138
+    assert streets[1]["actions"][1]["amount"] == 377
+
+    # Check that contributions are tracked correctly
+    assert streets[0]["player_contributions_after_street"]["A"] == 23
+    assert streets[0]["player_contributions_after_street"]["B"] == 23
+    assert streets[1]["player_contributions_after_street"]["A"] == 400
+    assert streets[1]["player_contributions_after_street"]["B"] == 400
