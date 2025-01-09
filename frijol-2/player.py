@@ -141,7 +141,7 @@ class Player(Bot):
         print("strength: ", strength)
 
         pot=opp_contribution+my_contribution
-        pot_odds=continue_cost/(pot+continue_cost)
+        pot_odds=continue_cost/pot
         opening_raise=2.5*BIG_BLIND
         three_bet_raise=3*pot+BIG_BLIND
 
