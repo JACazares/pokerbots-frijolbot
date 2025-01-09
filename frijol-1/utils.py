@@ -163,7 +163,7 @@ def generate_hole_card_strengths(output_file, iters=200):
 
     # Write to CSV
     with open(output_file, mode='w', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=['Hole Cards', 'Strength'])
+        writer = csv.DictWriter(file, fieldnames=['C1', 'C2', 'Bounty', 'Strength'])
         writer.writeheader()
         writer.writerows(results)
 
