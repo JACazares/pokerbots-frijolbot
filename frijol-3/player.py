@@ -148,41 +148,18 @@ class Player(Bot):
         three_bet_raise=int(3*pot+BIG_BLIND)
 
         if street == 0:  # ..............................Preflop
-           if not big_blind: #You are button
-                if my_contribution==1: #This is your first action
-                    if strength > 0.451: #70th percentile
-                        return RaiseAction(opening_raise)
-                    elif strength>0.371: #95th percentile
+            if strength > pot_odds:
+                if my_pip==0:
+                    if strength > 0.7:
                         var=random.random()
                         if var<0.5:
-                            return RaiseAction(opening_raise)
+                            return RaiseCheckCall(legal_actions, my_pip, round_state, 3*pot)
                         else: 
-                            return CheckFold(legal_actions)
-                    else:
-                        return CheckFold(legal_actions)
+                            return CheckCall(legal_actions)
                 else:
-                    if opp_contribution > 50*BIG_BLIND:
-                        call_reraise_strength = 0.648 #8th percentile
-                    else: 
-                        call_reraise_strength = 0.60  #17th percentile
-                    if strength > call_reraise_strength:
-                        return CheckCall(legal_actions)
-                    else:
-                        return CheckFold(legal_actions)
-           else:    #..................................You are Big Blind
-                if my_contribution==2:
-                    if opp_contribution > 20*BIG_BLIND:
-                        three_bet_strength = 0.648 #8th percentile
-                        call_opening_strength = 0.505 #50th percentile
-                    else: 
-                        three_bet_strength = 0.577  #25th percentile
-                        call_opening_strength = 0.451 #70th percentile
-                    if strength>three_bet_strength: #25th percentile
-                        return RaiseAction(three_bet_raise)
-                    elif strength>call_opening_strength:
-                        return CheckCall(legal_actions)
-                    else:
-                        return CheckFold(legal_actions)
+                    return CheckCall(legal_actions)
+            else:
+                return CheckFold(legal_actions)
                     
         if street >= 3:  # ..............................Flop (+Turn+River)
             if strength > pot_odds:

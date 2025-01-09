@@ -29,7 +29,7 @@ def read_gamelog(filename):
 if __name__ == "__main__":
     import plotly.graph_objects as go
 
-    scoreA, scoreB = read_gamelog("game_log.txt")
+    scoreA, scoreB = read_gamelog("gamelog.txt")
 
     delta = [scoreA[i] - scoreA[i - 1] for i in range(1, len(scoreA))]
 
