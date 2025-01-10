@@ -260,10 +260,55 @@ def mixed_strategy(
 
     return RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount)
 
+def update_opp_bounty_credences(distribution, bounty_awarded, street, hole, board=[]):
+    hole_cards = [eval7.Card(s) for s in hole]
+    board_cards = [eval7.Card(s) for s in board]
+    new_distribution=[0]*13
+    if bounty_awarded:
+        prob_bboard=0 #After the for, it will be the sum of the probabilities of the board cards (distinct)
+        for idx, prob in enumerate(distribution):
+            if np.any([idx == card.rank for card in board_cards]):
+                prob_bboard+=prob
+        prob_Sgh=1-math.comb(48-street, 2)/math.comb(52-street, 2) #The probability of the bounty visible to opponent given that it is not in the board
+        for idx, prob in enumerate(distribution):
+            if np.any([idx == card.rank for card in board_cards]):
+                new_distribution[idx]=prob/(prob_bboard+prob_Sgh*(1-prob_bboard))
+            else:
+                new_distribution[idx]=prob_Sgh*prob/(prob_bboard+prob_Sgh*(1-prob_bboard))
+    else: #Bounty not awarded
+        prob_sum=0
+        for card in board_cards:
+            prob_sum+=distribution[card.rank]
+            new_distribution[card.rank]=0
+        for idx, prob in enumerate(distribution):
+            if idx not in [card.rank for card in board_cards]:
+                new_distribution[idx]=prob/(1-prob_sum)
+
+    return new_distribution
 
 if __name__ == "__main__":
     # Run the script
     #print(estimate_strength(['7h', '2s'], iters=10000, bounty='2', bounty_strength=1, opp_bounty_distrib=[1/13]*13))
-    print(compute_checkfold_winprob(450, 927, True))
+    #print(compute_checkfold_winprob(450, 927, True))
 
     # print(compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c']))
+    distribution=[1/13]*13
+    print([round(prob, 3) for prob in distribution])
+    bounty_awarded=True
+    street=4
+    hole=['As, Ah']
+    board=['4s', '6h', '6s', 'Tc']
+    distribution2=update_opp_bounty_credences(distribution, bounty_awarded, street, hole, board)
+    print([round(prob, 3) for prob in distribution2])
+    board=['3s', '6h', '5s', 'Ac']
+    distribution3=update_opp_bounty_credences(distribution2, False, street, hole, board)
+    print([round(prob, 3) for prob in distribution3])
+    board=['7s', 'Qh', 'Ks', 'Tc', '2s']
+    distribution4=update_opp_bounty_credences(distribution3, True, 5, hole, board)
+    print([round(prob, 3) for prob in distribution4])
+    board=['7s', 'Qh', 'Ks', 'Tc', '2s']
+    distribution5=update_opp_bounty_credences(distribution4, True, 5, hole, board)
+    print([round(prob, 3) for prob in distribution5])
+    board=['Tc', 'Ts', '5h']
+    distribution6=update_opp_bounty_credences(distribution5, True, 5, hole, board)
+    print([round(prob, 3) for prob in distribution6])
