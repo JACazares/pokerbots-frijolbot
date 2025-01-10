@@ -46,9 +46,9 @@ class Player(Bot):
         my_bankroll = (
             game_state.bankroll
         )  # the total number of chips you've gained or lost from the beginning of the game to the start of this round
-        # game_clock = game_state.game_clock  # the total number of seconds your bot has left to play this game
+        game_clock = game_state.game_clock  # the total number of seconds your bot has left to play this game
         round_num = game_state.round_num  # the round number from 1 to NUM_ROUNDS
-        # my_cards = round_state.hands[active]  # your cards
+        my_cards = round_state.hands[active]  # your cards
         big_blind = bool(active)  # True if you are the big blind
         my_bounty = round_state.bounties[active]  # your current bounty rank
         rounds_left = 1001 - round_num  # Remaining rounds, including this one.
@@ -67,9 +67,11 @@ class Player(Bot):
         if self.winprob>0.999:
             self.iwon = True
         print(" ")
-        print("----------------------------------------------------")
-        print("round: ", round_num)
-        print("my bounty: ", my_bounty)
+        print(" ")
+        print("ROUND", round_num, "--------------------------------------------------------------------------------------------------------------------------------")
+        print("Big blind: ", big_blind, "....... My bounty: ", my_bounty)
+        print("My bankroll: ", my_bankroll, "with probability", round(self.winprob, 3), "of winning.............. Won =", self.iwon)
+        print("my_cards: ", my_cards)
 
     def handle_round_over(self, game_state, terminal_state, active):
         """
@@ -91,10 +93,17 @@ class Player(Bot):
         opp_cards = previous_state.hands[1-active]  # opponent's cards or [] if not revealed
         my_bounty_hit = terminal_state.bounty_hits[active]  # True if you hit bounty
         opponent_bounty_hit = terminal_state.bounty_hits[1-active] # True if opponent hit bounty
+
+        print("----------- Results ----------")
+        if my_delta>0:
+            print("Winner: MYSELF with bounty ", my_bounty_hit)
         if my_delta<=0: #If I lost
-            print("my delta: ", my_delta)
+            if my_delta<0:
+                print("Winner: OPPONENT with bounty ", opponent_bounty_hit)
+            if my_delta==0:
+                print("Winner: TIE with bounties", my_bounty_hit, "for me and", opponent_bounty_hit, "for opponent")
             self.opp_bounty_distribution=update_opp_bounty_credences(self.opp_bounty_distribution, opponent_bounty_hit, street, my_cards, board_cards, opp_cards)
-        print("Bounty probability distribution: ", [round(prob, 3) for prob in self.opp_bounty_distribution])
+        print("Opponent bounty probability distribution: ", [round(prob, 3) for prob in self.opp_bounty_distribution])
 
     def get_action(self, game_state, round_state, active):
         """
@@ -145,13 +154,20 @@ class Player(Bot):
             max_raise = 0
 
         if self.iwon:
-            print("I won at round: ", round_num)
             return CheckFold(legal_actions)  # If you won, checkfold
 
         strength = estimate_strength(my_cards, board_cards, iters=200)
-        print("street: ", street)
-        print("strength: ", strength)
-
+        if my_pip==0 or street==0 and (my_pip==1 or my_pip==2): 
+            print("")
+            if street==0:
+                print("------PREFLOP------")
+            if street==3:
+                print("-------FLOP--------")
+            if street==4:
+                print("-------TURN--------")
+            if street==5:
+                print("-------RIVER-------")
+            print("board cards: ", board_cards)
         pot=opp_contribution+my_contribution
         #my_bounty_present = np.any([my_bounty == card for card in my_cards]) \
         #                  or np.any([my_bounty == card for card in board_cards])
@@ -159,9 +175,9 @@ class Player(Bot):
         #    pot_odds=continue_cost/(pot+continue_cost+0.5*opp_contribution+10)
         #else:
         #    pot_odds=continue_cost/(pot+continue_cost)
-        pot_odds=compute_pot_odds(opp_contribution+opp_pip, my_contribution+my_pip, my_cards, board_cards, street, my_bounty, self.opp_bounty_distribution)
-        print("pot_odds: ", continue_cost/(pot+continue_cost))
-        print("pot_odds with bounty", pot_odds)
+        pot_odds=compute_pot_odds(opp_contribution, my_contribution, my_cards, board_cards, street, my_bounty, self.opp_bounty_distribution)
+        print("pot_odds: ", round(continue_cost/(pot+continue_cost), 3))
+        print("pot_odds with bounty: ", round(pot_odds, 3))
         opening_raise=int(2.5*BIG_BLIND)
         three_bet_raise=int(3*pot+BIG_BLIND)
 
