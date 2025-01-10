@@ -260,23 +260,31 @@ def mixed_strategy(
 
     return RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount)
 
-def update_opp_bounty_credences(distribution, bounty_awarded, street, hole, board=[], opp=[]):
+def update_opp_bounty_credences(distribution, bounty_awarded, street, hole=[], board=[], opp=[]):
     hole_cards = [eval7.Card(s) for s in hole]
     board_cards = [eval7.Card(s) for s in board]
     opp_cards = [eval7.Card(s) for s in opp]
     new_distribution=[0]*13
-    if bounty_awarded and len(opp_cards)==0:
-        prob_bboard=0 #After the for, it will be the sum of the probabilities of the board cards (distinct)
-        for idx, prob in enumerate(distribution):
+    prob_bboard=0 #After the for, it will be the sum of the probabilities of the board cards (distinct)
+    prob_bHb=0 #After the for, it will be the probability that B is in opp_hole and B is not in the board.
+    prob_binS_gb_is_idx=[0]*13
+    for idx, prob in enumerate(distribution):
             if np.any([idx == card.rank for card in board_cards]):
                 prob_bboard+=prob
-        prob_Sgh=1-math.comb(48-street, 2)/math.comb(52-street, 2) #The probability of the bounty visible to opponent given that it is not in the board
-        for idx, prob in enumerate(distribution):
-            if np.any([idx == card.rank for card in board_cards]):
-                new_distribution[idx]=prob/(prob_bboard+prob_Sgh*(1-prob_bboard))
+                prob_binS_gb_is_idx[idx]=1
+            elif not np.any([idx == card.rank for card in board_cards]) and not np.any([idx == card.rank for card in hole_cards]):
+                prob_binS_gb_is_idx[idx]=(1-math.comb(46-street, 2)/math.comb(50-street, 2))
+                prob_bHb+=prob*prob_binS_gb_is_idx[idx]
+            elif np.all([idx == card.rank for card in board_cards]):
+                prob_binS_gb_is_idx[idx]=(1-math.comb(48-street, 2)/math.comb(50-street, 2))
+                prob_bHb+=prob*prob_binS_gb_is_idx[idx]
             else:
-                new_distribution[idx]=prob_Sgh*prob/(prob_bboard+prob_Sgh*(1-prob_bboard))
-    elif bounty_awarded and len(opp_cards)>0:
+                prob_binS_gb_is_idx[idx]=(1-math.comb(47-street, 2)/math.comb(50-street, 2))
+                prob_bHb+=prob*prob_binS_gb_is_idx[idx]           
+    if bounty_awarded and len(opp_cards)==0: #Bounty was awarded and opponent has no cards visible
+        for idx, prob in enumerate(distribution):
+            new_distribution[idx]=prob_binS_gb_is_idx[idx]*prob/(prob_bboard+prob_bHb) #Bayes rule
+    elif bounty_awarded and len(opp_cards)>0: #bounty awarded and opponent has visible cards
         prob_sum=0
         for idx, prob in enumerate(distribution):
             if idx not in [card.rank for card in board_cards+opp_cards]:
@@ -285,7 +293,7 @@ def update_opp_bounty_credences(distribution, bounty_awarded, street, hole, boar
         for idx, prob in enumerate(distribution):
             if idx in [card.rank for card in board_cards+opp_cards]:
                 new_distribution[idx]=prob/(1-prob_sum)
-    else: #Bounty not awarded
+    elif not bounty_awarded and len(opp_cards)==0: #Bounty not awarded and opponent has no visible cards
         prob_sum=0
         for idx, prob in enumerate(distribution):
             if idx in [card.rank for card in board_cards]:
@@ -293,8 +301,17 @@ def update_opp_bounty_credences(distribution, bounty_awarded, street, hole, boar
                 new_distribution[idx]=0
         for idx, prob in enumerate(distribution):
             if idx not in [card.rank for card in board_cards]:
+                print(prob_binS_gb_is_idx[idx])
+                new_distribution[idx]=(1-prob_binS_gb_is_idx[idx])*prob/(1-prob_bboard-prob_bHb)
+    else: #Bounty not awarded and opponent has visible cards
+        prob_sum=0
+        for idx, prob in enumerate(distribution):
+            if idx in [card.rank for card in board_cards+opp_cards]:
+                prob_sum+=distribution[idx]
+                new_distribution[idx]=0
+        for idx, prob in enumerate(distribution):
+            if idx not in [card.rank for card in board_cards+opp_cards]:
                 new_distribution[idx]=prob/(1-prob_sum)
-
     return new_distribution
 
 if __name__ == "__main__":
@@ -307,9 +324,13 @@ if __name__ == "__main__":
     print([round(prob, 3) for prob in distribution])
     bounty_awarded=True
     street=4
-    hole=['As, Ah']
+    hole=['Ah, As']
+    opp_cards=['Jh', 'Qc']
+    board=['Ts', '7h', '2s', 'Kc']
+    distribution1=update_opp_bounty_credences(distribution, False, street, hole, board, opp_cards)
+    print([round(prob, 3) for prob in distribution1])
     board=['4s', '6h', '6s', 'Tc']
-    distribution2=update_opp_bounty_credences(distribution, bounty_awarded, street, hole, board)
+    distribution2=update_opp_bounty_credences(distribution1, bounty_awarded, street, hole, board)
     print([round(prob, 3) for prob in distribution2])
     board=['3s', '6h', '5s', 'Ac']
     distribution3=update_opp_bounty_credences(distribution2, False, street, hole, board)
