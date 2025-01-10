@@ -260,11 +260,12 @@ def mixed_strategy(
 
     return RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount)
 
-def update_opp_bounty_credences(distribution, bounty_awarded, street, hole, board=[]):
+def update_opp_bounty_credences(distribution, bounty_awarded, street, hole, board=[], opp=[]):
     hole_cards = [eval7.Card(s) for s in hole]
     board_cards = [eval7.Card(s) for s in board]
+    opp_cards = [eval7.Card(s) for s in opp]
     new_distribution=[0]*13
-    if bounty_awarded:
+    if bounty_awarded and len(opp_cards)==0:
         prob_bboard=0 #After the for, it will be the sum of the probabilities of the board cards (distinct)
         for idx, prob in enumerate(distribution):
             if np.any([idx == card.rank for card in board_cards]):
@@ -275,6 +276,15 @@ def update_opp_bounty_credences(distribution, bounty_awarded, street, hole, boar
                 new_distribution[idx]=prob/(prob_bboard+prob_Sgh*(1-prob_bboard))
             else:
                 new_distribution[idx]=prob_Sgh*prob/(prob_bboard+prob_Sgh*(1-prob_bboard))
+    elif bounty_awarded and len(opp_cards)>0:
+        prob_sum=0
+        for idx, prob in enumerate(distribution):
+            if idx not in [card.rank for card in board_cards+opp_cards]:
+                prob_sum+=distribution[idx]
+                new_distribution[idx]=0
+        for idx, prob in enumerate(distribution):
+            if idx in [card.rank for card in board_cards+opp_cards]:
+                new_distribution[idx]=prob/(1-prob_sum)
     else: #Bounty not awarded
         prob_sum=0
         for idx, prob in enumerate(distribution):

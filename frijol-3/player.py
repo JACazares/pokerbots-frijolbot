@@ -91,7 +91,7 @@ class Player(Bot):
         opponent_bounty_hit = terminal_state.bounty_hits[1-active] # True if opponent hit bounty
         if my_delta<=0: #If I lost
             print("my delta: ", my_delta)
-            self.opp_bounty_distribution=update_opp_bounty_credences(self.opp_bounty_distribution, opponent_bounty_hit, street, my_cards, board_cards)
+            self.opp_bounty_distribution=update_opp_bounty_credences(self.opp_bounty_distribution, opponent_bounty_hit, street, my_cards, board_cards, opp_cards)
         print("Bounty probability distribution: ", [round(prob, 3) for prob in self.opp_bounty_distribution])
 
     def get_action(self, game_state, round_state, active):
