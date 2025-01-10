@@ -52,6 +52,8 @@ class Player(Bot):
         big_blind = bool(active)  # True if you are the big blind
         my_bounty = round_state.bounties[active]  # your current bounty rank
         rounds_left = 1001 - round_num  # Remaining rounds, including this one.
+        if round_num%25==1:
+            self.opp_bounty_distribution=[1/13]*13
 
         self.iwon = False  # Flag showing if the target bankroll is triggered
         target_bankroll = 12.5 * rounds_left + (rounds_left % 2) * (
@@ -79,12 +81,18 @@ class Player(Bot):
         Returns:
         Nothing.
         """
-        # my_delta = terminal_state.deltas[active]  # your bankroll change from this round
-        # previous_state = terminal_state.previous_state  # RoundState before payoffs
-        # street = previous_state.street  # 0, 3, 4, or 5 representing when this round ended
-        # my_cards = previous_state.hands[active]  # your cards
-        # opp_cards = previous_state.hands[1-active]  # opponent's cards or [] if not revealed
-        # opponent_bounty = teriminal_state.bounty_hits # True if opponent hit bounty
+        my_delta = terminal_state.deltas[active]  # your bankroll change from this round
+        previous_state = terminal_state.previous_state  # RoundState before payoffs
+        street = previous_state.street  # 0, 3, 4, or 5 representing when this round ended
+        my_cards = previous_state.hands[active]  # your cards
+        board_cards = previous_state.deck[:street]  # the board cards
+        opp_cards = previous_state.hands[1-active]  # opponent's cards or [] if not revealed
+        my_bounty_hit = terminal_state.bounty_hits[active]  # True if you hit bounty
+        opponent_bounty_hit = terminal_state.bounty_hits[1-active] # True if opponent hit bounty
+        if my_delta<=0: #If I lost
+            print("my delta: ", my_delta)
+            self.opp_bounty_distribution=update_opp_bounty_credences(self.opp_bounty_distribution, opponent_bounty_hit, street, my_cards, board_cards)
+        print("Bounty probability distribution: ", [round(prob, 3) for prob in self.opp_bounty_distribution])
 
     def get_action(self, game_state, round_state, active):
         """

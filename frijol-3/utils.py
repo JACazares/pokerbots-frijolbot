@@ -277,9 +277,10 @@ def update_opp_bounty_credences(distribution, bounty_awarded, street, hole, boar
                 new_distribution[idx]=prob_Sgh*prob/(prob_bboard+prob_Sgh*(1-prob_bboard))
     else: #Bounty not awarded
         prob_sum=0
-        for card in board_cards:
-            prob_sum+=distribution[card.rank]
-            new_distribution[card.rank]=0
+        for idx, prob in enumerate(distribution):
+            if idx in [card.rank for card in board_cards]:
+                prob_sum+=distribution[idx]
+                new_distribution[idx]=0
         for idx, prob in enumerate(distribution):
             if idx not in [card.rank for card in board_cards]:
                 new_distribution[idx]=prob/(1-prob_sum)
