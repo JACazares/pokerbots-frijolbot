@@ -261,6 +261,20 @@ def mixed_strategy(
     return RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount)
 
 def update_opp_bounty_credences(distribution, bounty_awarded, street, hole=[], board=[], opp=[]):
+    '''
+        Updates opponent bounty probability distribution given the latest round result using bayesian inference
+
+        Inputs: 
+        distribution: a list of size 13 with the probability distribution for each rank (0 to 12)
+        bounty_awarded: a bool saying if opponent's bounty was awarded
+        street: The street in which the round ended
+        hole: my hole cards
+        board: final board cards:
+        opp: opponent cards (empty if not revealed)
+
+        Output
+        new_distribution: The updated distribution
+    '''
     hole_cards = [eval7.Card(s) for s in hole]
     board_cards = [eval7.Card(s) for s in board]
     opp_cards = [eval7.Card(s) for s in opp]
@@ -272,10 +286,10 @@ def update_opp_bounty_credences(distribution, bounty_awarded, street, hole=[], b
             if np.any([idx == card.rank for card in board_cards]):
                 prob_bboard+=prob
                 prob_binS_gb_is_idx[idx]=1
-            elif not np.any([idx == card.rank for card in board_cards]) and not np.any([idx == card.rank for card in hole_cards]):
+            elif not np.any([idx == card.rank for card in hole_cards]):
                 prob_binS_gb_is_idx[idx]=(1-math.comb(46-street, 2)/math.comb(50-street, 2))
                 prob_bHb+=prob*prob_binS_gb_is_idx[idx]
-            elif np.all([idx == card.rank for card in board_cards]):
+            elif np.all([idx == card.rank for card in hole_cards]):
                 prob_binS_gb_is_idx[idx]=(1-math.comb(48-street, 2)/math.comb(50-street, 2))
                 prob_bHb+=prob*prob_binS_gb_is_idx[idx]
             else:
@@ -313,6 +327,50 @@ def update_opp_bounty_credences(distribution, bounty_awarded, street, hole=[], b
             if idx not in [card.rank for card in board_cards+opp_cards]:
                 new_distribution[idx]=prob/(1-prob_sum)
     return new_distribution
+
+def compute_pot_odds(opp_pot, my_pot, hole, board, street, my_bounty_rank, opp_bounty_distribution=[1/13]*13):
+    '''
+        Computes pot odds using bounty
+
+        Inputs: 
+        opp_pot: opponent contribution plus pip
+        my_pot: my contribution plus pip
+        hole: my hole cards
+        board: the board cards
+        my_bounty_rank: A string with my bounty rank
+
+
+        Outputs: 
+        pot odds: Compare this number with the probability of winning
+    '''
+    hole_cards = [eval7.Card(s) for s in hole]
+    board_cards = [eval7.Card(s) for s in board]
+
+    if np.any(my_bounty_rank==eval7.ranks(card.rank) for card in hole_cards+board_cards):
+        R=1 #Probability that my bounty is visible to me now (TODO: Change it to future)
+    else:
+        R=0
+    prob_bboard=0 #After the for, it will be the sum of the probabilities of the board cards (distinct)
+    prob_bHb=0 #After the for, it will be the probability that B is in opp_hole and B is not in the board.
+    prob_binS_gb_is_idx=[0]*13
+    for idx, prob in enumerate(opp_bounty_distribution):
+        if np.any([idx == card.rank for card in board_cards]):
+            prob_bboard+=prob
+            prob_binS_gb_is_idx[idx]=1
+        elif not np.any([idx == card.rank for card in hole_cards]):
+            prob_binS_gb_is_idx[idx]=(1-math.comb(46-street, 2)/math.comb(50-street, 2))
+            prob_bHb+=prob*prob_binS_gb_is_idx[idx]
+        elif np.all([idx == card.rank for card in hole_cards]):
+            prob_binS_gb_is_idx[idx]=(1-math.comb(48-street, 2)/math.comb(50-street, 2))
+            prob_bHb+=prob*prob_binS_gb_is_idx[idx]
+        else:
+            prob_binS_gb_is_idx[idx]=(1-math.comb(47-street, 2)/math.comb(50-street, 2))
+            prob_bHb+=prob*prob_binS_gb_is_idx[idx]  
+    Q_now=prob_bboard+prob_bHb #Probability that opponent's bounty is visible to them now
+    Q_fut=Q_now #TODO: Change it to future
+
+    pot_odds=((opp_pot+20)*(Q_fut+2)-(my_pot+20)*(Q_now+2))/((opp_pot+20)*(Q_fut+4+R)-80)
+    return pot_odds
 
 if __name__ == "__main__":
     # Run the script

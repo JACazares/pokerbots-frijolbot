@@ -151,13 +151,13 @@ class Player(Bot):
         print("strength: ", strength)
 
         pot=opp_contribution+my_contribution
-        my_bounty_present = np.any([my_bounty == card for card in my_cards]) \
-                          or np.any([my_bounty == card for card in board_cards])
-        if my_bounty_present:
-            pot_odds=continue_cost/(pot+continue_cost+0.5*opp_contribution+10)
-        else:
-            pot_odds=continue_cost/(pot+continue_cost)
-            
+        #my_bounty_present = np.any([my_bounty == card for card in my_cards]) \
+        #                  or np.any([my_bounty == card for card in board_cards])
+        #if my_bounty_present:
+        #    pot_odds=continue_cost/(pot+continue_cost+0.5*opp_contribution+10)
+        #else:
+        #    pot_odds=continue_cost/(pot+continue_cost)
+        pot_odds=compute_pot_odds(opp_contribution+opp_pip, my_contribution+my_pip, my_cards, board_cards, street, my_bounty, self.opp_bounty_distribution)
         opening_raise=int(2.5*BIG_BLIND)
         three_bet_raise=int(3*pot+BIG_BLIND)
 
