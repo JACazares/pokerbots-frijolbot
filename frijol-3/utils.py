@@ -345,8 +345,7 @@ def compute_pot_odds(opp_pot, my_pot, hole, board, street, my_bounty_rank, opp_b
     '''
     hole_cards = [eval7.Card(s) for s in hole]
     board_cards = [eval7.Card(s) for s in board]
-
-    if np.any(my_bounty_rank==eval7.ranks(card.rank) for card in hole_cards+board_cards):
+    if np.any([my_bounty_rank==eval7.ranks[card.rank] for card in hole_cards+board_cards]):
         R=1 #Probability that my bounty is visible to me now (TODO: Change it to future)
     else:
         R=0
@@ -368,7 +367,8 @@ def compute_pot_odds(opp_pot, my_pot, hole, board, street, my_bounty_rank, opp_b
             prob_bHb+=prob*prob_binS_gb_is_idx[idx]  
     Q_now=prob_bboard+prob_bHb #Probability that opponent's bounty is visible to them now
     Q_fut=Q_now #TODO: Change it to future
-
+    print("Q_now: ", Q_now)
+    print("R: ", R)
     pot_odds=((opp_pot+20)*(Q_fut+2)-(my_pot+20)*(Q_now+2))/((opp_pot+20)*(Q_fut+4+R)-80)
     return pot_odds
 
@@ -378,27 +378,11 @@ if __name__ == "__main__":
     #print(compute_checkfold_winprob(450, 927, True))
 
     # print(compute_strength(['Ah', 'As'], ['Ad', '2h', '5c', '6s', '6c']))
-    distribution=[1/13]*13
-    print([round(prob, 3) for prob in distribution])
-    bounty_awarded=True
-    street=4
-    hole=['Ah, As']
-    opp_cards=['Jh', 'Qc']
-    board=['Ts', '7h', '2s', 'Kc']
-    distribution1=update_opp_bounty_credences(distribution, False, street, hole, board, opp_cards)
-    print([round(prob, 3) for prob in distribution1])
-    board=['4s', '6h', '6s', 'Tc']
-    distribution2=update_opp_bounty_credences(distribution1, bounty_awarded, street, hole, board)
-    print([round(prob, 3) for prob in distribution2])
-    board=['3s', '6h', '5s', 'Ac']
-    distribution3=update_opp_bounty_credences(distribution2, False, street, hole, board)
-    print([round(prob, 3) for prob in distribution3])
-    board=['7s', 'Qh', 'Ks', 'Tc', '2s']
-    distribution4=update_opp_bounty_credences(distribution3, True, 5, hole, board)
-    print([round(prob, 3) for prob in distribution4])
-    board=['7s', 'Qh', 'Ks', 'Tc', '2s']
-    distribution5=update_opp_bounty_credences(distribution4, True, 5, hole, board)
-    print([round(prob, 3) for prob in distribution5])
-    board=['Tc', 'Ts', '5h']
-    distribution6=update_opp_bounty_credences(distribution5, True, 5, hole, board)
-    print([round(prob, 3) for prob in distribution6])
+    opp_pot=2
+    my_pot=1
+    my_bounty_rank='A'
+    hole=['3s', 'Th']
+    board=[]
+    street=0
+    print((opp_pot-my_pot)/(2*opp_pot))
+    print(compute_pot_odds(opp_pot, my_pot, hole, board, street, my_bounty_rank, opp_bounty_distribution=[1/13]*13))

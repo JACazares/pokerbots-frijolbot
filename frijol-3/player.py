@@ -66,6 +66,8 @@ class Player(Bot):
         self.winprob=compute_checkfold_winprob(rounds_left, my_bankroll, big_blind)
         if self.winprob>0.999:
             self.iwon = True
+        print(" ")
+        print("----------------------------------------------------")
         print("round: ", round_num)
         print("my bounty: ", my_bounty)
 
@@ -158,6 +160,8 @@ class Player(Bot):
         #else:
         #    pot_odds=continue_cost/(pot+continue_cost)
         pot_odds=compute_pot_odds(opp_contribution+opp_pip, my_contribution+my_pip, my_cards, board_cards, street, my_bounty, self.opp_bounty_distribution)
+        print("pot_odds: ", continue_cost/(pot+continue_cost))
+        print("pot_odds with bounty", pot_odds)
         opening_raise=int(2.5*BIG_BLIND)
         three_bet_raise=int(3*pot+BIG_BLIND)
 
