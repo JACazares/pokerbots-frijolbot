@@ -292,13 +292,13 @@ def update_opp_bounty_credences(distribution, bounty_awarded, street, hole=[], b
                 prob_bboard+=prob
                 prob_binS_gb_is_idx[idx]=1
             elif not np.any([idx == card.rank for card in hole_cards]):
-                prob_binS_gb_is_idx[idx]=(1-math.comb(46-street, 2)/math.comb(50-street, 2))
+                prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(46-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
                 prob_bHb+=prob*prob_binS_gb_is_idx[idx]
             elif np.all([idx == card.rank for card in hole_cards]):
-                prob_binS_gb_is_idx[idx]=(1-math.comb(48-street, 2)/math.comb(50-street, 2))
+                prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(48-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
                 prob_bHb+=prob*prob_binS_gb_is_idx[idx]
             else:
-                prob_binS_gb_is_idx[idx]=(1-math.comb(47-street, 2)/math.comb(50-street, 2))
+                prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(47-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
                 prob_bHb+=prob*prob_binS_gb_is_idx[idx]           
     if bounty_awarded and len(opp_cards)==0: #Bounty was awarded and opponent has no cards visible
         for idx, prob in enumerate(distribution):
@@ -362,13 +362,13 @@ def compute_pot_odds(opp_pot, my_pot, hole, board, street, my_bounty_rank, opp_b
             prob_bboard+=prob
             prob_binS_gb_is_idx[idx]=1
         elif not np.any([idx == card.rank for card in hole_cards]):
-            prob_binS_gb_is_idx[idx]=(1-math.comb(46-street, 2)/math.comb(50-street, 2))
+            prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(46-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
             prob_bHb+=prob*prob_binS_gb_is_idx[idx]
         elif np.all([idx == card.rank for card in hole_cards]):
-            prob_binS_gb_is_idx[idx]=(1-math.comb(48-street, 2)/math.comb(50-street, 2))
+            prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(48-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
             prob_bHb+=prob*prob_binS_gb_is_idx[idx]
         else:
-            prob_binS_gb_is_idx[idx]=(1-math.comb(47-street, 2)/math.comb(50-street, 2))
+            prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(47-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
             prob_bHb+=prob*prob_binS_gb_is_idx[idx]  
     Q_now=prob_bboard+prob_bHb #Probability that opponent's bounty is visible to them now
     Q_fut=Q_now #TODO: Change it to future
