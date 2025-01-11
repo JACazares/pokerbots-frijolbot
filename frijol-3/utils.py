@@ -23,19 +23,24 @@ def RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount):
             raise_amount = max_raise
         if raise_amount < min_raise:
             raise_amount = min_raise
+        print("I RAISE", raise_amount)
         return RaiseAction(raise_amount)
     return CheckCall(legal_actions)
 
 
 def CheckFold(legal_actions):
     if CheckAction in legal_actions:
+        print("I CHECK")
         return CheckAction()
+    print("I FOLD")
     return FoldAction()
 
 
 def CheckCall(legal_actions):
     if CheckAction in legal_actions:
+        print("I CHECK")
         return CheckAction()
+    print("I CALL")
     return CallAction()
 
 

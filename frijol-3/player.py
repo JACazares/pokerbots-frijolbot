@@ -153,10 +153,6 @@ class Player(Bot):
             min_raise = 0
             max_raise = 0
 
-        if self.iwon:
-            return CheckFold(legal_actions)  # If you won, checkfold
-
-        strength = estimate_strength(my_cards, board_cards, iters=200)
         if my_pip==0 or street==0 and (my_pip==1 or my_pip==2): 
             print("")
             if street==0:
@@ -168,18 +164,27 @@ class Player(Bot):
             if street==5:
                 print("-------RIVER-------")
             print("board cards: ", board_cards)
+
+        strength = estimate_strength(my_cards, board_cards, iters=200)
         pot=opp_contribution+my_contribution
+        
         #my_bounty_present = np.any([my_bounty == card for card in my_cards]) \
         #                  or np.any([my_bounty == card for card in board_cards])
         #if my_bounty_present:
         #    pot_odds=continue_cost/(pot+continue_cost+0.5*opp_contribution+10)
         #else:
         #    pot_odds=continue_cost/(pot+continue_cost)
+
         pot_odds=compute_pot_odds(opp_contribution, my_contribution, my_cards, board_cards, street, my_bounty, self.opp_bounty_distribution)
+        print("pot size: ", pot, "with continue cost of", continue_cost)
         print("pot_odds: ", round(continue_cost/(pot+continue_cost), 3))
         print("pot_odds with bounty: ", round(pot_odds, 3))
         opening_raise=int(2.5*BIG_BLIND)
         three_bet_raise=int(3*pot+BIG_BLIND)
+
+        if self.iwon:
+            print("I won, so auto-CheckFold")
+            return CheckFold(legal_actions)  # If you won, checkfold
 
         if street == 0:  # ..............................Preflop
             if strength > pot_odds:
