@@ -2,11 +2,11 @@
 Simple example pokerbot, written in Python.
 """
 
-from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
-from skeleton.states import GameState, TerminalState, RoundState
-from skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
-from skeleton.bot import Bot
-from skeleton.runner import parse_args, run_bot
+from .skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
+from .skeleton.states import GameState, TerminalState, RoundState
+from .skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
+from .skeleton.bot import Bot
+from .skeleton.runner import parse_args, run_bot
 
 import random
 import math
@@ -63,7 +63,7 @@ class Player(Bot):
             my_bankroll > target_bankroll
         ):  # This routine always check-folds after reaching the guaranteed winning bankroll
             self.iwon = True
-        self.winprob=calculate_check_fold_win_probability(rounds_left, my_bankroll, big_blind)
+        self.winprob=compute_checkfold_winprob(rounds_left, my_bankroll, big_blind)
         if self.winprob>0.999:
             self.iwon = True
         print(" ")
