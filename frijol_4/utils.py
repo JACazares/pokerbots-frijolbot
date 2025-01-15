@@ -318,24 +318,15 @@ def compute_bounty_credences(distribution, hole_ranks, board_ranks):
     # Partition ranks into each of the four cases
     board_ranks = np.array(board_ranks)
     hole_ranks = np.array([rank for rank in hole_ranks if rank not in board_ranks])
-    remaining_ranks = np.array(
-        [
-            rank
-            for rank in range(13)
-            if rank not in board_ranks and rank not in hole_ranks
-        ]
-    )
+    remaining_ranks = np.array([rank for rank in range(13) if rank not in board_ranks and rank not in hole_ranks])
 
     # Check that all ranks are accounted for
-    if not np.all(
-        [
-            np.count_nonzero(board_ranks == rank)
+    if not np.all( [ np.count_nonzero(board_ranks == rank)
             + np.count_nonzero(hole_ranks == rank)
             + np.count_nonzero(remaining_ranks == rank)
             == 1
             for rank in range(13)
-        ]
-    ):
+        ]):
         raise ValueError("Ranks are not all accounted for")
 
     sum_board_card_probabilities = 0
@@ -347,22 +338,12 @@ def compute_bounty_credences(distribution, hole_ranks, board_ranks):
         sum_board_card_probabilities += distribution[rank]
 
     for rank in hole_ranks:
-        probability_B_in_S_given_B_is_rank[rank] = (
-            compute_bounty_in_opponent_hole_cards_credence(
-                50 - (2 - len(hole_ranks) + 1), len(board_ranks)
-            )
-        )
-        sum_opponent_hole_card_probabilities += (
-            distribution[rank] * probability_B_in_S_given_B_is_rank[rank]
-        )
+        probability_B_in_S_given_B_is_rank[rank] = (compute_bounty_in_opponent_hole_cards_credence(50 - (2 - len(hole_ranks) + 1), len(board_ranks)))
+        sum_opponent_hole_card_probabilities += (distribution[rank] * probability_B_in_S_given_B_is_rank[rank])
 
     for rank in remaining_ranks:
-        probability_B_in_S_given_B_is_rank[rank] = (
-            compute_bounty_in_opponent_hole_cards_credence(50 - 4, len(board_ranks))
-        )
-        sum_opponent_hole_card_probabilities += (
-            distribution[rank] * probability_B_in_S_given_B_is_rank[rank]
-        )
+        probability_B_in_S_given_B_is_rank[rank] = (compute_bounty_in_opponent_hole_cards_credence(50 - 4, len(board_ranks)))
+        sum_opponent_hole_card_probabilities += (distribution[rank] * probability_B_in_S_given_B_is_rank[rank])
 
     return (
         sum_board_card_probabilities,
