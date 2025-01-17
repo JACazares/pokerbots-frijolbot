@@ -13,6 +13,7 @@ from action_utils import CheckCall, CheckFold, RaiseCheckCall
 from helper_bot import FrijolBot
 import typing
 import constants
+import time
 
 
 def compute_checkfold_win_probability(bot: FrijolBot):
@@ -40,7 +41,7 @@ def compute_checkfold_win_probability(bot: FrijolBot):
     return binom.cdf(bounties_to_win, rounds_left, success_rate)
 
 
-def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterations: int = 2000):
+def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterations: int = 200):
     """
     Performs a Monte Carlo search to approximate the strength of a hand.
 
@@ -58,6 +59,8 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
             This represents the percentage of hands that lose to the current hand, 
             assuming that half of the ties are losses and half are wins.
     """
+
+    start_time = time.time()
 
     hole = bot.get_my_cards()
     board = bot.get_board_cards()
@@ -103,6 +106,8 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
         else:
             if montecarlo_opponent_bounty_awarded:
                 strength -= 0.25 * bounty_strength
+    
+    print(f"Time elapsed: {time.time() - start_time}")
 
     return strength / iterations
 
@@ -242,7 +247,7 @@ def update_opponent_bounty_credences(bot: FrijolBot):
             if rank not in board_ranks + opponent_ranks:
                 updated_opponent_bounty_distribution[rank] = 0
             else:
-                updated_opponent_bounty_distribution[rank] = bot.get_opponent_bounty_distribution[rank]
+                updated_opponent_bounty_distribution[rank] = bot.get_opponent_bounty_distribution()[rank]
 
         updated_opponent_bounty_distribution = updated_opponent_bounty_distribution / np.sum(updated_opponent_bounty_distribution)
 
@@ -254,21 +259,21 @@ def update_opponent_bounty_credences(bot: FrijolBot):
             if rank in board_ranks + opponent_ranks:
                 updated_opponent_bounty_distribution[rank] = 0
             else:
-                updated_opponent_bounty_distribution[rank] = bot.get_opponent_bounty_distribution[rank]
+                updated_opponent_bounty_distribution[rank] = bot.get_opponent_bounty_distribution()[rank]
 
         updated_opponent_bounty_distribution = updated_opponent_bounty_distribution / np.sum(updated_opponent_bounty_distribution)
 
     elif len(opponent_cards) == 0 and bot.get_opponent_bounty_hit():
         for rank in constants.rank_index:
-            updated_opponent_bounty_distribution[rank] = probability_B_in_S_given_B_is_rank[rank] * bot.get_opponent_bounty_distribution[rank] / (sum_board_card_probabilities + sum_opponent_hole_card_probabilities)
+            updated_opponent_bounty_distribution[rank] = probability_B_in_S_given_B_is_rank[rank] * bot.get_opponent_bounty_distribution()[rank] / (sum_board_card_probabilities + sum_opponent_hole_card_probabilities)
 
     elif len(opponent_cards) == 0 and not bot.get_opponent_bounty_hit():
         for rank in constants.rank_index:
             if rank in board_ranks:
-                update_opponent_bounty_credences[rank] = 0
+                updated_opponent_bounty_distribution[rank] = 0
             else:
                 # TODO: Check this, it sounds wrong--
-                updated_opponent_bounty_distribution[rank] = (1 - probability_B_in_S_given_B_is_rank[rank]) * bot.get_opponent_bounty_distribution[rank] / (1 - sum_board_card_probabilities - sum_opponent_hole_card_probabilities)
+                updated_opponent_bounty_distribution[rank] = (1 - probability_B_in_S_given_B_is_rank[rank]) * bot.get_opponent_bounty_distribution()[rank] / (1 - sum_board_card_probabilities - sum_opponent_hole_card_probabilities)
 
     return updated_opponent_bounty_distribution
 

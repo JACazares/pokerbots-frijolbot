@@ -11,7 +11,6 @@ from skeleton.runner import parse_args, run_bot
 import random
 import csv
 from tqdm import tqdm
-import pytest
 
 def RaiseCheckCall(legal_actions, my_pip, round_state, raise_amount):
     if RaiseAction in legal_actions:
@@ -45,7 +44,7 @@ def CheckCall(legal_actions):
     return CallAction()
 
 
-def compute_check_fold_win_probability(rounds_left, bankroll, big_blind):
+def compute_checkfold_winprob(rounds_left, bankroll, big_blind):
     """
     Computes the probability of winning by only checking or folding given a current bankroll and number of rounds left (including this one).
 

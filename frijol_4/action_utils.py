@@ -13,7 +13,6 @@ def CheckFold(bot: FrijolBot):
     Returns:
         Action: Returns a CheckAction if it is in the list of legal actions, otherwise returns a FoldAction.
     """
-    print(CheckAction)
     if CheckAction in bot.get_legal_actions():
         return CheckAction()
     return FoldAction()
@@ -29,6 +28,8 @@ def CheckCall(bot: FrijolBot):
     Returns:
         Action: The CheckAction if it is in the list of legal actions, otherwise the CallAction.
     """
+    print(CheckAction)
+    print(bot.get_legal_actions())
     if CheckAction in bot.get_legal_actions():
         return CheckAction()
 

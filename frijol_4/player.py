@@ -14,6 +14,7 @@ import math
 import numpy as np
 import utils
 from action_utils import CheckCall, CheckFold, RaiseCheckCall
+import time
 
 class Player(FrijolBot):
     """
@@ -49,17 +50,19 @@ class Player(FrijolBot):
         self.terminal_state = None
         self.active = active
         if self.get_round_num() % 25 == 1:
-            self.opponent_bounty_distribution = np.zeros(13)
+            self.opponent_bounty_distribution = np.ones(13) / 13
 
         self.strategy = "frijol_4"
 
-        target_bankroll = 12.5 * self.get_rounds_left() + (self.get_rounds_left % 2) * (int(self.get_big_blind()) - 0.5)
+        target_bankroll = 12.5 * self.get_rounds_left() + (self.get_rounds_left() % 2) * (int(self.get_big_blind()) - 0.5)
         if self.get_bankroll() > target_bankroll:
             self.strategy = "checkfold"
 
         win_probability = utils.compute_checkfold_win_probability(self)
         if win_probability > 0.999:
             self.strategy = "checkfold"
+
+        print(f"New Round {self.get_round_num()}")
 
 
     def handle_round_over(self, game_state, terminal_state, active):
@@ -80,7 +83,7 @@ class Player(FrijolBot):
         self.active = active
 
         if self.get_my_delta() <= 0:
-            self.opponent_bounty_distribution = utils.update_opp_bounty_credences(self)
+            self.opponent_bounty_distribution = utils.update_opponent_bounty_credences(self)
 
     def get_action(self, game_state, round_state, active):
         """
@@ -95,9 +98,16 @@ class Player(FrijolBot):
         Returns:
             Your action.
         """
-        hand_strength = utils.estimate_strength(self)
+        self.game_state = game_state
+        self.round_state = round_state
+        self.terminal_state = None
+        self.active = active
+
+        start_time = time.time()
+        hand_strength = utils.estimate_hand_strength(self)
         pot = self.get_opponent_contribution() + self.get_my_contribution()
         self.pot_odds = utils.compute_pot_odds(self)
+        print(f"Time to pot odds: {time.time() - start_time}")
 
         # print("pot size: ", pot, "with continue cost of", continue_cost)
         # print("pot_odds: ", round(continue_cost/(pot+continue_cost), 3))
