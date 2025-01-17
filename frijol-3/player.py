@@ -7,6 +7,7 @@ from skeleton.states import GameState, TerminalState, RoundState
 from skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
 from skeleton.bot import Bot
 from skeleton.runner import parse_args, run_bot
+import time
 
 import random
 import math
@@ -153,6 +154,8 @@ class Player(Bot):
             min_raise = 0
             max_raise = 0
 
+        start_time = time.time()
+
         if my_pip==0 or street==0 and (my_pip==1 or my_pip==2): 
             print("")
             if street==0:
@@ -176,6 +179,8 @@ class Player(Bot):
         #    pot_odds=continue_cost/(pot+continue_cost)
 
         pot_odds=compute_pot_odds(opp_contribution, my_contribution, my_cards, board_cards, street, my_bounty, self.opp_bounty_distribution)
+
+        print(f"Time to pot odds: {time.time() - start_time}")
         print("pot size: ", pot, "with continue cost of", continue_cost)
         print("pot_odds: ", round(continue_cost/(pot+continue_cost), 3))
         print("pot_odds with bounty: ", round(pot_odds, 3))
