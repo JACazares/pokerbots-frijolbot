@@ -1,7 +1,7 @@
 import pytest
-from frijol_4.action_utils import CheckFold, CheckCall, RaiseCheckCall
-from frijol_4.skeleton.actions import FoldAction, CheckAction, CallAction, RaiseAction
-from frijol_4.helper_bot import FrijolBot
+from skeleton.actions import FoldAction, CheckAction, CallAction, RaiseAction
+from action_utils import CheckFold, CheckCall, RaiseCheckCall
+from helper_bot import FrijolBot
 
 def test_check_fold_with_check_action(mocker):
     bot = mocker.MagicMock(spec=FrijolBot)

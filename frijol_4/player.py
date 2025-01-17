@@ -2,12 +2,12 @@
 Simple example pokerbot, written in Python.
 """
 
-from frijol_4.skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
-from frijol_4.skeleton.states import GameState, TerminalState, RoundState
-from frijol_4.skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
-from frijol_4.skeleton.runner import parse_args, run_bot
+from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
+from skeleton.states import GameState, TerminalState, RoundState
+from skeleton.states import NUM_ROUNDS, STARTING_STACK, BIG_BLIND, SMALL_BLIND
+from skeleton.runner import parse_args, run_bot
 
-from frijol_4.helper_bot import FrijolBot
+from helper_bot import FrijolBot
 
 import random
 import math
@@ -30,7 +30,7 @@ class Player(FrijolBot):
         Returns:
             Nothing.
         """
-        super.__init__(self)
+        super().__init__()
 
     def handle_new_round(self, game_state, round_state, active):
         """
@@ -95,7 +95,7 @@ class Player(FrijolBot):
         Returns:
             Your action.
         """
-        my_hand_strength = utils.estimate_strength(self)
+        hand_strength = utils.estimate_strength(self)
         pot = self.get_opponent_contribution() + self.get_my_contribution()
         self.pot_odds = utils.compute_pot_odds(self)
 
@@ -109,47 +109,47 @@ class Player(FrijolBot):
         if self.strategy == "checkfold":
             return CheckFold(self.get_legal_actions())
 
-        if street == 0:  # ..............................Preflop
-            if strength > pot_odds:
-                if my_pip==0:
-                    if strength > 0.7:
-                        var=random.random()
-                        if var<0.5:
-                            return RaiseCheckCall(legal_actions, my_pip, round_state, 3*pot)
+        if self.get_street() == 0:  # ..............................Preflop
+            if hand_strength > self.pot_odds:
+                if self.get_my_pip() == 0:
+                    if hand_strength > 0.7:
+                        var = random.random()
+                        if var < 0.5:
+                            return RaiseCheckCall(self, 3 * pot)
                         else: 
-                            return CheckCall(legal_actions)
+                            return CheckCall(self)
                 else:
-                    return CheckCall(legal_actions)
+                    return CheckCall(self)
             else:
-                return CheckFold(legal_actions)
+                return CheckFold(self)
                     
-        if street >= 3:  # ..............................Flop (+Turn+River)
-            if strength > pot_odds:
-                if my_pip==0:
-                    if strength > 0.7:
-                        var=random.random()
-                        if var<0.5:
-                            return RaiseCheckCall(legal_actions, my_pip, round_state, 3*pot)
+        if self.get_street() >= 3:  # ..............................Flop (+Turn+River)
+            if hand_strength > self.pot_odds:
+                if self.get_my_pip() == 0:
+                    if hand_strength > 0.7:
+                        var = random.random()
+                        if var < 0.5:
+                            return RaiseCheckCall(self, 3*pot)
                         else: 
-                            return CheckCall(legal_actions)
+                            return CheckCall(self)
                 else:
-                    return CheckCall(legal_actions)
+                    return CheckCall(self)
             else:
-                return CheckFold(legal_actions)
+                return CheckFold(self)
             
-        if street == 4:  # ..............................Turn
-            if strength > 0.5:
-                return CheckCall(legal_actions)
-            else:
-                return CheckFold(legal_actions)
+        # if self.get_street() == 4:  # ..............................Turn
+        #     if hand_strength > 0.5:
+        #         return CheckCall(self)
+        #     else:
+        #         return CheckFold(self)
 
-        if street == 5:  # ..............................River
-            if strength > 0.5:
-                return CheckCall(legal_actions)
-            else:
-                return CheckFold(legal_actions)
+        # if self.get_street() == 5:  # ..............................River
+        #     if hand_strength > 0.5:
+        #         return CheckCall(self)
+        #     else:
+        #         return CheckFold(self)
 
-        return CheckCall(legal_actions)
+        return CheckCall(self)
 
 
 if __name__ == "__main__":

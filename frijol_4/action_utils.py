@@ -1,4 +1,6 @@
-from frijol_4.skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
+import random
+import numpy as np
+from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
 from helper_bot import FrijolBot
 
 def CheckFold(bot: FrijolBot):
@@ -52,3 +54,32 @@ def RaiseCheckCall(bot: FrijolBot, raise_amount: float):
         return RaiseAction(int(raise_amount))
 
     return CheckCall(bot)
+
+def mixed_strategy(bot: FrijolBot, fold_probability: float, call_probability: float, raise_amount: float = 1):
+    """
+    Does a randomized selection of actions depending on input probabilities
+
+    Inputs:
+    legal actions: The set of legal actions
+    my_pip: Your total contribution of chips this betting round
+    round_state: Round state object from RoundState
+    checkfold: The probability with which it will choose check-fold action
+    checkcall: The probabiity with which it will choose check-call action
+    1-checkfold-checkcall will be the probability of raising.
+    raise_amount: How much it will raise given that it chooses raise.
+
+    Output: An action
+    """
+
+    action_probability = random.random()
+
+    if action_probability < fold_probability:
+        return CheckFold(bot.get_legal_actions())
+    elif action_probability < fold_probability + call_probability:
+        return CheckCall(bot.get_legal_actions())
+
+    min_raise, max_rasie = bot.get_raise_bounds()
+    std_dev = (raise_amount - min_raise) / 10
+    raise_amount = np.random.normal(raise_amount, std_dev)
+
+    return RaiseCheckCall(bot, raise_amount)

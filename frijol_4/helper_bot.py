@@ -1,5 +1,5 @@
-from frijol_4.skeleton.bot import Bot
-import frijol_4.skeleton.states as states
+from skeleton.bot import Bot
+import skeleton.states as states
 
 import numpy as np
 

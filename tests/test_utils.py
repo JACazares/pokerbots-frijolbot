@@ -1,7 +1,7 @@
 import pytest
-from frijol_4.utils import compute_checkfold_win_probability
-from frijol_4.helper_bot import FrijolBot
-from frijol_4.skeleton.states import NUM_ROUNDS
+from utils import compute_checkfold_win_probability
+from helper_bot import FrijolBot
+from skeleton.states import NUM_ROUNDS
 import numpy as np
 
 class MockBot(FrijolBot):

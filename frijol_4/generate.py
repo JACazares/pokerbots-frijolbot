@@ -1,4 +1,12 @@
-def generate_hole_card_strengths(output_file, iters=200):
+from helper_bot import FrijolBot
+import constants as constants
+import utils as utils
+import skeleton.states as states
+from tqdm import tqdm
+import csv
+import numpy as np
+
+def generate_hole_card_strengths(output_file, iterations=200):
     """
     Generates the strength for each pair of hole cards and outputs a CSV file.
     """
@@ -18,13 +26,20 @@ def generate_hole_card_strengths(output_file, iters=200):
                     # Offsuit combinations
                     rank_combinations.append((rank1 + "s", rank2 + "h", bounty))
 
-    # Evaluate the strength of each pair
-    mock_bot = FrijolBot()
-    mock_bot.opponent_bounty_distribution = np.ones(13) / 13
-
     results = []
     for combo in tqdm(rank_combinations):
-        strength = estimate_strength(combo[:2], iters=iters, my_bounty=combo[2])
+        # Evaluate the strength of each pair
+        mock_bot = FrijolBot()
+        mock_bot.active = 0
+        mock_bot.opponent_bounty_distribution = np.ones(13) / 13
+
+        mock_bot.round_state = states.RoundState
+        mock_bot.round_state.hands = [combo[:2], []]
+        mock_bot.round_state.deck = []
+        mock_bot.round_state.street = 0
+        mock_bot.round_state.bounties = [combo[2], None]
+
+        strength = utils.estimate_hand_strength(mock_bot, bounty_strength=1, iterations=iterations)
         results.append(
             {"C1": combo[0], "C2": combo[1], "Bounty": combo[2], "Strength": strength}
         )
@@ -39,3 +54,7 @@ def generate_hole_card_strengths(output_file, iters=200):
         writer.writerows(results)
 
     print(f"CSV file '{output_file}' generated successfully!")
+
+if __name__ == "__main__":
+    print("Generating hole card strengths...")
+    generate_hole_card_strengths("hole_card_strengths.csv", iterations=200)

@@ -7,10 +7,10 @@ import scipy.special
 from scipy.stats import binom
 from itertools import combinations
 from tqdm import tqdm
-from frijol_4.skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
-from frijol_4.skeleton.states import NUM_ROUNDS
-from frijol_4.action_utils import CheckCall, CheckFold, RaiseCheckCall
-from frijol_4.helper_bot import FrijolBot
+from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
+from skeleton.states import NUM_ROUNDS
+from action_utils import CheckCall, CheckFold, RaiseCheckCall
+from helper_bot import FrijolBot
 import typing
 import constants
 
@@ -91,22 +91,18 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
                                              np.any([montecarlo_opponent_bounty == card.rank for card in montecarlo_board_cards])
 
         if montecarlo_my_strength > montecarlo_opponent_strength:
+            strength += 1
             if montecarlo_my_bounty_awarded:
-                strength += 1.25 * bounty_strength
-            else:
-                strength += 1
+                strength += 0.25 * bounty_strength
         elif montecarlo_my_strength == montecarlo_opponent_strength:
+            strength += 0.5
             if montecarlo_my_bounty_awarded and not montecarlo_opponent_bounty_awarded:
-                strength += 0.625
+                strength += 0.125 * bounty_strength
             elif not montecarlo_my_bounty_awarded and montecarlo_opponent_bounty_awarded:
-                strength += 0.375
-            else:
-                strength += 0.5
+                strength += 0.125 * bounty_strength
         else:
             if montecarlo_opponent_bounty_awarded:
                 strength -= 0.25 * bounty_strength
-            else:
-                strength += 0
 
     return strength / iterations
 
@@ -158,36 +154,6 @@ def compute_exact_hand_strength(bot: FrijolBot):
     return wins / (wins + ties + losses)
 
 
-def mixed_strategy(bot: FrijolBot, fold_probability: float, call_probability: float, raise_amount: float = 1):
-    """
-    Does a randomized selection of actions depending on input probabilities
-
-    Inputs:
-    legal actions: The set of legal actions
-    my_pip: Your total contribution of chips this betting round
-    round_state: Round state object from RoundState
-    checkfold: The probability with which it will choose check-fold action
-    checkcall: The probabiity with which it will choose check-call action
-    1-checkfold-checkcall will be the probability of raising.
-    raise_amount: How much it will raise given that it chooses raise.
-
-    Output: An action
-    """
-
-    action_probability = random.random()
-
-    if action_probability < fold_probability:
-        return CheckFold(bot.get_legal_actions())
-    elif action_probability < fold_probability + call_probability:
-        return CheckCall(bot.get_legal_actions())
-
-    min_raise, max_rasie = bot.get_raise_bounds()
-    std_dev = (raise_amount - min_raise) / 10
-    raise_amount = np.random.normal(raise_amount, std_dev)
-
-    return RaiseCheckCall(bot, raise_amount)
-
-
 # TODO: Revise this whole function. WRITE A LOT OF TESTS
 def compute_bounty_credences(distribution, hole_ranks, board_ranks):
     """
@@ -230,7 +196,7 @@ def compute_bounty_credences(distribution, hole_ranks, board_ranks):
             probability_B_in_S_given_B_is_rank[rank] = compute_bounty_in_opponent_hole_cards_credence(52 - off_limits, len(board_ranks))
             sum_opponent_hole_card_probabilities += (distribution[rank] * probability_B_in_S_given_B_is_rank[rank])
         else:
-            probability_B_in_S_given_B_is_rank[rank] = (compute_bounty_in_opponent_hole_cards_credence(52 - 6, len(board_ranks)))
+            probability_B_in_S_given_B_is_rank[rank] = (compute_bounty_in_opponent_hole_cards_credence(52 - 2 - 4, len(board_ranks)))
             sum_opponent_hole_card_probabilities += (distribution[rank] * probability_B_in_S_given_B_is_rank[rank])
 
     return (
