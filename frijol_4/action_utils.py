@@ -2,6 +2,7 @@ import random
 import numpy as np
 from skeleton.actions import FoldAction, CallAction, CheckAction, RaiseAction
 from helper_bot import FrijolBot
+import eval7
 
 def CheckFold(bot: FrijolBot):
     """
@@ -56,6 +57,7 @@ def RaiseCheckCall(bot: FrijolBot, raise_amount: float):
 
     return CheckCall(bot)
 
+
 def mixed_strategy(bot: FrijolBot, fold_probability: float, call_probability: float, raise_amount: float = 1):
     """
     Does a randomized selection of actions depending on input probabilities
@@ -75,9 +77,9 @@ def mixed_strategy(bot: FrijolBot, fold_probability: float, call_probability: fl
     action_probability = random.random()
 
     if action_probability < fold_probability:
-        return CheckFold(bot.get_legal_actions())
+        return CheckFold(bot)
     elif action_probability < fold_probability + call_probability:
-        return CheckCall(bot.get_legal_actions())
+        return CheckCall(bot)
 
     min_raise, max_rasie = bot.get_raise_bounds()
     std_dev = (raise_amount - min_raise) / 10

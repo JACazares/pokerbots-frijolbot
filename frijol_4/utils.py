@@ -14,6 +14,7 @@ from helper_bot import FrijolBot
 import typing
 import constants
 import time
+from io_utils import simplify_hole
 
 
 def compute_checkfold_win_probability(bot: FrijolBot):
@@ -326,3 +327,20 @@ def compute_pot_odds(bot: FrijolBot):
     pot_odds = ((opponent_pot + 20) * (Q_fut + 2) - (my_pot + 20) * (Q_now + 2)) / (
         (opponent_pot + 20) * (Q_fut + 4 + R) - 80)
     return pot_odds
+
+
+def preflop_action_distribution(bot: FrijolBot, call_range_matrix: np.array, raise_range_matrix: np.array):
+    hole = bot.get_my_cards()
+    my_bounty=bot.get_my_bounty()
+    opponent_bounty_distribution = bot.get_opponent_bounty_distribution()
+
+    hole_cards = [eval7.Card(s) for s in hole]
+    row, column=simplify_hole(hole)
+    if np.any([my_bounty == card.rank for card in hole_cards]):
+        row=row+13
+
+    call_probability = call_range_matrix[row][column]
+    raise_probability = raise_range_matrix[row][column]
+    fold_probability = 1-call_probability-raise_probability
+    
+    return fold_probability, call_probability, raise_probability

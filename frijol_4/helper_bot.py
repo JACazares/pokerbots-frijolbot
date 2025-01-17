@@ -1,6 +1,6 @@
 from skeleton.bot import Bot
 import skeleton.states as states
-
+from io_utils import*
 import numpy as np
 
 class FrijolBot(Bot):
@@ -10,6 +10,14 @@ class FrijolBot(Bot):
         self.terminal_state = None
         self.active = None
         self.opponent_bounty_distribution = np.zeros(13)
+        (self.BTN_opening_range, 
+         self.BB_call_range_vs_open, 
+         self.BB_3bet_range_vs_open, 
+         self.BTN_call_range_vs_3bet, 
+         self.BTN_4bet_range_vs_3bet, 
+         self.BB_call_range_vs_4bet, 
+         self.BB_5bet_range_vs_4bet)=read_starting_ranges("my_starting_ranges.csv")
+        print(np.shape(self.BB_3bet_range_vs_open))
     
     def get_bankroll(self):
         return self.game_state.bankroll

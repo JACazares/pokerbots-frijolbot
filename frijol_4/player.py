@@ -13,7 +13,7 @@ import random
 import math
 import numpy as np
 import utils
-from action_utils import CheckCall, CheckFold, RaiseCheckCall
+from action_utils import CheckCall, CheckFold, RaiseCheckCall, mixed_strategy
 import time
 
 class Player(FrijolBot):
@@ -107,6 +107,10 @@ class Player(FrijolBot):
         hand_strength = utils.estimate_hand_strength(self)
         pot = self.get_opponent_contribution() + self.get_my_contribution()
         self.pot_odds = utils.compute_pot_odds(self)
+        big_blind = self.get_big_blind() #True if you are the big blind
+        my_pip = self.get_my_pip()
+        opp_pip = self.get_opponent_pip()
+
         print(f"Time to pot odds: {time.time() - start_time}")
 
         # print("pot size: ", pot, "with continue cost of", continue_cost)
@@ -117,22 +121,36 @@ class Player(FrijolBot):
         three_bet_raise=int(3*pot+BIG_BLIND)
 
         if self.strategy == "checkfold":
-            return CheckFold(self.get_legal_actions())
+            return CheckFold(self)
 
         if self.get_street() == 0:  # ..............................Preflop
-            if hand_strength > self.pot_odds:
-                if self.get_my_pip() == 0:
-                    if hand_strength > 0.7:
-                        var = random.random()
-                        if var < 0.5:
-                            return RaiseCheckCall(self, 3 * pot)
-                        else: 
-                            return CheckCall(self)
+            print("BIG BLIND: ",  big_blind)
+            if not big_blind: #If you are the small blind
+                if my_pip==1:
+                    raise_range_matrix = self.BTN_opening_range
+                    raise_amount = int(2.5*BIG_BLIND)
+                    call_range_matrix = np.zeros([13, 13])
                 else:
-                    return CheckCall(self)
+                    raise_range_matrix = self.BTN_4bet_range_vs_3bet
+                    call_range_matrix = self.BTN_call_range_vs_3bet
+                    raise_amount = int(3*pot+BIG_BLIND)
             else:
-                return CheckFold(self)
-                    
+                if my_pip==2 and opp_pip==2:
+                    raise_range_matrix = self.BTN_opening_range
+                    raise_amount = int(2.5*BIG_BLIND)
+                    call_range_matrix = np.zeros([13, 13])
+                elif my_pip==2 and opp_pip<50:
+                    raise_range_matrix = self.BB_3bet_range_vs_open
+                    call_range_matrix = self.BB_call_range_vs_open
+                    raise_amount = int(3*pot+BIG_BLIND)
+                else:
+                    raise_range_matrix = self.BB_5bet_range_vs_4bet
+                    call_range_matrix = self.BB_call_range_vs_4bet
+                    raise_amount = int(2.5*pot+BIG_BLIND)
+            fold_probability, call_probability, raise_probability = utils.preflop_action_distribution(self, call_range_matrix, raise_range_matrix)
+            print("......................", fold_probability, call_probability, raise_probability)
+            return mixed_strategy(self, fold_probability, call_probability, raise_amount)
+
         if self.get_street() >= 3:  # ..............................Flop (+Turn+River)
             if hand_strength > self.pot_odds:
                 if self.get_my_pip() == 0:
@@ -158,7 +176,7 @@ class Player(FrijolBot):
         #         return CheckCall(self)
         #     else:
         #         return CheckFold(self)
-
+        print("No action")
         return CheckCall(self)
 
 
