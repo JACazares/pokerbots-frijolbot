@@ -61,11 +61,13 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
             assuming that half of the ties are losses and half are wins.
     """
 
-    start_time = time.time()
-
     hole = bot.get_my_cards()
     board = bot.get_board_cards()
-    opponent_bounty_distribution = bot.get_opponent_bounty_distribution()
+    # opponent_bounty_distribution = bot.get_opponent_bounty_distribution()
+
+    opponent_range = np.triu(bot.get_opponent_range())
+    flat_opponent_range = opponent_range.flatten()
+    probabilities = flat_opponent_range / np.sum(flat_opponent_range)
 
     hole_cards = [eval7.Card(s) for s in hole]
     board_cards = [eval7.Card(s) for s in board]
@@ -79,37 +81,44 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
         deck.cards.remove(card)
 
     for _ in range(iterations):
-        montecarlo_next_cards = deck.sample(5 - len(board_cards) + 2)
-        montecarlo_opponent_cards = montecarlo_next_cards[:2]
-        montecarlo_board_cards = board_cards + montecarlo_next_cards[2:]
+        random_opponent_cards_index = np.random.choice(len(probabilities), p=probabilities)
+        random_opponent_cards_tuple = np.unravel_index(random_opponent_cards_index, opponent_range.shape)
+        montecarlo_opponent_cards = list(map(lambda x : eval7.Deck()[x], random_opponent_cards_tuple))
 
+        for card in montecarlo_opponent_cards:
+            deck.cards.remove(card)
+        print(deck.cards)
+        montecarlo_board_cards = board_cards + deck.sample(5 - len(board_cards))
+        for card in montecarlo_opponent_cards:
+            deck.cards.append(card)
+        print(deck.cards)
+        
         montecarlo_my_strength = eval7.evaluate(hole_cards + montecarlo_board_cards)
         montecarlo_opponent_strength = eval7.evaluate(montecarlo_opponent_cards + montecarlo_board_cards)
 
-        montecarlo_opponent_bounty = np.random.choice(13, p=opponent_bounty_distribution)
+        # montecarlo_opponent_bounty = np.random.choice(13, p=opponent_bounty_distribution)
 
-        montecarlo_my_bounty_awarded = np.any([montecarlo_opponent_bounty == card.rank for card in hole_cards]) or \
-                                       np.any([montecarlo_opponent_bounty == card.rank for card in montecarlo_board_cards])
+        # montecarlo_my_bounty_awarded = np.any([montecarlo_opponent_bounty == card.rank for card in hole_cards]) or \
+        #                                np.any([montecarlo_opponent_bounty == card.rank for card in montecarlo_board_cards])
 
-        montecarlo_opponent_bounty_awarded = np.any([montecarlo_opponent_bounty == card.rank for card in montecarlo_opponent_cards]) or \
-                                             np.any([montecarlo_opponent_bounty == card.rank for card in montecarlo_board_cards])
+        # montecarlo_opponent_bounty_awarded = np.any([montecarlo_opponent_bounty == card.rank for card in montecarlo_opponent_cards]) or \
+        #                                      np.any([montecarlo_opponent_bounty == card.rank for card in montecarlo_board_cards])
 
         if montecarlo_my_strength > montecarlo_opponent_strength:
             strength += 1
-            if montecarlo_my_bounty_awarded:
-                strength += 0.25 * bounty_strength
+            # if montecarlo_my_bounty_awarded:
+            #     strength += 0.25 * bounty_strength
         elif montecarlo_my_strength == montecarlo_opponent_strength:
             strength += 0.5
-            if montecarlo_my_bounty_awarded and not montecarlo_opponent_bounty_awarded:
-                strength += 0.125 * bounty_strength
-            elif not montecarlo_my_bounty_awarded and montecarlo_opponent_bounty_awarded:
-                strength += 0.125 * bounty_strength
+            # if montecarlo_my_bounty_awarded and not montecarlo_opponent_bounty_awarded:
+            #     strength += 0.125 * bounty_strength
+            # elif not montecarlo_my_bounty_awarded and montecarlo_opponent_bounty_awarded:
+            #     strength += 0.125 * bounty_strength
         else:
-            if montecarlo_opponent_bounty_awarded:
-                strength -= 0.25 * bounty_strength
+            strength += 0
+            # if montecarlo_opponent_bounty_awarded:
+            #     strength -= 0.25 * bounty_strength
     
-    print(f"Time elapsed: {time.time() - start_time}")
-
     return strength / iterations
 
 
