@@ -1,0 +1,2 @@
+board1,board2,board3,hand1,hand2,opponent1,opponent2,strength
+133784560

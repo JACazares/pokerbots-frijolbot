@@ -51,6 +51,7 @@ class Player(FrijolBot):
         self.active = active
         if self.get_round_num() % 25 == 1:
             self.opponent_bounty_distribution = np.ones(13) / 13
+        self.opponent_range = (np.ones([52, 52])-np.diag(np.ones(52)))*2/(52*51)
 
         self.strategy = "frijol_4"
 
