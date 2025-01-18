@@ -29,9 +29,9 @@ def read_starting_ranges(filename):
         BB_5bet_range_vs_4bet=np.array(rowlist[104:119])
     return BTN_opening_range, BB_call_range_vs_open, BB_3bet_range_vs_open, BTN_call_range_vs_3bet, BTN_4bet_range_vs_3bet, BB_call_range_vs_4bet, BB_5bet_range_vs_4bet
 
-def expand_range(simplified_range: np.array):
+def expand_opponent_range(simplified_opponent_range: np.array):
     expanded_range = np.zeros([52, 52])
-    for row_idx, row in enumerate(simplified_range):
+    for row_idx, row in enumerate(simplified_opponent_range):
         for column_idx, item in enumerate(row):
             if row_idx==column_idx:
                 for i in range(4):
@@ -45,7 +45,7 @@ def expand_range(simplified_range: np.array):
                 for i in range(4):
                     for j in range(4):
                         if i!=j:
-                            expanded_range[row_idx*4+i][column_idx*4+j] = item/6
+                            expanded_range[row_idx*4+i][column_idx*4+j] = item/12
     return expanded_range
 
 
@@ -72,5 +72,5 @@ if __name__=="__main__":
     print(np.shape(BTN_call_range_vs_3bet))
     print(np.shape(BB_call_range_vs_open))
     print(np.shape(BB_call_range_vs_4bet))
-    expanded_opening=expand_range(BTN_opening_range[0:13])
+    expanded_opening=expand_opponent_range(BTN_opening_range[0:13])
     print(expanded_opening)    
