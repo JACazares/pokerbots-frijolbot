@@ -14,7 +14,7 @@ from helper_bot import FrijolBot
 import typing
 import constants
 import time
-from io_utils import simplify_hole
+from io_utils import simplify_hole, expand_opponent_range
 
 
 def compute_checkfold_win_probability(bot: FrijolBot):
@@ -367,27 +367,42 @@ def preflop_action_distribution(bot: FrijolBot, call_range_matrix: np.array, rai
 def update_opponent_range(bot: FrijolBot):
 
     hole=bot.get_my_cards()
+    board=bot.get_board_cards()
     hole_cards=[eval7.Card(s) for s in hole]
+    board_cards=[eval7.Card(s) for s in board]
     probability_of_opp_action_given_opp_hand = np.zeros([52, 52])
 
+    
     for row_idx, row in enumerate(bot.opponent_range):
         for column_idx, item in enumerate(row):
-            if np.any([row_idx==card.rank for card in hole_cards]) or np.any([column_idx==card.rank for card in hole_cards]):
+            if np.any([row_idx==card.rank for card in hole_cards+board_cards]) or np.any([column_idx==card.rank for card in hole_cards+board_cards]):
+                probability_of_opp_action_given_opp_hand[row_idx][column_idx]=0
+            else: #Hands not in yours 
                 if bot.get_street()==0:
                     if not bot.get_big_blind():
-                        if bot.get_my_pip()==1: #Action is dealing cards to me
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=0
-                        else: #Action was a 3bet
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=bot.BB_3bet_range_vs_open[row_idx][column_idx]
+                        if not bot.get_my_pip()==1: #Action is dealing cards to me
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BB_3bet_range_vs_open)[row_idx][column_idx]
                     else:
                         if bot.get_my_pip()==2 and bot.get_opponent_pip()==2: # opp LIMPED
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=bot.BTN_opening_range[row_idx][column_idx]
-                        elif bot.get_my_pip()==2 and bot.get_opponent_pip()<50: # opp opened
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=bot.BTN_opening_range[row_idx][column_idx]
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BTN_opening_range)[row_idx][column_idx]
+                        elif bot.get_my_pip()==2 and bot.get_opponent_pip()<40: # opp opened
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BTN_opening_range)[row_idx][column_idx]
                         else: #opp 4-betted
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=bot.BTN_4bet_range_vs_3bet[row_idx][column_idx]
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BTN_4bet_range_vs_3bet)[row_idx][column_idx]
                 elif bot.get_street()==3 and bot.opponent_called:
-                    pass
+                    if not bot.get_big_blind():
+                        if bot.get_my_contribution()<10:
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BB_call_range_vs_open)[row_idx][column_idx]
+                        else:
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BB_call_range_vs_4bet)[row_idx][column_idx]
+                    else:
+                        probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BTN_call_range_vs_3bet)[row_idx][column_idx]
                 else:
+                    probability_of_opp_action_given_opp_hand[row_idx][column_idx]=1
+
+        for row_idx, row in enumerate(bot.opponent_range):
+            for column_idx, item in enumerate(row):
+                if row_idx>column_idx:
                     pass
+                    
     return bot.opponent_range
