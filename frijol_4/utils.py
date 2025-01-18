@@ -235,49 +235,59 @@ def update_opponent_bounty_credences(bot: FrijolBot):
     board_ranks = [card.rank for card in board_cards]
     opponent_ranks = [card.rank for card in opponent_cards]
 
-    updated_opponent_bounty_distribution = np.zeros(13)
+    distribution = bot.get_opponent_bounty_distribution()
+    street = bot.get_street()
+    bounty_awarded = bot.get_opponent_bounty_hit()
+    new_distribution = np.zeros(13)
 
-    (sum_board_card_probabilities,
-     sum_opponent_hole_card_probabilities,
-     probability_B_in_S_given_B_is_rank) =\
-        compute_bounty_credences(distribution=bot.get_opponent_bounty_distribution(), hole_ranks=hole_ranks, board_ranks=board_ranks)
-
-    if len(opponent_cards) > 0 and bot.get_opponent_bounty_hit():
-        # Set probability of all ranks that are not in the board or opponent's hole cards to 0 and renormalize
-        for rank in constants.rank_index:
-            if rank not in board_ranks + opponent_ranks:
-                updated_opponent_bounty_distribution[rank] = 0
+    prob_bboard=0 #After the for, it will be the sum of the probabilities of the board cards (distinct)
+    prob_bHb=0 #After the for, it will be the probability that B is in opp_hole and B is not in the board.
+    prob_binS_gb_is_idx=[0]*13
+    for idx, prob in enumerate(distribution):
+            if np.any([idx == card.rank for card in board_cards]):
+                prob_bboard+=prob
+                prob_binS_gb_is_idx[idx]=1
+            elif not np.any([idx == card.rank for card in hole_cards]):
+                prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(46-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
+                prob_bHb+=prob*prob_binS_gb_is_idx[idx]
+            elif np.all([idx == card.rank for card in hole_cards]):
+                prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(48-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
+                prob_bHb+=prob*prob_binS_gb_is_idx[idx]
             else:
-                updated_opponent_bounty_distribution[rank] = bot.get_opponent_bounty_distribution()[rank]
-
-        updated_opponent_bounty_distribution = updated_opponent_bounty_distribution / np.sum(updated_opponent_bounty_distribution)
-
-    elif len(opponent_cards) > 0 and not bot.get_opponent_bounty_hit():
-        # Set probability of all ranks that are in the board or opponent's hole cards to 0 and renormalize
-        # TODO: Add the small case where it's slightly less likely that their bounty is one of your hole cards
-
-        for rank in constants.rank_index:
-            if rank in board_ranks + opponent_ranks:
-                updated_opponent_bounty_distribution[rank] = 0
-            else:
-                updated_opponent_bounty_distribution[rank] = bot.get_opponent_bounty_distribution()[rank]
-
-        updated_opponent_bounty_distribution = updated_opponent_bounty_distribution / np.sum(updated_opponent_bounty_distribution)
-
-    elif len(opponent_cards) == 0 and bot.get_opponent_bounty_hit():
-        for rank in constants.rank_index:
-            updated_opponent_bounty_distribution[rank] = probability_B_in_S_given_B_is_rank[rank] * bot.get_opponent_bounty_distribution()[rank] / (sum_board_card_probabilities + sum_opponent_hole_card_probabilities)
-
-    elif len(opponent_cards) == 0 and not bot.get_opponent_bounty_hit():
-        for rank in constants.rank_index:
-            if rank in board_ranks:
-                updated_opponent_bounty_distribution[rank] = 0
-            else:
-                # TODO: Check this, it sounds wrong--
-                updated_opponent_bounty_distribution[rank] = (1 - probability_B_in_S_given_B_is_rank[rank]) * bot.get_opponent_bounty_distribution()[rank] / (1 - sum_board_card_probabilities - sum_opponent_hole_card_probabilities)
-
-    return updated_opponent_bounty_distribution
-
+                prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(47-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
+                prob_bHb+=prob*prob_binS_gb_is_idx[idx]           
+    if bounty_awarded and len(opponent_cards)==0: #Bounty was awarded and opponent has no cards visible
+        for idx, prob in enumerate(distribution):
+            new_distribution[idx]=prob_binS_gb_is_idx[idx]*prob/(prob_bboard+prob_bHb) #Bayes rule
+    elif bounty_awarded and len(opponent_cards)>0: #bounty awarded and opponent has visible cards
+        prob_sum=0
+        for idx, prob in enumerate(distribution):
+            if idx not in [card.rank for card in board_cards+opponent_cards]:
+                prob_sum+=distribution[idx]
+                new_distribution[idx]=0
+        for idx, prob in enumerate(distribution):
+            if idx in [card.rank for card in board_cards+opponent_cards]:
+                new_distribution[idx]=prob/(1-prob_sum)
+    elif not bounty_awarded and len(opponent_cards)==0: #Bounty not awarded and opponent has no visible cards
+        prob_sum=0
+        for idx, prob in enumerate(distribution):
+            if idx in [card.rank for card in board_cards]:
+                prob_sum+=distribution[idx]
+                new_distribution[idx]=0
+        for idx, prob in enumerate(distribution):
+            if idx not in [card.rank for card in board_cards]:
+                print(prob_binS_gb_is_idx[idx])
+                new_distribution[idx]=(1-prob_binS_gb_is_idx[idx])*prob/(1-prob_bboard-prob_bHb)
+    else: #Bounty not awarded and opponent has visible cards
+        prob_sum=0
+        for idx, prob in enumerate(distribution):
+            if idx in [card.rank for card in board_cards+opponent_cards]:
+                prob_sum+=distribution[idx]
+                new_distribution[idx]=0
+        for idx, prob in enumerate(distribution):
+            if idx not in [card.rank for card in board_cards+opponent_cards]:
+                new_distribution[idx]=prob/(1-prob_sum)
+    return new_distribution
 
 def compute_pot_odds(bot: FrijolBot):
     """

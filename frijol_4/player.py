@@ -162,7 +162,7 @@ class Player(FrijolBot):
                     call_range_matrix = self.BTN_call_range_vs_3bet
                     raise_amount = int(3*pot+BIG_BLIND)
             else:
-                if my_pip==2 and opp_pip==2: #Never plays for free (weird)
+                if my_pip==2 and opp_pip==2:
                     raise_range_matrix = self.BTN_opening_range
                     raise_amount = int(2.5*BIG_BLIND)
                     call_range_matrix = np.zeros([13, 13])
