@@ -10,6 +10,7 @@ class FrijolBot(Bot):
         self.terminal_state = None
         self.active = None
         self.opponent_bounty_distribution = np.zeros(13)
+        self.opponent_range = (np.ones([52, 52])-np.diag(np.ones(52)))*2/(52*51)
         (self.BTN_opening_range, 
          self.BB_call_range_vs_open, 
          self.BB_3bet_range_vs_open, 
@@ -96,3 +97,6 @@ class FrijolBot(Bot):
     
     def get_raise_bounds(self):
         return self.round_state.raise_bounds()
+    
+    def get_opponent_range(self):
+        return self.opponent_range

@@ -300,7 +300,7 @@ def compute_pot_odds(bot: FrijolBot):
     opponent_pot = bot.get_opponent_contribution()
     my_pot = bot.get_my_contribution()
 
-    my_bounty_rank = bot.get_my_bounty()
+    my_bounty_rank = eval7.Card(bot.get_my_bounty()).rank
     opponent_bounty_distribution = bot.get_opponent_bounty_distribution()
 
     hole_cards = [eval7.Card(s) for s in hole]

@@ -29,8 +29,6 @@ def CheckCall(bot: FrijolBot):
     Returns:
         Action: The CheckAction if it is in the list of legal actions, otherwise the CallAction.
     """
-    print(CheckAction)
-    print(bot.get_legal_actions())
     if CheckAction in bot.get_legal_actions():
         return CheckAction()
 
