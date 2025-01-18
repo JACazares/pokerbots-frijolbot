@@ -83,7 +83,7 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
     for _ in range(iterations):
         random_opponent_cards_index = np.random.choice(len(probabilities), p=probabilities)
         random_opponent_cards_tuple = np.unravel_index(random_opponent_cards_index, opponent_range.shape)
-        montecarlo_opponent_cards = list(map(lambda x : eval7.Deck()[x], random_opponent_cards_tuple))
+        montecarlo_opponent_cards = list(map(lambda x : eval7.Deck()[-x - 1], random_opponent_cards_tuple))
 
         for card in montecarlo_opponent_cards:
             deck.cards.remove(card)
