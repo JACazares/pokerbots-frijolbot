@@ -98,7 +98,7 @@ class Player(FrijolBot):
                 print("Winner: OPPONENT with bounty ", self.get_opponent_bounty_hit())
             if my_delta==0:
                 print("Winner: TIE with bounties", self.get_my_bounty_hit(), "for me and", self.get_opponent_bounty_hit(), "for opponent")
-                self.opponent_bounty_distribution = utils.update_opponent_bounty_credences(self)
+            self.opponent_bounty_distribution = utils.update_opponent_bounty_credences(self)
         print("Opponent bounty probability distribution: ", [round(prob, 3) for prob in self.opponent_bounty_distribution])
 
     def get_action(self, game_state, round_state, active):
@@ -119,6 +119,14 @@ class Player(FrijolBot):
         self.terminal_state = None
         self.active = active
 
+        
+        if self.get_previous_street is not self.get_street():
+            self.opponent_called=True
+        else:
+            self.opponent_called=False
+        self.get_previous_street=self.get_street()
+
+    
         start_time = time.time()
         hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
         pot = self.get_opponent_contribution() + self.get_my_contribution()
@@ -126,6 +134,8 @@ class Player(FrijolBot):
         big_blind = self.get_big_blind() #True if you are the big blind
         my_pip = self.get_my_pip()
         opp_pip = self.get_opponent_pip()
+
+        
 
         if my_pip==0 or self.get_street()==0 and (my_pip==1 or my_pip==2): 
             print("")
@@ -162,7 +172,7 @@ class Player(FrijolBot):
                     call_range_matrix = self.BTN_call_range_vs_3bet
                     raise_amount = int(3*pot+BIG_BLIND)
             else:
-                if my_pip==2 and opp_pip==2:
+                if my_pip==2 and opp_pip==2: #Never plays for free (weird)
                     raise_range_matrix = self.BTN_opening_range
                     raise_amount = int(2.5*BIG_BLIND)
                     call_range_matrix = np.zeros([13, 13])
