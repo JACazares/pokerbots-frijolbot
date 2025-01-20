@@ -41,13 +41,11 @@ def expand_opponent_range(simplified_opponent_range: np.array):
             elif row_idx < column_idx:
                 for i in range(4):
                     expanded_range[row_idx*4+i][column_idx*4+i] = item/4
-                    expanded_range[column_idx*4+i][row_idx*4+i] = item/4
             else:
                 for i in range(4):
                     for j in range(4):
                         if i!=j:
                             expanded_range[row_idx*4+i][column_idx*4+j] = item/12
-                            expanded_range[column_idx*4+i][row_idx*4+j] = item/12
     return expanded_range
 
 
@@ -74,6 +72,5 @@ if __name__=="__main__":
     print(np.shape(BTN_call_range_vs_3bet))
     print(np.shape(BB_call_range_vs_open))
     print(np.shape(BB_call_range_vs_4bet))
-    print(BTN_opening_range[:, 0:13])
-    expanded_opening=expand_opponent_range(BTN_opening_range[:, 0:13])
+    expanded_opening=expand_opponent_range(BTN_opening_range[0:13])
     print(expanded_opening)    
