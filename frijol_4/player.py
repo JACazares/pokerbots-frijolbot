@@ -49,6 +49,9 @@ class Player(FrijolBot):
         self.round_state = round_state
         self.terminal_state = None
         self.active = active
+        self.previous_street=0
+        self.opponent_called=False
+
         if self.get_round_num() % 25 == 1:
             self.opponent_bounty_distribution = np.ones(13) / 13
         self.opponent_range = (np.ones([52, 52])-np.diag(np.ones(52)))*2/(52*51)
@@ -98,7 +101,7 @@ class Player(FrijolBot):
                 print("Winner: OPPONENT with bounty ", self.get_opponent_bounty_hit())
             if my_delta==0:
                 print("Winner: TIE with bounties", self.get_my_bounty_hit(), "for me and", self.get_opponent_bounty_hit(), "for opponent")
-                self.opponent_bounty_distribution = utils.update_opponent_bounty_credences(self)
+            self.opponent_bounty_distribution = utils.update_opponent_bounty_credences(self)
         print("Opponent bounty probability distribution: ", [round(prob, 3) for prob in self.opponent_bounty_distribution])
 
     def get_action(self, game_state, round_state, active):
@@ -118,6 +121,13 @@ class Player(FrijolBot):
         self.round_state = round_state
         self.terminal_state = None
         self.active = active
+
+        if self.previous_street is not self.get_street():
+            self.opponent_called = True
+        else: 
+            self.opponent_called = False 
+        self.previous_street = self.get_street()
+
 
         start_time = time.time()
         hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
