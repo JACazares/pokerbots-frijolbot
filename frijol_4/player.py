@@ -137,6 +137,8 @@ class Player(FrijolBot):
         my_pip = self.get_my_pip()
         opp_pip = self.get_opponent_pip()
 
+        
+
         if my_pip==0 or self.get_street()==0 and (my_pip==1 or my_pip==2): 
             print("")
             if self.get_street()==0:
@@ -172,7 +174,7 @@ class Player(FrijolBot):
                     call_range_matrix = self.BTN_call_range_vs_3bet
                     raise_amount = int(3*pot+BIG_BLIND)
             else:
-                if my_pip==2 and opp_pip==2:
+                if my_pip==2 and opp_pip==2: #Never plays for free (weird)
                     raise_range_matrix = self.BTN_opening_range
                     raise_amount = int(2.5*BIG_BLIND)
                     call_range_matrix = np.zeros([13, 13])
