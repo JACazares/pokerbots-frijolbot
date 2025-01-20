@@ -56,7 +56,9 @@ class Player(FrijolBot):
             self.opponent_bounty_distribution = np.ones(13) / 13
         self.opponent_range = (np.ones([52, 52])-np.diag(np.ones(52)))*2/(52*51)
 
-        self.strategy = "frijol_4"
+        self.opponent_range = utils.update_opponent_range(self)
+
+        self.strategy = "frijol_5"
 
         target_bankroll = 12.5 * self.get_rounds_left() + (self.get_rounds_left() % 2) * (int(self.get_big_blind()) - 0.5)
         if self.get_bankroll() > target_bankroll:
@@ -121,23 +123,9 @@ class Player(FrijolBot):
         self.round_state = round_state
         self.terminal_state = None
         self.active = active
-
-        if self.previous_street is not self.get_street():
-            self.opponent_called = True
-        else: 
-            self.opponent_called = False 
-        self.previous_street = self.get_street()
-
-
-        start_time = time.time()
-        hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
-        pot = self.get_opponent_contribution() + self.get_my_contribution()
-        self.pot_odds = utils.compute_pot_odds(self)
         big_blind = self.get_big_blind() #True if you are the big blind
         my_pip = self.get_my_pip()
         opp_pip = self.get_opponent_pip()
-
-        
 
         if my_pip==0 or self.get_street()==0 and (my_pip==1 or my_pip==2): 
             print("")
@@ -150,6 +138,24 @@ class Player(FrijolBot):
             if self.get_street()==5:
                 print("-------RIVER-------")
             print("board cards: ", self.get_board_cards())
+
+        if self.previous_street is not self.get_street():
+            self.opponent_called = True
+        else: 
+            self.opponent_called = False 
+        self.previous_street = self.get_street()
+
+        start_time = time.time()
+        self.opponent_range = utils.update_opponent_range(self)
+        print("update opp_range time: ", time.time()-start_time)
+
+
+        start_time = time.time()
+        hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
+        print("handstrength time: ", time.time()-start_time)
+        pot = self.get_opponent_contribution() + self.get_my_contribution()
+        self.pot_odds = utils.compute_pot_odds(self)
+
        # print(f"Time to pot odds: {time.time() - start_time}")
 
         print("pot size: ", pot, "with continue cost of", self.get_continue_cost())

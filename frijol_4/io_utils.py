@@ -1,6 +1,7 @@
 import csv
 import numpy as np
 import eval7
+import time
 
 def read_csv_table(filename):
     """Reads a CSV file and returns a dictionary mapping a tuple of the first columns to the last column."""
@@ -30,6 +31,7 @@ def read_starting_ranges(filename):
     return BTN_opening_range, BB_call_range_vs_open, BB_3bet_range_vs_open, BTN_call_range_vs_3bet, BTN_4bet_range_vs_3bet, BB_call_range_vs_4bet, BB_5bet_range_vs_4bet
 
 def expand_opponent_range(simplified_opponent_range: np.array):
+    start_time=time.time()
     expanded_range = np.zeros([52, 52])
     for row_idx, row in enumerate(simplified_opponent_range):
         for column_idx, item in enumerate(row):
@@ -48,6 +50,7 @@ def expand_opponent_range(simplified_opponent_range: np.array):
                         if i!=j:
                             expanded_range[row_idx*4+i][column_idx*4+j] = item/12
                             expanded_range[column_idx*4+i][row_idx*4+j] = item/12
+    print("expand opponent range time: ", time.time()-start_time)
     return expanded_range
 
 

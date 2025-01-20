@@ -64,7 +64,6 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
     hole = bot.get_my_cards()
     board = bot.get_board_cards()
     # opponent_bounty_distribution = bot.get_opponent_bounty_distribution()
-
     opponent_range = np.triu(bot.get_opponent_range())
     flat_opponent_range = opponent_range.flatten()
     probabilities = flat_opponent_range / np.sum(flat_opponent_range)
@@ -73,7 +72,6 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
     board_cards = [eval7.Card(s) for s in board]
 
     strength = 0
-
     deck = eval7.Deck()
     for card in hole_cards:
         deck.cards.remove(card)
@@ -87,11 +85,9 @@ def estimate_hand_strength(bot: FrijolBot, bounty_strength: float = 1.0, iterati
 
         for card in montecarlo_opponent_cards:
             deck.cards.remove(card)
-        print(deck.cards)
         montecarlo_board_cards = board_cards + deck.sample(5 - len(board_cards))
         for card in montecarlo_opponent_cards:
             deck.cards.append(card)
-        print(deck.cards)
         
         montecarlo_my_strength = eval7.evaluate(hole_cards + montecarlo_board_cards)
         montecarlo_opponent_strength = eval7.evaluate(montecarlo_opponent_cards + montecarlo_board_cards)
@@ -374,41 +370,53 @@ def update_opponent_range(bot: FrijolBot):
 
     updated_opponent_range=bot.get_opponent_range()
 
+    expanded_BB_3bet_range_vs_open = expand_opponent_range(bot.BB_3bet_range_vs_open[:, 0:13])
+    expanded_BTN_opening_range = expand_opponent_range(bot.BTN_opening_range[:, 0:13])
+    expanded_BTN_4bet_range_vs_3bet = expand_opponent_range(bot.BTN_4bet_range_vs_3bet[:, 0:13])
+    expanded_BB_call_range_vs_open = expand_opponent_range(bot.BB_call_range_vs_open[:, 0:13])
+    expanded_BB_call_range_vs_4bet = expand_opponent_range(bot.BB_call_range_vs_4bet[:, 0:13])
+    expanded_BTN_call_range_vs_3bet = expand_opponent_range(bot.BTN_call_range_vs_3bet[:, 0:13])
+
+
     for row_idx, row in enumerate(bot.opponent_range):
         for column_idx, item in enumerate(row):
-            if np.any([row_idx==card.rank for card in hole_cards+board_cards]) or np.any([column_idx==card.rank for card in hole_cards+board_cards]):
+            if np.any([eval7.Deck()[51-row_idx] == card for card in hole_cards+board_cards]) or np.any([eval7.Deck()[51-column_idx] == card for card in hole_cards+board_cards]):
                 probability_of_opp_action_given_opp_hand[row_idx][column_idx]=0
-            else: #Hands not in yours 
+            else: #Hands not intersecting yours 
                 if bot.get_street()==0:
                     if not bot.get_big_blind():
-                        if not bot.get_my_pip()==1: #Action is dealing cards to me
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BB_3bet_range_vs_open[:, 0:13])[row_idx][column_idx]
-                    else:
-                        if bot.get_my_pip()==2 and bot.get_opponent_pip()==2: # opp LIMPED
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BTN_opening_range[:, 0:13])[row_idx][column_idx]
+                        if not bot.get_my_pip()==1: #Opponent 3betted 
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expanded_BB_3bet_range_vs_open[row_idx][column_idx]
+                        else: #opponent has done nothing yet
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=1
+                    else: 
+                        if bot.get_my_pip()==2 and bot.get_opponent_pip() ==1: #nothing has happened
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=1
+                        elif bot.get_my_pip()==2 and bot.get_opponent_pip()==2: # opp LIMPED
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expanded_BTN_opening_range[row_idx][column_idx]
                         elif bot.get_my_pip()==2 and bot.get_opponent_pip()<40: # opp opened
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BTN_opening_range[:, 0:13])[row_idx][column_idx]
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expanded_BTN_opening_range[row_idx][column_idx]
                         else: #opp 4-betted
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BTN_4bet_range_vs_3bet[:, 0:13])[row_idx][column_idx]
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expanded_BTN_4bet_range_vs_3bet[row_idx][column_idx]
                 elif bot.get_street()==3 and bot.opponent_called:
                     if not bot.get_big_blind():
                         if bot.get_my_contribution()<10:
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BB_call_range_vs_open[:, 0:13])[row_idx][column_idx]
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expanded_BB_call_range_vs_open[row_idx][column_idx]
                         else:
-                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BB_call_range_vs_4bet[:, 0:13])[row_idx][column_idx]
+                            probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expanded_BB_call_range_vs_4bet[row_idx][column_idx]
                     else:
-                        probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expand_opponent_range(bot.BTN_call_range_vs_3bet[:, 0:13])[row_idx][column_idx]
+                        probability_of_opp_action_given_opp_hand[row_idx][column_idx]=expanded_BTN_call_range_vs_3bet[row_idx][column_idx]
                 else:
                     probability_of_opp_action_given_opp_hand[row_idx][column_idx]=1
-        probability_of_opp_action=0
-        for row_idx, row in enumerate(bot.opponent_range):
-            for column_idx, item in enumerate(row):
-                if row_idx<column_idx:
-                    probability_of_opp_action=probability_of_opp_action+probability_of_opp_action_given_opp_hand[row_idx][column_idx]*bot.get_opponent_range()[row_idx][column_idx]
+    probability_of_opp_action=0
+    for row_idx, row in enumerate(bot.opponent_range):
+        for column_idx, item in enumerate(row):
+            if row_idx<column_idx:
+                probability_of_opp_action=probability_of_opp_action+probability_of_opp_action_given_opp_hand[row_idx][column_idx]*bot.get_opponent_range()[row_idx][column_idx]
 
-        for row_idx, row in enumerate(bot.opponent_range):
-            for column_idx, item in enumerate(row):
-                if row_idx<column_idx:
-                    updated_opponent_range=probability_of_opp_action_given_opp_hand[row_idx][column_idx]*bot.get_opponent_range()[row_idx][column_idx]/probability_of_opp_action
+    for row_idx, row in enumerate(bot.opponent_range):
+        for column_idx, item in enumerate(row):
+            if row_idx<column_idx:
+                updated_opponent_range[row_idx][column_idx]=probability_of_opp_action_given_opp_hand[row_idx][column_idx]*bot.get_opponent_range()[row_idx][column_idx]/probability_of_opp_action
 
     return updated_opponent_range
