@@ -145,14 +145,10 @@ class Player(FrijolBot):
             self.opponent_called = False 
         self.previous_street = self.get_street()
 
-        start_time = time.time()
+        #start_time = time.time()
         self.opponent_range = utils.update_opponent_range(self)
-        print("update opp_range time: ", time.time()-start_time)
+        #print("update opp_range time: ", time.time()-start_time)
 
-
-        start_time = time.time()
-        hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
-        print("handstrength time: ", time.time()-start_time)
         pot = self.get_opponent_contribution() + self.get_my_contribution()
         self.pot_odds = utils.compute_pot_odds(self)
 
@@ -197,7 +193,9 @@ class Player(FrijolBot):
             return mixed_strategy(self, fold_probability, call_probability, raise_amount)
 
         if self.get_street() >= 3:  # ..............................Flop (+Turn+River)
+            #start_time = time.time()
             hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
+            #print("handstrength time: ", time.time()-start_time)
             if hand_strength > self.pot_odds:
                 if self.get_my_pip() == 0:
                     if hand_strength > 0.7:

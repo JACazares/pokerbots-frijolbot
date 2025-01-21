@@ -385,7 +385,7 @@ def update_opponent_range(bot: FrijolBot):
     opp_pip = bot.get_opponent_pip()
     my_contribution = bot.get_my_contribution()
 
-    start_time = time.time()
+    #start_time = time.time()
 
     if street==0:
         if not big_blind:
