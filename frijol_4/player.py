@@ -197,6 +197,7 @@ class Player(FrijolBot):
             return mixed_strategy(self, fold_probability, call_probability, raise_amount)
 
         if self.get_street() >= 3:  # ..............................Flop (+Turn+River)
+            hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
             if hand_strength > self.pot_odds:
                 if self.get_my_pip() == 0:
                     if hand_strength > 0.7:
