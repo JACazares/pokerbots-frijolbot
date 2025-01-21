@@ -195,6 +195,7 @@ class Player(FrijolBot):
         if self.get_street() >= 3:  # ..............................Flop (+Turn+River)
             #start_time = time.time()
             hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
+            print("hand strength:",  hand_strength)
             #print("handstrength time: ", time.time()-start_time)
             if hand_strength > self.pot_odds:
                 if self.get_my_pip() == 0:
