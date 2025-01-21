@@ -16,7 +16,8 @@ class FrijolBot(Bot):
          self.BTN_call_range_vs_3bet, 
          self.BTN_4bet_range_vs_3bet, 
          self.BB_call_range_vs_4bet, 
-         self.BB_5bet_range_vs_4bet)=read_starting_ranges("my_starting_ranges.csv")
+         self.BB_5bet_range_vs_4bet, 
+         self.BB_raise_range_vs_limp)=read_starting_ranges("my_starting_ranges.csv")
         print(np.shape(self.BB_3bet_range_vs_open))
     
     def get_bankroll(self):

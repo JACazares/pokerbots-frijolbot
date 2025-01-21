@@ -28,7 +28,8 @@ def read_starting_ranges(filename):
         BTN_fold_range_vs_3bet=np.array(rowlist[78:91])
         BB_call_range_vs_4bet=np.array(rowlist[91:104])
         BB_5bet_range_vs_4bet=np.array(rowlist[104:119])
-    return BTN_opening_range, BB_call_range_vs_open, BB_3bet_range_vs_open, BTN_call_range_vs_3bet, BTN_4bet_range_vs_3bet, BB_call_range_vs_4bet, BB_5bet_range_vs_4bet
+        BB_raise_range_vs_limp = np.array(rowlist[119:132])
+    return BTN_opening_range, BB_call_range_vs_open, BB_3bet_range_vs_open, BTN_call_range_vs_3bet, BTN_4bet_range_vs_3bet, BB_call_range_vs_4bet, BB_5bet_range_vs_4bet, BB_raise_range_vs_limp
 
 def expand_opponent_range(simplified_opponent_range: np.array):
     start_time=time.time()
