@@ -1,72 +1,80 @@
-import eval7 
+import eval7
 import numpy as np
 import csv
-import pandas as pd 
+import itertools
 import time
-from itertools import combinations
 
-def get_stengths():
+
+
+def get_strengths():
     deck = eval7.Deck()
-    print(deck)
-    matrix=-np.ones([22100, 1326])
-    matrix_row=0
-    row_headers=[]
-    column_headers=['']
-    for idx_1, flop1 in enumerate(deck):
-        for idx_2, flop2 in enumerate(deck):
-            for idx_3, flop3 in enumerate(deck):
-                if idx_1<idx_2 and idx_2<idx_3:  #For each flop
-                    row_headers.append(str(flop1) + str(flop2) + str(flop3))
-                    if idx_3>5:
-                        break
-                    averages = -np.ones([52, 52])
-                    start_time=time.time()
-                    for idx_turn, turn in enumerate(deck):
-                        for idx_river, river in enumerate(deck):
-                            if (idx_turn not in [idx_1, idx_2, idx_3]) and (idx_river not in [idx_1, idx_2, idx_3]) and (idx_turn < idx_river):
-                                values = []
-                                hole_values = -np.ones([52, 52, 52, 52])
-                                for idx_hole1, hole1 in enumerate(deck):
-                                    for idx_hole2, hole2 in enumerate(deck):
-                                        if idx_hole1<idx_hole2 and (idx_hole1 not in [idx_1, idx_2, idx_3, idx_turn, idx_river]) and (idx_hole2 not in [idx_1, idx_2, idx_3, idx_turn, idx_river]):
-                                            value = eval7.evaluate([flop1, flop2, flop3, turn, river, hole1, hole2])
-                                            values.append([idx_hole1, idx_hole2, value])
-                                values.sort(key = lambda item: item[2])
-                                for idx, item in enumerate(values):
-                                    hole_values[item[0], item[1], idx_turn, idx_river]=idx
-                    print(time.time()-start_time)
-                    for idx_hole1, hole1 in enumerate(deck):
-                        for idx_hole2, hole2 in enumerate(deck): 
-                            if idx_hole1<idx_hole2:
-                                order_sum=0
-                                order_num=0
-                                for idx_turn in range(52):
-                                    for idx_river in range(52):
-                                        if idx_turn<idx_river and hole_values[idx_hole1, idx_hole2, idx_turn, idx_river]!=-1: 
-                                            order_sum+=hole_values[idx_hole1, idx_hole2, idx_turn, idx_river]
-                                            order_num+=1
-                                if order_num == 0: 
-                                    averages[idx_hole1, idx_hole2] = -1
-                                else: 
-                                    averages[idx_hole1, idx_hole2]=order_sum/order_num
-                    triu_avg = np.triu(averages, k=1)
-                    flat_triu_av = triu_avg[np.triu_indices_from(triu_avg, k=1)]
-                    matrix[matrix_row, :] = flat_triu_av
-                    matrix_row +=1
-                    print(idx_1, idx_2, idx_3)
-        for idx_hole1, hole1 in enumerate(deck):
-            for idx_hole2, hole2 in enumerate(deck): 
-                if idx_hole1<idx_hole2:
-                    column_headers.append(str(hole1) + str(hole2))
-        
-        with open('strengths.csv', 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-    
-        # Write the column headers
-            writer.writerow(column_headers)
-    
-        # Write the data rows with row headers
-            for i, row in enumerate(matrix):
-                writer.writerow([row_headers[i]] + list(row))
+    matrix = -np.ones([22100, 1326])
+    matrix_row = 0
+    row_headers = []
+    column_headers = ['']
+    counter=0
 
-get_stengths()
+    # Generate all 3-card combinations for flops
+    flops = list(itertools.combinations(deck, 3))
+    for flop in flops: 
+        row_headers.append("".join(map(str, flop)))
+    for flop in flops:
+        counter+=1
+        averages = -np.ones([52,52])
+        start_time = time.time()
+
+        # Generate all valid turn and river combinations
+        remaining_cards = set(deck) - set(flop)
+        turn_river_combinations = list(itertools.combinations(remaining_cards, 2))
+
+        # Precompute hand rankings
+        hole_values = -np.ones([52, 52, 1326])
+        for idx_tr, (turn, river) in enumerate(turn_river_combinations):
+            values = []
+            remaining_after_tr = remaining_cards - {turn, river}
+
+            # Generate all valid hole card combinations
+            hole_combinations = list(itertools.combinations(remaining_after_tr, 2))
+            for idx_hc, (hole1, hole2) in enumerate(hole_combinations):
+                value = eval7.evaluate(list(flop)+[turn, river, hole1, hole2])  
+                values.append((hole1, hole2, value))
+
+            # Sort and rank hole card values
+            values.sort(key=lambda item: item[2])
+            list_deck=list(deck)
+            for rank, (hole1, hole2, _) in enumerate(values):
+                hole_values[list_deck.index(hole1), list_deck.index(hole2), idx_tr] = rank
+
+        print(f"Flop {str(flop[0]) + str(flop[1]) + str(flop[2])} processed in {time.time() - start_time:.2f} seconds.")
+
+        # Calculate averages for each pair of hole cards
+        for idx_hole1, hole1 in enumerate(deck):
+            for idx_hole2, hole2 in enumerate(deck):
+                if idx_hole1 < idx_hole2:
+                    rankings = hole_values[idx_hole1, idx_hole2, :]
+                    valid_rankings = rankings[rankings != -1]
+                    if len(valid_rankings) > 0:
+                        averages[idx_hole1, idx_hole2] = np.mean(valid_rankings)/1326
+
+        # Flatten the upper triangle of the averages matrix
+        triu_avg = np.triu(averages, k=1)
+        flat_triu_avg = triu_avg[np.triu_indices_from(triu_avg, k=1)]
+        matrix[matrix_row, :] = flat_triu_avg
+        matrix_row += 1
+
+    # Generate column headers
+        if counter %5 ==0:
+            for idx_hole1, hole1 in enumerate(deck):
+                for idx_hole2, hole2 in enumerate(deck):
+                    if idx_hole1 < idx_hole2:
+                        column_headers.append(f"{hole1}{hole2}")
+
+        # Save the matrix to a CSV file
+            with open('strengths.csv', 'w', newline='') as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(column_headers)  # Write column headers
+                for i, row in enumerate(matrix):  # Write data rows with row headers
+                    writer.writerow([row_headers[i]] + list(row))
+
+
+get_strengths()
