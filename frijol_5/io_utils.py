@@ -68,6 +68,13 @@ def simplify_hole(hole):
         column=12-sortedcards[1].rank
     return row, column
 
+def prob_of_opp_calling_raise(raise_amount, half_pot_before_raise):
+    r=raise_amount/half_pot_before_raise
+    return 1-r/(2*r+2)
+
+def calculate_raise_expected_value(raise_amount, half_pot_before_raise, my_strength):
+    return prob_of_opp_calling_raise(raise_amount, half_pot_before_raise)* ((2*my_strength-1)*(half_pot_before_raise+raise_amount)-half_pot_before_raise)+half_pot_before_raise
+
 
 
 if __name__=="__main__":

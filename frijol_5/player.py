@@ -198,16 +198,21 @@ class Player(FrijolBot):
             print("hand strength:",  hand_strength)
             #print("handstrength time: ", time.time()-start_time)
             if hand_strength > self.pot_odds:
-                if self.get_my_pip() == 0:
-                    if hand_strength > 0.7:
-                        var = random.random()
-                        if var < 0.5:
-                            return RaiseCheckCall(self, 3*pot)
-                        else: 
-                            return CheckCall(self)
-                    return CheckFold(self)
-                else:
-                    return CheckCall(self)
+                if RaiseAction in self.get_legal_actions():
+                    min_raise, max_raise=self.get_raise_bounds()
+                    raise_amounts=np.array(list(range(min_raise, max_raise)))
+                    normalized_raise_amounts=raise_amounts/self.get_opponent_contribution()
+                    prob_of_opponent_calling=1-normalized_raise_amounts/(2*normalized_raise_amounts+2)
+                    if np.any(hand_strength > 1- normalized_raise_amounts*prob_of_opponent_calling/((2*normalized_raise_amounts+2)*prob_of_opponent_calling-2)):
+                        #raise_index = np.argmax((2*hand_strength-1)*(self.get_opponent_contribution()+raise_amounts)-self.get_opponent_contribution())
+                        #raise_amount = raise_amounts[raise_index]
+                        #raise_odds = 1- normalized_raise_amounts[raise_index]*prob_of_opponent_calling[raise_index]/((2*normalized_raise_amounts[raise_index]+2)*prob_of_opponent_calling[raise_index]-2)
+                        #print("Raising", raise_amount, "with raise odds", raise_odds)
+                        raise_amount=3.5*pot
+                        print("Raising", raise_amount)
+                        return RaiseCheckCall(self, raise_amount)          
+                    else:
+                        return CheckCall(self)
             else:
                 return CheckFold(self)
             
