@@ -58,7 +58,7 @@ class Player(FrijolBot):
 
         self.opponent_range = utils.update_opponent_range(self)
 
-        self.strategy = "frijol_5"
+        self.strategy = max(self.strategy_bankrolls, key=lambda x: self.strategy_bankrolls[x])
 
         target_bankroll = 12.5 * self.get_rounds_left() + (self.get_rounds_left() % 2) * (int(self.get_big_blind()) - 0.5)
         if self.get_bankroll() > target_bankroll:
@@ -94,8 +94,9 @@ class Player(FrijolBot):
         self.terminal_state = terminal_state
         self.active = active
         my_delta=self.get_my_delta()
-        
+        self.strategy_bankrolls[self.strategy]+=my_delta
         print("----------- Results ----------")
+        print("New strategy bankrolls: ", self.strategy_bankrolls)
         if my_delta>0:
             print("Winner: MYSELF with bounty ", self.get_my_bounty_hit())
         if my_delta<=0: #If I lost
@@ -194,31 +195,46 @@ class Player(FrijolBot):
 
         if self.get_street() >= 3:  # ..............................Flop (+Turn+River)
             #start_time = time.time()
+            if self.strategy == "conservative":
+                raise_probs=[0.8, 0.5]
+                raise_threshold = [0.85, 0.95]
+                odds_offset = 0.15
+            elif self.strategy == "mid":
+                raise_probs=[0.9, 0.7]
+                raise_threshold = [0.75, 0.9]
+                odds_offset = 0.05
+            elif self.strategy =="aggressive":
+                raise_probs=[0.95, 0.85]
+                raise_threshold = [0.65, 0.75]
+                odds_offset = -0.02
+            else:
+                print("error")
+                return CheckFold()
+
             hand_strength = utils.estimate_hand_strength(self, bounty_strength=0)
             print("hand strength:",  hand_strength)
             #print("handstrength time: ", time.time()-start_time)
-            if hand_strength > self.pot_odds: 
-                if RaiseAction in self.get_legal_actions():
-                    min_raise, max_raise=self.get_raise_bounds()
-                    raise_amounts=np.array(list(range(min_raise, max_raise)))
-                    normalized_raise_amounts=raise_amounts/self.get_opponent_contribution()
-                    prob_of_opponent_calling=1-normalized_raise_amounts/(2*normalized_raise_amounts+2)
-                    if np.any(hand_strength > 1- normalized_raise_amounts*prob_of_opponent_calling/((2*normalized_raise_amounts+2)*prob_of_opponent_calling-2)):
-                        #raise_index = np.argmax((2*hand_strength-1)*(self.get_opponent_contribution()+raise_amounts)-self.get_opponent_contribution())
-                        #raise_amount = raise_amounts[raise_index]
-                        #raise_odds = 1- normalized_raise_amounts[raise_index]*prob_of_opponent_calling[raise_index]/((2*normalized_raise_amounts[raise_index]+2)*prob_of_opponent_calling[raise_index]-2)
-                        #print("Raising", raise_amount, "with raise odds", raise_odds)
+            if hand_strength > self.pot_odds + odds_offset:
+                if self.get_my_pip() == 0:
+                    if hand_strength > 1-(350-pot)*(1-raise_threshold[0])/325:
                         var = random.random()
-                        if var>0.6:
-                            raise_amount=3.5*pot
-                            print("Raising", raise_amount)
-                            return RaiseCheckCall(self, raise_amount)  
-                        return CheckCall(self)        
-                    else:
-                        return CheckCall(self)
+                        if var < raise_probs[0]:
+                            return RaiseCheckCall(self, 3*pot)
+                        else: 
+                            return CheckCall(self)
+                    return CheckCall(self)
+                elif self.get_my_pip() < 4*pot:
+                    if hand_strength > 1-(350-pot)*(1-raise_threshold[1])/325:
+                        var = random.random()
+                        if var < raise_probs[1]: 
+                            return RaiseCheckCall(self, 3*pot)
+                        else: 
+                            return CheckCall(self)
+                    return CheckCall(self)
+                else:
+                    CheckCall(self)
             else:
                 return CheckFold(self)
-            
         # if self.get_street() == 4:  # ..............................Turn
         #     if hand_strength > 0.5:
         #         return CheckCall(self)
