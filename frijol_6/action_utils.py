@@ -51,6 +51,7 @@ def RaiseCheckCall(bot: FrijolBot, raise_amount: float):
         min_raise, max_raise = bot.get_raise_bounds()
         raise_amount = min(raise_amount, max_raise)
         raise_amount = max(raise_amount, min_raise)
+        bot.previously_raised = True
         return RaiseAction(int(raise_amount))
 
     return CheckCall(bot)

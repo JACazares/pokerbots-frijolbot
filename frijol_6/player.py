@@ -52,6 +52,10 @@ class Player(FrijolBot):
         self.previous_street=0
         self.opponent_called=False
 
+        self.opponent_actions = []
+        self.previously_raised = False
+        self.last_opponent_action = 0
+
         if self.get_round_num() % 25 == 1:
             self.opponent_bounty_distribution = np.ones(13) / 13
         self.opponent_range = (np.ones([52, 52])-np.diag(np.ones(52)))*2/(52*51)
@@ -127,6 +131,7 @@ class Player(FrijolBot):
         big_blind = self.get_big_blind() #True if you are the big blind
         my_pip = self.get_my_pip()
         opp_pip = self.get_opponent_pip()
+        utils.update_opponent_actions(self)
 
         if my_pip==0 or self.get_street()==0 and (my_pip==1 or my_pip==2): 
             print("")
@@ -139,6 +144,10 @@ class Player(FrijolBot):
             if self.get_street()==5:
                 print("-------RIVER-------")
             print("board cards: ", self.get_board_cards())
+
+        while self.last_opponent_action < len(self.opponent_actions):
+            print("Opponent action: ", self.opponent_actions[self.last_opponent_action])
+            self.last_opponent_action += 1
 
         if self.previous_street is not self.get_street():
             self.opponent_called = True

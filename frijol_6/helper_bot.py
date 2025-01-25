@@ -19,6 +19,10 @@ class FrijolBot(Bot):
          self.BB_5bet_range_vs_4bet, 
          self.BB_raise_range_vs_limp)=read_starting_ranges("my_starting_ranges.csv")
         self.strategy_bankrolls= {"conservative": 0, "mid": 0, "aggressive": 0}
+        self.previous_street = None
+        self.previosly_raised = False
+        self.opponent_actions = None
+        self.last_opponent_action = 0
     
     def get_bankroll(self):
         return self.game_state.bankroll
@@ -100,3 +104,9 @@ class FrijolBot(Bot):
     
     def get_opponent_range(self):
         return self.opponent_range
+    
+    def get_opponent_action(self):
+        return self.opponent_actions[-1]
+    
+    def get_previous_street(self):
+        return self.previous_street

@@ -424,3 +424,47 @@ def update_opponent_range(bot: FrijolBot):
     updated_opponent_range = np.triu(probability_of_opp_action_given_opp_hand * current_opponent_range / probability_of_opp_action)
 
     return updated_opponent_range
+
+def update_opponent_actions(bot: FrijolBot):
+    big_blind = bot.get_big_blind()
+    my_pip = bot.get_my_pip()
+    opp_pip = bot.get_opponent_pip()
+    street = bot.get_street()
+    previous_street = bot.get_previous_street()
+
+    if big_blind:
+        if street == 0:
+            if len(bot.opponent_actions) == 0:
+                bot.opponent_actions.append(("Post Blind", 1))
+
+            if opp_pip == my_pip:
+                bot.opponent_actions.append(("Call",))
+            elif opp_pip > my_pip:
+                bot.opponent_actions.append(("Raise", opp_pip))
+        else:
+            if previous_street != street:
+                if bot.previously_raised:
+                    bot.opponent_actions.append(("Call",))
+                else:
+                    bot.opponent_actions.append(("Check",))
+            else:
+                bot.opponent_actions.append(("Raise", opp_pip))
+    else:
+        if street == 0:
+            if opp_pip == 2:
+                bot.opponent_actions.append(("Post Blind", 2))
+            else:
+                bot.opponent_actions.append(("Raise", opp_pip))
+        else:
+            if previous_street != street:
+                if bot.previously_raised:
+                    bot.opponent_actions.append(("Call",))
+                
+                if opp_pip == 0:
+                    bot.opponent_actions.append(("Check",))
+                else:
+                    bot.opponent_actions.append(("Raise", opp_pip))
+            else:
+                bot.opponent_actions.append(("Raise", opp_pip))
+
+    bot.previously_raised = False
