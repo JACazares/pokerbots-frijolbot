@@ -81,6 +81,7 @@ def mixed_strategy(bot: FrijolBot, fold_probability: float, call_probability: fl
         return CheckCall(bot)
 
     min_raise, max_rasie = bot.get_raise_bounds()
+    raise_amount = min(max(raise_amount, min_raise), max_rasie)
     std_dev = (raise_amount - min_raise) / 10
     raise_amount = np.random.normal(raise_amount, std_dev)
 

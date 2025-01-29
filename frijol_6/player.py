@@ -155,18 +155,7 @@ class Player(FrijolBot):
             self.opponent_called = False 
         self.previous_street = self.get_street()
 
-        #start_time = time.time()
-        self.opponent_range = utils.update_opponent_range(self)
-        #print("update opp_range time: ", time.time()-start_time)
-
         pot = self.get_opponent_contribution() + self.get_my_contribution()
-        self.pot_odds = utils.compute_pot_odds(self)
-
-       # print(f"Time to pot odds: {time.time() - start_time}")
-
-        print("pot size: ", pot, "with continue cost of", self.get_continue_cost())
-        print("pot_odds: ", round(self.get_continue_cost()/(pot+self.get_continue_cost()), 3))
-        print("pot_odds with bounty: ", round(self.pot_odds, 3))
 
         opening_raise=int(2.5*BIG_BLIND)
         three_bet_raise=int(3*pot+BIG_BLIND)
@@ -198,9 +187,24 @@ class Player(FrijolBot):
                     raise_range_matrix = self.BB_5bet_range_vs_4bet
                     call_range_matrix = self.BB_call_range_vs_4bet
                     raise_amount = int(2.5*pot+BIG_BLIND)
+            
+            if raise_amount > 75:
+                raise_amount = 75
             fold_probability, call_probability, raise_probability = utils.preflop_action_distribution(self, call_range_matrix, raise_range_matrix)
             print("Preflop strategy (Fold, Call, Raise): ", round(fold_probability, 3), round(call_probability, 3), round(raise_probability, 3))
             return mixed_strategy(self, fold_probability, call_probability, raise_amount)
+
+        #start_time = time.time()
+        self.opponent_range = utils.update_opponent_range(self)
+        #print("update opp_range time: ", time.time()-start_time)
+
+        self.pot_odds = utils.compute_pot_odds(self)
+
+       # print(f"Time to pot odds: {time.time() - start_time}")
+
+        print("pot size: ", pot, "with continue cost of", self.get_continue_cost())
+        print("pot_odds: ", round(self.get_continue_cost()/(pot+self.get_continue_cost()), 3))
+        print("pot_odds with bounty: ", round(self.pot_odds, 3))
 
         if self.get_street() >= 3:  # ..............................Flop (+Turn+River)
             #start_time = time.time()

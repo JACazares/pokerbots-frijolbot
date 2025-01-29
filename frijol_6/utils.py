@@ -307,41 +307,43 @@ def compute_pot_odds(bot: FrijolBot):
             on the board and in the hole cards, and uses combinatorial calculations to estimate the probabilities 
             involved in the pot odds formula.
     """
+
     hole = bot.get_my_cards()
     board = bot.get_board_cards()
-    street = bot.get_street()
-
-    opponent_pot = bot.get_opponent_contribution()
-    my_pot = bot.get_my_contribution()
-
     my_bounty_rank = bot.get_my_bounty()
-    opponent_bounty_distribution = bot.get_opponent_bounty_distribution()
+    opp_bounty_distribution = bot.get_opponent_bounty_distribution()
+    street = bot.get_street()
+    my_pot = bot.get_my_contribution()
+    opp_pot = bot.get_opponent_contribution()
 
     hole_cards = [eval7.Card(s) for s in hole]
     board_cards = [eval7.Card(s) for s in board]
-
-    hole_ranks = [card.rank for card in hole_cards]
-    board_ranks = [card.rank for card in board_cards]
-
-    if np.any([my_bounty_rank == eval7.ranks[card.rank] for card in hole_cards + board_cards]):
-        R = 1  # Probability that my bounty is visible to me now (TODO: Change it to future)
+    if np.any([my_bounty_rank==eval7.ranks[card.rank] for card in hole_cards+board_cards]):
+        R=1 #Probability that my bounty is visible to me now (TODO: Change it to future)
     else:
-        R = 0
-    
-    (sum_board_card_probabilities,
-     sum_opponent_hole_card_probabilities,
-     probability_B_in_S_given_B_is_rank) =\
-        compute_bounty_credences(distribution=opponent_bounty_distribution, hole_ranks=hole_ranks, board_ranks=board_ranks)
-
-    Q_now = sum_board_card_probabilities + sum_opponent_hole_card_probabilities  # Probability that opponent's bounty is visible to them now
-
-    Q_fut = Q_now  # TODO: Change it to future
-    # print("Q_now: ", Q_now)
-    # print("R: ", R)
-    pot_odds = ((opponent_pot + 20) * (Q_fut + 2) - (my_pot + 20) * (Q_now + 2)) / (
-        (opponent_pot + 20) * (Q_fut + 4 + R) - 80)
+        R=0
+    prob_bboard=0 #After the for, it will be the sum of the probabilities of the board cards (distinct)
+    prob_bHb=0 #After the for, it will be the probability that B is in opp_hole and B is not in the board.
+    prob_binS_gb_is_idx=[0]*13
+    for idx, prob in enumerate(opp_bounty_distribution):
+        if np.any([idx == card.rank for card in board_cards]):
+            prob_bboard+=prob
+            prob_binS_gb_is_idx[idx]=1
+        elif not np.any([idx == card.rank for card in hole_cards]):
+            prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(46-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
+            prob_bHb+=prob*prob_binS_gb_is_idx[idx]
+        elif np.all([idx == card.rank for card in hole_cards]):
+            prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(48-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
+            prob_bHb+=prob*prob_binS_gb_is_idx[idx]
+        else:
+            prob_binS_gb_is_idx[idx]=(1-scipy.special.comb(47-street, 2, exact=True)/scipy.special.comb(50-street, 2, exact=True))
+            prob_bHb+=prob*prob_binS_gb_is_idx[idx]  
+    Q_now=prob_bboard+prob_bHb #Probability that opponent's bounty is visible to them now
+    Q_fut=Q_now #TODO: Change it to future
+    print("Q_now: ", Q_now)
+    print("R: ", R)
+    pot_odds=((opp_pot+20)*(Q_fut+2)-(my_pot+20)*(Q_now+2))/((opp_pot+20)*(Q_fut+4+R)-80)
     return pot_odds
-
 
 def preflop_action_distribution(bot: FrijolBot, call_range_matrix: np.array, raise_range_matrix: np.array):
     hole = bot.get_my_cards()
