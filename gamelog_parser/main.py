@@ -3,8 +3,8 @@ import json
 from poker_parser.parser_logic import PokerLogParser
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python main.py <path_to_gamelog.txt>")
+    if len(sys.argv) < 3:
+        print("Usage: python main.py <path_to_gamelog.txt> <path_to_saved_json.json>")
         sys.exit(1)
 
     filepath = sys.argv[1]
@@ -12,10 +12,10 @@ def main():
     data = parser.parse_file(filepath)
 
     # Write to JSON
-    with open("gamelog_enhanced.json", "w") as outfile:
+    with open(sys.argv[2], "w") as outfile:
         json.dump(data, outfile, indent=2)
 
-    print("Parsing complete. Output in gamelog_enhanced.json")
+    print(f"Parsing complete. Output in {sys.argv[2]}")
 
 if __name__ == "__main__":
     main()

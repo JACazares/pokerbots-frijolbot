@@ -218,7 +218,7 @@ class PokerLogParser:
             elif raw_action.startswith("bets"):
                 amt_str = raw_action.split("bets")[-1].strip()
                 amount_num = int(amt_str)
-                action_type = "bet"
+                action_type = "raise"
                 self.current_round.streets[-1].player_contributions_during_street[
                     player
                 ] = amount_num
