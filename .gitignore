@@ -182,3 +182,6 @@ config.py
 game_log.txt
 frijol_5/strengths.csv
 frijol_6/strengths.csv
+gamelog_pipeline/**/**.txt
+gamelog_pipeline/**/**.json
+analyze_bot/**/**.json

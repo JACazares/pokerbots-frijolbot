@@ -15,6 +15,8 @@ import sys
 import os
 import random
 
+from tqdm import tqdm
+
 sys.path.append(os.getcwd())
 from config import *
 
@@ -557,7 +559,7 @@ class Game():
         for player in players:
             player.build()
             player.run()
-        for round_num in range(1, NUM_ROUNDS + 1):
+        for round_num in tqdm(range(1, NUM_ROUNDS + 1)):
             self.log.append('')
             self.log.append('Round #' + str(round_num) + STATUS(players))
             if round_num % ROUNDS_PER_BOUNTY == 1:
