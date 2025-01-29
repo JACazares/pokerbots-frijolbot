@@ -3,8 +3,7 @@ import numpy as np
 import csv
 import itertools
 import time
-
-
+from tqdm import tqdm
 
 def get_strengths():
     deck = eval7.Deck()
@@ -76,5 +75,78 @@ def get_strengths():
                 for i, row in enumerate(matrix):  # Write data rows with row headers
                     writer.writerow([row_headers[i]] + list(row))
 
+def get_strengths_2():
+    deck = eval7.Deck()
+    N = 52
 
-get_strengths()
+    holes = []
+    for hole1 in range(N):
+        for hole2 in range(hole1 + 1, N):
+            holes.append((hole1, hole2))
+
+    with open('strengths.csv', 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        header = ['Flop']
+        for hole1, hole2 in holes:
+            header.append(f"{deck[hole1]}{deck[hole2]}")
+        writer.writerow(header)
+        csvfile.flush()   # ensure the header is saved
+
+        pbar = tqdm(total=22100)
+        counter = 0
+        for flop1 in range(N):
+            flop1_card = deck[flop1]
+            for flop2 in range(flop1 + 1, N):
+                flop2_card = deck[flop2]
+                for flop3 in range(flop2 + 1, N):
+                    pbar.update(1)
+
+                    flop3_card = deck[flop3]
+                    strengths = {}
+                    
+                    hole_indexes = {}
+                    for turn in range(N):
+                        if turn in [flop1, flop2, flop3]:
+                            continue
+                        turn_card = deck[turn]
+                        for river in range(turn + 1, N):
+                            if river in [flop1, flop2, flop3]:
+                                continue
+                            river_card = deck[river]
+                                
+                            values = []
+                            for hole1 in range(N):
+                                if hole1 in [flop1, flop2, flop3, turn, river]:
+                                    continue
+                                hole1_card = deck[hole1]
+                                for hole2 in range(hole1 + 1, N):
+                                    if hole2 in [flop1, flop2, flop3, turn, river]:
+                                        continue
+                                    hole2_card = deck[hole2]
+
+                                    value = eval7.evaluate([flop1_card, flop2_card, flop3_card, turn_card, river_card, hole1_card, hole2_card])
+                                    values.append([hole1, hole2, value])
+                            
+                            values = sorted(values, key=lambda x: x[2])
+                            for idx, (hole1, hole2, value) in enumerate(values):
+                                try:
+                                    hole_indexes[(hole1, hole2)].append(idx)
+                                except:
+                                    hole_indexes[(hole1, hole2)] = [idx]
+                    
+                    for ((hole1, hole2), indices) in hole_indexes.items():
+                        avg_index = np.average(indices)/1326 if indices else -1
+                        # Store the average index for the hand combination
+                        strengths[(hole1, hole2)] = avg_index
+                    
+                    # Write the strengths to a CSV file
+                    row = [f"{deck[flop1]}{deck[flop2]}{deck[flop3]}"]
+                    for hole1, hole2 in holes:
+                        avg_strength = strengths.get((hole1, hole2), -1)
+                        row.append(f"{avg_strength:.4f}")
+                    writer.writerow(row)
+
+                csvfile.flush()
+
+if __name__ == "__main__":
+    get_strengths_2()
